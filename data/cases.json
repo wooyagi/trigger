@@ -70,7 +70,7 @@
         {"date": "2025-03-18", "tier": 2, "who": "NVIDIA GTC 2025", "quote": "Spectrum-X·Quantum-X Photonics CPO 스위치 발표. TSMC COUPE, Lumentum·Coherent 파트너", "verified": false, "source": ""},
         {"date": "2025-06-03", "tier": 3, "who": "Broadcom Tomahawk 6", "quote": "102.4T 스위치 CPO 옵션 출하", "verified": false, "source": ""}
       ],
-      "lesson": "부품(EML)의 완판 발언이 1차. 플랫폼 기업(NVIDIA·Broadcom)의 아키텍처 전환 발표가 2차. 아키텍처 전환은 병목을 트랜시버 조립에서 레이저·광학 소재로 옮긴다. 사용자 참고: '수 멍'의 CPO 통찰 — 원문 확보 후 여기에 링크."
+      "lesson": "부품(EML)의 완판 발언이 1차. 플랫폼 기업(NVIDIA·Broadcom)의 아키텍처 전환 발표가 2차. 아키텍처 전환은 병목을 트랜시버 조립에서 레이저·광학 소재로 옮긴다. 사용자 참고: 수 맹(Duquesne Family Office)의 CPO 통찰 — 원문(글·인터뷰·13F)을 확보한 뒤 여기에 링크."
     },
     {
       "id": "nand",

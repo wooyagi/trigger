@@ -10,7 +10,7 @@
 - 추측·날조 금지. 날짜·발언은 컨콜 전문/공시/IR로 확인한 것만 verified:true. 못 찾으면 verified:false 유지하고 note에 사유.
 - 기존 사례·이벤트의 id는 바꾸지 않는다. 틀린 날짜·인용은 수정하되 source에 링크를 남긴다.
 - LOI/MOU는 T1~T2 신호, 구속력 있는 계약·가격·수주 공시가 T2 확정 근거.
-- 사용자가 언급한 인물(아센브레너, 수 멍)의 통찰은 원문(논문·글·13F)을 확보한 뒤에만 사례에 링크한다.
+- 사용자가 언급한 인물(아센브레너, 수 맹(Duquesne Family Office))의 통찰은 원문(논문·글·13F)을 확보한 뒤에만 사례에 링크한다.
 
 [data/cases.json 구조]
 cases[]: {id, year, title, bottleneck, demandShock, firstMention{who,what,date}, tickers{supplier[],adjacent[],demand[]}, benchmark, events[{date,tier(0-3),who,quote,verified,source}], lesson}

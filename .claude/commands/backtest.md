@@ -15,7 +15,7 @@ data/cases.json 의 백테스트 사례를 1차 자료로 검증·보정하고 G
 
 [사용자 참고 인물 자료]
 - 아센브레너(Situational Awareness LP): 13F(SEC EDGAR)로 보유 종목·시점 확인. 'Situational Awareness' 에세이의 병목 관련 서술 인용.
-- 수 멍: 사용자가 제공한 원문/글을 받아 CPO 사례 lesson에 링크. 원문 없이는 추정하지 않는다.
+- 수 맹(Duquesne Family Office, 드러켄밀러): Duquesne 13F로 CPO 관련 보유 종목·시점 확인, 사용자가 제공한 원문/글을 받아 CPO 사례 lesson에 링크. 원문 없이는 추정하지 않는다.
 
 [마무리]
 - python3 -c "import json;json.load(open('data/cases.json'))" 로 문법 확인
