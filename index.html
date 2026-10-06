@@ -142,7 +142,7 @@
   .nums .v{font-family:var(--mono);font-size:18px;font-weight:800;letter-spacing:-.5px;line-height:1.2;}
   .nums .l{font-size:11px;color:#9aa6b7;margin-top:4px;line-height:1.4;}
   .arc{display:flex;gap:0;overflow-x:auto;padding-bottom:4px;}
-  .arc .ph{min-width:128px;flex:1;padding:8px 10px;border-top:3px solid var(--line);position:relative;}
+  .arc .ph{min-width:140px;flex:1;padding:8px 12px 8px 0;margin-right:10px;border-top:3px solid var(--line);position:relative;word-break:break-word;overflow-wrap:anywhere;}
   .arc .ph.hot{border-top-color:var(--accent);}
   .arc .ph.bad{border-top-color:#b91c1c;}
   .arc .ph .p{font-family:var(--mono);font-size:10px;color:var(--muted);}
@@ -456,7 +456,7 @@ fetch('data/people.json?v='+DV).then(r=>r.json()).then(P=>{
   document.getElementById('peopleBox').innerHTML=P.people.map(p=>`
     <div class="person">
       <div class="person-h"><h4>${esc(p.name)}</h4><div class="org">${esc(p.org)} · ${esc(p.role)} ${p.verified?'<span class="v ok" style="font-family:var(--mono);font-size:10px;color:var(--green)">✓ 신원 확인</span>':'<span style="font-family:var(--mono);font-size:10px;color:#b45309">신원 확인 필요</span>'}</div>
-        <p class="sum">${esc(p.summary)}</p></div>
+        </div>
       ${p.insight?`<div class="ins">
         <p class="hl">${esc(p.insight.headline)}</p>
         <h5>핵심 통찰</h5>
@@ -470,7 +470,8 @@ fetch('data/people.json?v='+DV).then(r=>r.json()).then(P=>{
         <h5>따라 할 것 / 하지 말 것</h5>
         <div class="dd"><div class="do"><b>✅ 따라 할 것</b><ul>${p.insight.do.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="dont"><b>⛔ 하지 말 것</b><ul>${p.insight.dont.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
       </div>`:''}
-      <details class="more"><summary>자세히 — 원문 인용 · 타임라인 · 13F 분기별 보유</summary>
+      <details class="more"><summary>자세히 — 요약 · 원문 인용 · 타임라인 · 13F 분기별 보유</summary>
+      <p class="sum" style="padding:14px 22px 0;margin:0;font-size:13px;color:#333;line-height:1.65">${esc(p.summary)}</p>
       <div class="person-body">
         <div class="person-col">
           <h5>트리거를 얻는 방식 (원문)</h5>
