@@ -494,14 +494,14 @@
       ],
       "timeline": [
         {
-          "date": "2024-06-27",
-          "event": "Keith Schaefer(Investing Whisperer) 뉴스레터: 드러켄밀러의 COHR 매수를 소개하며 저자 의견으로 NPO/CPO 언급 — '드러켄밀러+CPO' 연결의 유일한 출처이며 드러켄밀러·수 맹 발언 아님",
-          "source": "https://keithschaefer.substack.com/p/heres-the-optics-on-druckenmillers"
-        },
-        {
           "date": "2024-05-15",
           "event": "Duquesne 13F(3/31 기준)에 Coherent 첫 등장 (2,525,070주, $153M, 3.5%). 800G/1.6T 트랜시버 사이클·NVIDIA 2차 공급사 부상 시점",
           "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641124000005/"
+        },
+        {
+          "date": "2024-06-27",
+          "event": "Keith Schaefer(Investing Whisperer) 뉴스레터: 드러켄밀러의 COHR 매수를 소개하며 저자 의견으로 NPO/CPO 언급 — '드러켄밀러+CPO' 연결의 유일한 출처이며 드러켄밀러·수 맹 발언 아님",
+          "source": "https://keithschaefer.substack.com/p/heres-the-optics-on-druckenmillers"
         },
         {
           "date": "2024-08-14",
@@ -514,14 +514,14 @@
           "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641124000009/"
         },
         {
-          "date": "2025-11-14",
-          "event": "13F(9/30): Coherent·Corning·Broadcom·Entegris 모두 사라짐. TSMC 5.3%",
-          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641125000017/form13f_20250930.xml"
-        },
-        {
           "date": "2025-10-30",
           "event": "Duquesne, Q.ANT(광 컴퓨팅, TFLN) 시리즈A 2차 클로징 리드 (총 $80M). 수 맹 자문위원회 옵저버",
           "source": "https://qant.com/press-releases/duquesne-family-office-invests-in-q-ant-to-drive-sustainable-photonic-ai-infrastructure/"
+        },
+        {
+          "date": "2025-11-14",
+          "event": "13F(9/30): Coherent·Corning·Broadcom·Entegris 모두 사라짐. TSMC 5.3%",
+          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641125000017/form13f_20250930.xml"
         },
         {
           "date": "2026-03-19",
