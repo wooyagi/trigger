@@ -121,6 +121,45 @@
   .full{grid-column:1/-1;}
 
 
+
+  /* 인물 한 장 요약 */
+  .ins{padding:20px 22px;border-bottom:1px solid var(--line);}
+  .ins .hl{font-size:18px;font-weight:800;color:var(--ink);line-height:1.4;margin:0 0 16px;padding-left:12px;border-left:4px solid var(--accent);}
+  .ins h5{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-family:var(--mono);margin:18px 0 10px;}
+  .ins h5:first-of-type{margin-top:0;}
+  .ki{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+  .ki div{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;}
+  .ki b{display:block;font-size:13.5px;margin-bottom:5px;line-height:1.4;}
+  .ki p{margin:0;font-size:12px;color:#444;line-height:1.6;}
+  .proc{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;}
+  .proc .st{flex:1;min-width:130px;background:#fff;border:1px solid #c7d9f8;border-radius:8px;padding:8px 10px;position:relative;}
+  .proc .st .n{font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:700;}
+  .proc .st b{display:block;font-size:12.5px;margin:2px 0;}
+  .proc .st span{font-size:11px;color:#555;line-height:1.4;display:block;}
+  .proc .st.last{border-color:#fca5a5;background:#fff5f5;}
+  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;}
+  .nums div{background:var(--ink);color:#fff;border-radius:10px;padding:12px 14px;}
+  .nums .v{font-family:var(--mono);font-size:18px;font-weight:800;letter-spacing:-.5px;line-height:1.2;}
+  .nums .l{font-size:11px;color:#9aa6b7;margin-top:4px;line-height:1.4;}
+  .arc{display:flex;gap:0;overflow-x:auto;padding-bottom:4px;}
+  .arc .ph{min-width:128px;flex:1;padding:8px 10px;border-top:3px solid var(--line);position:relative;}
+  .arc .ph.hot{border-top-color:var(--accent);}
+  .arc .ph.bad{border-top-color:#b91c1c;}
+  .arc .ph .p{font-family:var(--mono);font-size:10px;color:var(--muted);}
+  .arc .ph b{display:block;font-size:12.5px;margin:2px 0;}
+  .arc .ph span{font-size:11px;color:#555;line-height:1.4;}
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .dd div{border-radius:10px;padding:12px 14px;}
+  .dd .do{background:#f0fdf4;border:1px solid #86efac;}
+  .dd .dont{background:#fef2f2;border:1px solid #fca5a5;}
+  .dd b{display:block;font-size:12px;margin-bottom:6px;}
+  .dd ul{margin:0;padding-left:16px;font-size:12px;line-height:1.6;}
+  .dd li{margin-bottom:3px;}
+  details.more{border-top:1px solid var(--line);}
+  details.more summary{cursor:pointer;padding:12px 22px;font-size:12.5px;font-weight:700;color:var(--blue);background:#fafbfc;list-style:none;}
+  details.more summary::before{content:'▸ ';}
+  details[open].more summary::before{content:'▾ ';}
+  @media(max-width:600px){ .dd{grid-template-columns:1fr;} }
   /* 인물 연구 */
   .person{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:22px;overflow:hidden;}
   .person-h{padding:18px 22px;background:#fafbfc;border-bottom:1px solid var(--line);}
@@ -417,9 +456,23 @@ fetch('data/people.json').then(r=>r.json()).then(P=>{
     <div class="person">
       <div class="person-h"><h4>${esc(p.name)}</h4><div class="org">${esc(p.org)} · ${esc(p.role)} ${p.verified?'<span class="v ok" style="font-family:var(--mono);font-size:10px;color:var(--green)">✓ 신원 확인</span>':'<span style="font-family:var(--mono);font-size:10px;color:#b45309">신원 확인 필요</span>'}</div>
         <p class="sum">${esc(p.summary)}</p></div>
+      ${p.insight?`<div class="ins">
+        <p class="hl">${esc(p.insight.headline)}</p>
+        <h5>핵심 통찰</h5>
+        <div class="ki">${p.insight.keyInsights.map(k=>`<div><b>${esc(k.t)}</b><p>${esc(k.d)}</p></div>`).join('')}</div>
+        <h5>트리거를 얻기까지</h5>
+        <div class="proc">${p.insight.process.map((s,i,a)=>`<div class="st ${i===a.length-1&&/…|붕괴|-67/.test(s.s+s.d)?'last':''}"><span class="n">${i+1}</span><b>${esc(s.s)}</b><span>${esc(s.d)}</span></div>`).join('')}</div>
+        <h5>숫자로 보는 궤적</h5>
+        <div class="nums">${p.insight.numbers.map(n=>`<div><div class="v">${esc(n.v)}</div><div class="l">${esc(n.l)}</div></div>`).join('')}</div>
+        <h5>포트폴리오 전이</h5>
+        <div class="arc">${p.insight.arc.map(a=>`<div class="ph ${/붕괴|제거/.test(a.l)?'bad':/집중|9배|56%|정점|리드/.test(a.l)?'hot':''}"><span class="p">${esc(a.p)}</span><b>${esc(a.l)}</b><span>${esc(a.d)}</span></div>`).join('')}</div>
+        <h5>따라 할 것 / 하지 말 것</h5>
+        <div class="dd"><div class="do"><b>✅ 따라 할 것</b><ul>${p.insight.do.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="dont"><b>⛔ 하지 말 것</b><ul>${p.insight.dont.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+      </div>`:''}
+      <details class="more"><summary>자세히 — 원문 인용 · 타임라인 · 13F 분기별 보유</summary>
       <div class="person-body">
         <div class="person-col">
-          <h5>트리거를 얻는 방식</h5>
+          <h5>트리거를 얻는 방식 (원문)</h5>
           ${p.method.map(m=>`<div class="pr"><b>${esc(m.principle)}</b>${m.quote_en?`<div class="qen">“${esc(m.quote_en)}”</div>`:''}${m.detail?esc(m.detail):''}${m.source?` <a class="src" href="${esc(m.source)}" target="_blank">출처 ↗</a>`:''}</div>`).join('')}
           ${p.lessons&&p.lessons.length?`<h5 style="margin-top:16px">배울 점</h5><ol class="lessons">${p.lessons.map(l=>`<li>${esc(l)}</li>`).join('')}</ol>`:''}
         </div>
@@ -429,6 +482,7 @@ fetch('data/people.json').then(r=>r.json()).then(P=>{
           ${p.holdings&&p.holdings.length?`<h5 style="margin-top:16px">13F 포트폴리오 변화 (상위 보유 비중 · 회색=풋, 주황=콜)</h5><div class="hold">${p.holdings.map(q=>{const mx=Math.max(30,...q.top.map(t=>t.pct));return `<div class="hq"><div class="ph">${esc(q.period)}</div>${q.top.map((t,i)=>`<div class="r"><span class="t" title="${esc(t.ticker)}">${esc(t.ticker)}</span><span class="b"><i style="width:${Math.max(2,t.pct/mx*100)}%;background:${/풋/.test(t.ticker)?'#9ca3af':/콜/.test(t.ticker)?'#d9892b':HCOL[0]}"></i></span><span class="p">${t.pct}%</span></div>`).join('')}</div>`;}).join('')}${p.holdingsNote?`<p class="muted" style="margin:6px 0 0;font-size:11px">${esc(p.holdingsNote)}</p>`:''}</div>`:''}
         </div>
       </div>
+      </details>
     </div>`).join('');
   document.getElementById('fcRows').innerHTML=P.factcheck.map(f=>`<tr><td>${esc(f.claim)}</td><td><span class="vd ${f.verdict}">${{true:'사실',partly:'부분 사실',false:'오류',unverified:'미확인'}[f.verdict]||f.verdict}</span></td><td>${esc(f.detail)}${f.source?` <a href="${esc(f.source)}" target="_blank">↗</a>`:''}</td></tr>`).join('');
 }).catch(e=>{ document.getElementById('peopleBox').innerHTML='<p class="muted">people.json 로드 실패: '+esc(e)+'</p>'; });
