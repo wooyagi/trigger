@@ -139,11 +139,14 @@
   .tl{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.55;}
   .tl:last-child{border-bottom:none;}
   .tl .d{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;width:78px;padding-top:2px;}
-  .hold{margin-top:6px;}
-  .hold .q{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:11.5px;font-family:var(--mono);}
-  .hold .q .lab{width:70px;color:var(--muted);white-space:nowrap;}
-  .hold .bar{flex:1;display:flex;height:18px;border-radius:4px;overflow:hidden;background:#f1f3f6;}
-  .hold .seg{height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;}
+  .hold{margin-top:6px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px 14px;}
+  .hq{font-family:var(--mono);font-size:11px;}
+  .hq .ph{font-weight:700;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:3px;margin-bottom:4px;}
+  .hq .r{display:grid;grid-template-columns:62px 1fr 38px;align-items:center;gap:5px;margin:2px 0;}
+  .hq .r .t{color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .hq .r .b{height:9px;border-radius:3px;background:#f1f3f6;overflow:hidden;}
+  .hq .r .b i{display:block;height:100%;border-radius:3px;}
+  .hq .r .p{text-align:right;color:var(--muted);}
   .lessons{margin:12px 0 0;padding-left:18px;font-size:12.5px;line-height:1.7;}
   .lessons li{margin-bottom:4px;}
   .fc{width:100%;border-collapse:collapse;font-size:12.5px;}
@@ -423,7 +426,7 @@ fetch('data/people.json').then(r=>r.json()).then(P=>{
         <div class="person-col">
           <h5>타임라인</h5>
           ${p.timeline.map(t=>`<div class="tl"><span class="d">${esc(t.date)}</span><div>${esc(t.event)}${t.source?` <a href="${esc(t.source)}" target="_blank">↗</a>`:''}</div></div>`).join('')}
-          ${p.holdings&&p.holdings.length?`<h5 style="margin-top:16px">13F 포트폴리오 변화 (상위 보유 비중)</h5><div class="hold">${p.holdings.map(q=>`<div class="q"><span class="lab">${esc(q.period)}</span><div class="bar">${q.top.map((t,i)=>`<div class="seg" style="width:${t.pct}%;background:${HCOL[i%HCOL.length]}" title="${esc(t.ticker)} ${t.pct}%">${t.pct>=6?esc(t.ticker)+' '+t.pct+'%':''}</div>`).join('')}</div></div>`).join('')}${p.holdingsNote?`<p class="muted" style="margin:6px 0 0;font-size:11px">${esc(p.holdingsNote)}</p>`:''}</div>`:''}
+          ${p.holdings&&p.holdings.length?`<h5 style="margin-top:16px">13F 포트폴리오 변화 (상위 보유 비중 · 회색=풋, 주황=콜)</h5><div class="hold">${p.holdings.map(q=>{const mx=Math.max(30,...q.top.map(t=>t.pct));return `<div class="hq"><div class="ph">${esc(q.period)}</div>${q.top.slice(0,9).map((t,i)=>`<div class="r"><span class="t" title="${esc(t.ticker)}">${esc(t.ticker)}</span><span class="b"><i style="width:${Math.max(2,t.pct/mx*100)}%;background:${/풋/.test(t.ticker)?'#9ca3af':/콜/.test(t.ticker)?'#d9892b':HCOL[0]}"></i></span><span class="p">${t.pct}%</span></div>`).join('')}${q.top.length>9?`<div class="r"><span class="t" style="color:var(--muted)">+${q.top.length-9}</span></div>`:''}</div>`;}).join('')}${p.holdingsNote?`<p class="muted" style="margin:6px 0 0;font-size:11px">${esc(p.holdingsNote)}</p>`:''}</div>`:''}
         </div>
       </div>
     </div>`).join('');
