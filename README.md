@@ -1,9 +1,15 @@
 # trigger
-투자 트리거 탐색 데스크 — https://wooyagi.github.io/trigger/
+병목 트리거 탐색·백테스트 데스크 — https://wooyagi.github.io/trigger/
 
-주가를 움직일 사건(트리거)을 미리 정의하고, 선행 신호와 확인 소스를 한 곳에 모은다.
-전력(power)·패키징(packaging) 데스크의 논지가 실제로 작동하는 시점을 잡기 위한 레이더.
+병목에 선 공급사 CEO의 첫 언급(T1)을 잡고, 2차 신호(T2)에서 수요·공급을 판단해 비중을 올린다.
+과거 병목 전이(CoWoS → HBM → 전력 → 광통신/CPO → NAND)로 규칙을 백테스트하고, 다음 병목 후보와 CEO 워치리스트를 추적한다.
 
-- `index.html` — 단일 페이지. 트리거 보드(검색·필터·상태), 유형 프레임워크, 탐색 소스, 체크리스트, 메모
-- 기본 트리거는 `index.html`의 `SEED` 배열에서 관리 (`/trigger` 명령으로 추가)
-- 브라우저에서 직접 추가한 항목·상태·체크·메모는 localStorage에만 저장됨 (내보내기 버튼으로 JSON 추출)
+- `index.html` — 단일 페이지. 신호 사다리 / 병목 전이 맵 / 백테스트(타임라인+지수화 차트+수익률) / 다음 병목 후보·CEO 워치 / 트리거 보드 / 메모
+- `data/cases.json` — 백테스트 사례(이벤트·발언·검증 상태), 후보, CEO 워치리스트, 컨콜 검색어
+- `data/prices.json` — Yahoo Finance 주간 종가 (5년). `/prices` 로 갱신
+- 보드 기본 항목은 `index.html`의 `SEED` 배열 (`/trigger` 로 추가)
+
+## 명령어
+- `/backtest {사례id|all}` — cases.json 이벤트를 컨콜 전문·공시로 검증, 날짜·인용·출처 보정, verified=true
+- `/trigger {설명}` — 보드에 새 트리거 추가
+- `/prices` — 주가 데이터 갱신
