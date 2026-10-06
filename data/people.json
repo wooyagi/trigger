@@ -449,11 +449,11 @@
     },
     {
       "id": "meng",
-      "name": "수 맹 (Sue Meng)",
+      "name": "수 맹 (Sue Meng) · Duquesne의 광학 포지션",
       "org": "Duquesne Family Office (스탠리 드러켄밀러 패밀리 오피스)",
       "role": "파트너·매니징 디렉터 — 프라이빗(비상장) 투자 총괄 겸 법무총괄(GC). 전 Debevoise & Plimpton M&A 파트너, 하버드·옥스퍼드(로즈 장학생)·예일 로스쿨",
       "verified": true,
-      "summary": "중요: 공개 자료 어디에도 수 맹이 CPO(코패키지드 옵틱스)·광 트랜시버·EML에 대해 발언한 기록이 없다(팟캐스트·컨퍼런스·Substack·X 전부 검색). 그녀의 유일한 공개 투자 발언은 2026-03 EE Times 인터뷰로, '전력 수급 불균형이 AI의 병목'이며 그 해법으로 빛으로 연산하는 광 컴퓨팅(Q.ANT, TFLN 기판)에 투자했다는 내용이다. Duquesne 13F의 Coherent·Lumentum 등 상장 광학주는 드러켄밀러의 공개시장 운용이며 수 맹에게 귀속할 근거가 없다. 'CPO 통찰'의 출처를 사용자가 알고 있다면 추가 필요.",
+      "summary": "사용자 메모: 'CPO 통찰'은 Duquesne 13F의 Coherent 포지션을 보고 추론했거나 어디선가 들은 것이며 직접 출처는 없음. 조사 결과도 같다 — 수 맹(Duquesne 파트너·MD, 프라이빗 투자 총괄 겸 법무총괄)이 CPO·광 트랜시버에 대해 공개 발언한 기록은 없고, 유일한 공개 발언은 2026-03 EE Times(전력 병목 → 광 컴퓨팅 Q.ANT·TFLN). 따라서 이 섹션은 '수 맹의 CPO 테제'가 아니라 '드러켄밀러/Duquesne의 광학 포지션에서 읽히는 트리거 패턴'으로 읽어야 한다. Coherent를 2024-1Q에 신규 매수해 한 분기 만에 9%까지 키우고, 2025-3Q 청산, 2026-1Q 소량 재진입 후 제거 — 이 궤적 자체가 교과서다.",
       "method": [
         {
           "principle": "물리적 제약(전력)에서 출발한다",
@@ -493,6 +493,11 @@
         }
       ],
       "timeline": [
+        {
+          "date": "2024-06-27",
+          "event": "Keith Schaefer(Investing Whisperer) 뉴스레터: 드러켄밀러의 COHR 매수를 소개하며 저자 의견으로 NPO/CPO 언급 — '드러켄밀러+CPO' 연결의 유일한 출처이며 드러켄밀러·수 맹 발언 아님",
+          "source": "https://keithschaefer.substack.com/p/heres-the-optics-on-druckenmillers"
+        },
         {
           "date": "2024-05-15",
           "event": "Duquesne 13F(3/31 기준)에 Coherent 첫 등장 (2,525,070주, $153M, 3.5%). 800G/1.6T 트랜시버 사이클·NVIDIA 2차 공급사 부상 시점",
@@ -542,6 +547,11 @@
           "date": "2026-09-22",
           "event": "드러켄밀러 방한 — '칩·에너지·전력 인프라의 핵심 병목 기업' 탐색 (KED Global)",
           "source": "https://www.kedglobal.com/interview/newsView/ked202609220010"
+        },
+        {
+          "date": "2026-09-24",
+          "event": "TechTimes: 수 맹, Q.ANT TFLN 선택을 '초기의 역발상 베팅'으로 설명 (광 컴퓨팅, CPO 아님)",
+          "source": "https://www.techtimes.com/articles/327988/20260924/photonic-ai-firm-qant-opens-developer-toolkit-targeting-software-gap-that-ended-graphcore.htm"
         }
       ],
       "holdings": [
@@ -671,7 +681,7 @@
       ],
       "holdingsNote": "Duquesne Family Office 13F(CIK 1536411) 중 AI 인프라·광학 관련 종목만 표시(전체 포트 대비 %). 13F는 미국 상장 롱 포지션만 보여줌.",
       "lessons": [
-        "수 맹의 공개된 사고법은 '전력이라는 물리적 제약 → 패러다임을 바꾸는 기술 → 기존 칩이 못 하는 워크로드 → 따라 만들기 어려운 소재·공정'의 4단계다. CPO가 아니라 광 컴퓨팅에 적용됐다.",
+        "'수 맹의 CPO 통찰'은 공개 자료로 확인되지 않는다. 13F에 보이는 Coherent·Lumentum은 드러켄밀러의 공개시장 운용이다. 수 맹의 공개된 사고법(전력 제약 → 패러다임 교체 → 기존 칩이 못 하는 워크로드 → 따라 만들기 어려운 소재)은 광 컴퓨팅(Q.ANT)에 적용됐다.",
         "드러켄밀러의 Coherent 궤적은 '트리거 → 1분기 안에 집중 → 컨센서스화되면 축소 → 청산'의 교과서적 패턴. T1~T2 구간에서 키우고 T3에서 줄이는 이 데스크의 규칙과 일치한다.",
         "인터넷에 떠도는 귀속을 믿지 말 것: 'Coherent 경영진 교체 때문에 팔았다'는 설명은 드러켄밀러가 아니라 Giverny Capital 서한의 내용이다."
       ],
@@ -791,6 +801,12 @@
       "verdict": "partly",
       "detail": "사상 최고 $142.33(2021-11-15) ✓. 챕터11 2025-06-30, 당일 종가 $0.39 ✓. 부채는 회사 8-K 기준 약 $6.75B(≈64억은 과소).",
       "source": "https://www.sec.gov/Archives/edgar/data/895419/000119312525153145/d755867dex991.htm"
+    },
+    {
+      "claim": "수 맹(Duquesne)의 CPO 통찰",
+      "verdict": "unverified",
+      "detail": "한국어·영어 1차·2차 자료 모두에서 출처 없음. 세 가지가 섞인 추정으로 보임: (a) 수 맹의 Q.ANT 광 컴퓨팅 비상장 투자(2025-10), (b) 드러켄밀러의 2024년 Coherent 공개주 매수(한국경제 등 보도), (c) 제3자 뉴스레터의 CPO 해설(2024-06). 드러켄밀러가 인터뷰에서 광통신·CPO·Coherent를 언급한 기록도 없음.",
+      "source": "https://keithschaefer.substack.com/p/heres-the-optics-on-druckenmillers"
     }
   ]
 }
