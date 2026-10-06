@@ -1,5 +1,5 @@
 {
-  "note": "verified=false 항목은 기억 기반 초안. /backtest 명령으로 컨콜 전문·공시에서 날짜·발언을 확인한 뒤 true로 바꾼다. 날짜가 틀리면 수정하고 source에 링크를 남긴다.",
+  "note": "verified=true 항목은 1차 자료(IR 전문·8-K·보도자료)에서 확인. verified=false는 2차 보도만 존재. 검증일 2026-10-06.",
   "cases": [
     {
       "id": "cowos",
@@ -7,17 +7,87 @@
       "title": "CoWoS — AI 가속기 후공정 병목",
       "bottleneck": "TSMC CoWoS(2.5D 패키징) 캐파",
       "demandShock": "NVIDIA 데이터센터 GPU 수요 급증",
-      "firstMention": {"who": "TSMC CEO C.C. Wei", "what": "CoWoS 캐파가 수요를 못 따라간다. 2024년 말까지 캐파 2배 목표", "date": "2023-07-20"},
-      "tickers": {"supplier": ["TSM"], "adjacent": ["ASX", "AMKR"], "demand": ["NVDA"]},
+      "firstMention": {
+        "who": "TSMC CEO C.C. Wei",
+        "what": "CoWoS 캐파가 매우 타이트해 고객 수요의 100%를 못 맞춘다. 2024년 캐파 약 2배",
+        "date": "2023-07-20"
+      },
+      "tickers": {
+        "supplier": [
+          "TSM"
+        ],
+        "adjacent": [
+          "ASX",
+          "AMKR"
+        ],
+        "demand": [
+          "NVDA"
+        ]
+      },
       "benchmark": "NVDA",
       "events": [
-        {"date": "2023-05-24", "tier": 0, "who": "NVIDIA (Jensen Huang / Colette Kress)", "quote": "Q2 FY24 매출 가이던스 $11B (컨센서스 ~$7.2B). 데이터센터 수요 폭발", "verified": false, "source": ""},
-        {"date": "2023-07-20", "tier": 1, "who": "TSMC C.C. Wei, Q2'23 어닝콜", "quote": "CoWoS 캐파 제약. 2024년 말까지 캐파 약 2배 확대 계획", "verified": false, "source": ""},
-        {"date": "2023-08-23", "tier": 2, "who": "NVIDIA Q2 FY24 어닝콜", "quote": "공급(CoWoS 포함)이 매 분기 증가할 것. 수요는 내년까지 가시성 확보", "verified": false, "source": ""},
-        {"date": "2024-01-18", "tier": 2, "who": "TSMC Q4'23 어닝콜", "quote": "2024년 CoWoS 캐파 2배 이상 확대. 여전히 타이트", "verified": false, "source": ""},
-        {"date": "2024-07-18", "tier": 3, "who": "TSMC Q2'24 어닝콜", "quote": "CoWoS 2025년까지 타이트. 캐파 2024·2025 연속 2배 이상", "verified": false, "source": ""}
+        {
+          "date": "2023-04-20",
+          "tier": 0,
+          "who": "TSMC C.C. Wei CEO, 1Q23 어닝콜 (사전 신호)",
+          "quote": "최근 이틀 사이 고객으로부터 CoWoS 후공정 캐파를 크게 늘려 달라는 전화를 받았다. 아직 평가 중",
+          "quote_en": "Just recently in these 2 days, I received a customer's phone call requesting a big increase on the back-end capacity, especially in the CoWoS. We are still evaluating that.",
+          "source": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2023-04/882aa7c981570fe00c0bba76648983b02b54cbf4/TSMC%201Q23%20Transcript.pdf",
+          "verified": true,
+          "note": "NVIDIA 가이던스(5/24)보다 한 달 앞선 수요 급증 언급. '캐파 제약' 발언은 아니며 같은 콜에서 CFO는 2023년 첨단 패키징 매출을 YoY 감소로 가이드"
+        },
+        {
+          "date": "2023-05-24",
+          "tier": 0,
+          "who": "NVIDIA Q1 FY24 실적 발표 (8-K Ex.99.1)",
+          "quote": "2분기 매출 가이던스 110억 달러(±2%). 컨센서스 약 71.5억 달러를 50% 이상 상회",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000087/q1fy24pr.htm",
+          "quote_en": "Revenue is expected to be $11.00 billion, plus or minus 2%. … We are significantly increasing our supply to meet surging demand.",
+          "note": "컨센서스 $7.15B는 CNBC(Refinitiv) 인용"
+        },
+        {
+          "date": "2023-07-20",
+          "tier": 1,
+          "who": "TSMC C.C. Wei CEO, 2Q23 어닝콜",
+          "quote": "CoWoS 캐파가 매우 타이트해 고객 수요의 100%를 충족하기 어렵다. 2024년 캐파를 2023년 대비 약 2배로 늘리며, 병목은 2024년 말경 완화될 것",
+          "verified": true,
+          "source": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2023-07/7ec677062ca442e429b632ccd6d4f31ad53b1ce7/TSMC%202Q23%20Transcript.pdf",
+          "quote_en": "For the back end, the advanced packaging side, especially for the CoWoS, we do have some very tight capacity … very hard to fulfill 100% of what customers needed. … roughly probably 2x of the capacity will be added.",
+          "note": "TSMC IR 공식 전문. 같은 콜에서 Mark Liu 회장: 'probably still not enough'"
+        },
+        {
+          "date": "2023-08-23",
+          "tier": 2,
+          "who": "NVIDIA Colette Kress CFO / Jensen Huang, Q2 FY24 어닝콜",
+          "quote": "CoWoS 패키징 등 핵심 공정의 추가 캐파·공급사를 확보. 내년까지 매 분기 공급 증가 예상. 황: 내년까지 수요 가시성 매우 좋음",
+          "verified": true,
+          "source": "https://www.fool.com/earnings/call-transcripts/2023/08/23/nvidia-nvda-q2-2024-earnings-call-transcript/",
+          "quote_en": "We have also developed and qualified additional capacity and suppliers for key steps in the manufacturing process such as CoWoS packaging. We expect supply to increase each quarter through next year.",
+          "note": "Motley Fool 전문(2차). 전문에는 CoWoS가 'co-op'으로 오기됨"
+        },
+        {
+          "date": "2024-01-18",
+          "tier": 2,
+          "who": "TSMC C.C. Wei CEO, 4Q23 어닝콜",
+          "quote": "수요가 매우 강해 고객 수요를 충족할 캐파를 제공하지 못하는 상황이 2025년까지 이어질 수 있다. 2024년 생산량을 2배로 늘려도 여전히 부족",
+          "verified": true,
+          "source": "https://investor.tsmc.com/chinese/encrypt/files/encrypt_file/reports/2024-03/1979f7d585d258f1026b753e4b8a98a046bc81d3/TSMC%204Q23%20Transcript.pdf",
+          "quote_en": "Today's situation, that we cannot offer enough capacity to support our customers, and that condition will continue probably all the way to next year … this year, we are doubling our output, still not enough.",
+          "note": "초안의 '2배 이상'은 오류. 이 콜에서는 '2배(doubling)'. '2배 이상'은 2Q24 콜에서 등장"
+        },
+        {
+          "date": "2024-07-18",
+          "tier": 3,
+          "who": "TSMC C.C. Wei 회장, 2Q24 어닝콜",
+          "quote": "공급은 2025년까지 매우 타이트, 2026년에야 완화 기대. 2024년 캐파 2배 이상 확대, 2025년에도 다시 2배 이상",
+          "verified": true,
+          "source": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2024-08/5122725a56670882d777a8e8bfe0ed247cc55330/TSMC%202Q24%20Transcript.pdf",
+          "quote_en": "The supply continue to be very tight, all the way to probably 2025, and I hope it can be eased in 2026. … from last year to this year, we have more than doubled … from this year to next year, we want to more than double again.",
+          "note": ""
+        }
       ],
-      "lesson": "병목 공급사(TSMC)의 첫 언급(T1) 후 2차 확인(T2)까지 1개월. 인접 OSAT(ASE·Amkor)와 장비사(DISCO·Camtek 등)가 후행 수혜. 행동 구간은 T1~T2."
+      "lesson": "사전 신호(4/20 '고객이 CoWoS 캐파 대폭 증설 요청')→수요 쇼크(5/24)→T1(7/20)→T2(8/23) 순서. T1→T2 1개월. 공급사가 'still not enough'를 반복하는 동안 병목 지속. 인접 OSAT(ASE·Amkor)와 장비사가 후행 수혜. 행동 구간은 T1~T2."
     },
     {
       "id": "hbm",
@@ -25,17 +95,77 @@
       "title": "HBM — 메모리 병목",
       "bottleneck": "HBM3/3E 생산 캐파 및 TC 본더",
       "demandShock": "GPU당 HBM 탑재량 증가 (H100 → H200/B200)",
-      "firstMention": {"who": "SK hynix / Micron CEO", "what": "2024년 HBM 완판, 2025년 물량 대부분 선배정", "date": "2024-03-20"},
-      "tickers": {"supplier": ["MU", "000660.KS"], "adjacent": ["042700.KS"], "demand": ["NVDA"]},
+      "firstMention": {
+        "who": "SK hynix (3Q23 어닝콜)",
+        "what": "내년(2024) HBM3·HBM3E 캐파 모두 솔드아웃",
+        "date": "2023-10-26"
+      },
+      "tickers": {
+        "supplier": [
+          "MU",
+          "000660.KS"
+        ],
+        "adjacent": [
+          "042700.KS"
+        ],
+        "demand": [
+          "NVDA"
+        ]
+      },
       "benchmark": "NVDA",
       "events": [
-        {"date": "2023-10-26", "tier": 1, "who": "SK hynix Q3'23 어닝콜", "quote": "2024년 HBM 물량 사실상 완판", "verified": false, "source": ""},
-        {"date": "2024-03-20", "tier": 1, "who": "Micron Sanjay Mehrotra, FQ2'24 어닝콜", "quote": "HBM 2024년 완판(sold out), 2025년 물량 대부분 이미 배정", "verified": false, "source": ""},
-        {"date": "2024-05-02", "tier": 2, "who": "SK hynix 곽노정 CEO, 기자간담회", "quote": "2025년 HBM도 대부분 완판", "verified": false, "source": ""},
-        {"date": "2024-06-26", "tier": 2, "who": "Micron FQ3'24 어닝콜", "quote": "HBM 매출 급증, 2025년 완판 재확인. 캐파 확대 CapEx 상향", "verified": false, "source": ""},
-        {"date": "2024-03-01", "tier": 2, "who": "한미반도체", "quote": "SK hynix·Micron향 TC 본더 대규모 수주 공시", "verified": false, "source": ""}
+        {
+          "date": "2023-10-26",
+          "tier": 1,
+          "who": "SK hynix 3Q23 어닝콜 Q&A (THE ELEC 전문은 김우현 CFO로 표기)",
+          "quote": "현시점 기준 내년도 HBM3·HBM3E 생산 캐파 모두 솔드아웃, 고객 추가 문의 유입 중. 2025년 캐파도 대부분 고객과 논의 중",
+          "verified": true,
+          "source": "https://www.thelec.kr/news/articleView.html?idxno=23720",
+          "quote_en": "As of today, our HBM3 as well as HBM3E capacity for next year has been sold out, and we are receiving additional customer inquiries. [translated]",
+          "note": "원문 한국어: '내년도 HBM3와 HBM3E 생산량이 모두 솔드아웃' (ZDNet Korea 2023-10-26). 2Q23 콜(7/26)에는 '완판' 표현 없음 → 이것이 첫 T1"
+        },
+        {
+          "date": "2024-03-20",
+          "tier": 1,
+          "who": "Micron Sanjay Mehrotra CEO, FQ2'24 프리페어드 리마크",
+          "quote": "2024년 HBM 완판, 2025년 공급분의 압도적 다수도 이미 배정 완료",
+          "verified": true,
+          "source": "https://s25.q4cdn.com/621799436/files/doc_financials/2024/q2/FY24-Q2-Prepared-Remarks.pdf",
+          "quote_en": "Our HBM is sold out for calendar 2024, and the overwhelming majority of our 2025 supply has already been allocated.",
+          "note": "Micron IR 공식 PDF에서 원문 그대로 확인"
+        },
+        {
+          "date": "2024-05-02",
+          "tier": 2,
+          "who": "SK hynix 곽노정 CEO, 이천 본사 기자간담회",
+          "quote": "생산 측면에서 올해 HBM은 이미 솔드아웃, 내년 역시 거의 솔드아웃",
+          "verified": true,
+          "source": "https://www.koreaherald.com/article/3382821",
+          "quote_en": "In terms of production, our HBM is already sold out this year, and it is almost sold out next year as well.",
+          "note": "복수 언론 보도로 확인. SK hynix 뉴스룸 보도자료는 M15X 투자 중심"
+        },
+        {
+          "date": "2024-06-26",
+          "tier": 2,
+          "who": "Micron Mehrotra CEO / Mark Murphy CFO, FQ3'24 어닝콜",
+          "quote": "분기 HBM3E 매출 1억 달러 초과. 2024·2025년 HBM 완판, 2025년 공급분 대부분 가격까지 계약 완료. FY25 CapEx 매출의 30% 중반대로 대폭 확대(FY24 약 80억 달러)",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/723125/000072312524000016/a2024q3ex991-pressrelease.htm",
+          "quote_en": "Our HBM is sold out for calendar 2024 and 2025, with pricing already contracted for the overwhelming majority of our 2025 supply.",
+          "note": "날짜는 8-K로 확인. 'sold out' 문장은 보도자료가 아닌 콜 발언(2개 전문 사이트 일치)"
+        },
+        {
+          "date": "2024-02-02",
+          "tier": 2,
+          "who": "한미반도체 단일판매·공급계약 공시 (DART)",
+          "quote": "SK하이닉스향 듀얼 TC 본더 '그리핀' 860억원 수주, HBM용 누적 1,872억원. 이후 3/22 215억(SK하이닉스), 4/11 226억(마이크론 대만, 최근 매출의 14%), 6/7 1,499억(SK하이닉스, 전년 매출의 94%, 사상 최대)",
+          "verified": true,
+          "source": "https://zdnet.co.kr/view/?no=20240202130136",
+          "quote_en": "2024-02-02: SK hynix, 86.0bn KRW 'Dual TC Bonder Griffin'. 2024-04-11: Micron (Taiwan), 22.6bn KRW 'DUAL TC BONDER TIGER'. 2024-06-07: SK hynix, 149.9bn KRW, 94.28% of FY2023 revenue.",
+          "note": "초안 날짜 3/1은 부정확. DART 원문은 미확인, 복수 언론의 공시 보도로 확인. 장비 수주가 메모리 T1(10/26)보다 3개월 후행 → 인접 공급사 T2 신호"
+        }
       ],
-      "lesson": "'sold out'·'allocated' 단어가 1차 신호. 장비(TC 본더)와 검사(Advantest 등)로 병목이 전이. 메모리는 사이클 산업이므로 가격 데이터(DRAMeXchange)로 2차 확인."
+      "lesson": "'sold out'·'allocated'가 1차 신호. SK hynix 10/26(T1) → 한미반도체 TC 본더 수주 2/2 → Micron 3/20 '완판+2025 배정' → 곽노정 5/2 '내년도 거의 완판'(T2) → Micron 6/26 CapEx 대폭 확대(T3). 장비(TC 본더)·검사로 병목 전이. 메모리는 사이클 산업이므로 DRAM 계약가로 2차 확인."
     },
     {
       "id": "power",
@@ -43,17 +173,88 @@
       "title": "전력 — 가스터빈·기저발전 병목",
       "bottleneck": "대형 가스터빈 슬롯, 계통연계, 원전 PPA",
       "demandShock": "데이터센터 GW급 전력 수요 + 계통연계 대기 7년",
-      "firstMention": {"who": "GE Vernova CEO Scott Strazik", "what": "가스터빈 슬롯 예약 급증, 2028년까지 백로그 가시성", "date": "2024-10-23"},
-      "tickers": {"supplier": ["GEV", "CEG", "VST", "BE"], "adjacent": ["VRT", "ETN"], "demand": []},
+      "firstMention": {
+        "who": "GE Vernova CEO Scott Strazik",
+        "what": "희소한 슬롯에 맞춰 가격 책정 중 (7/24) → 2026~27년 제조 슬롯 희소 (10/23)",
+        "date": "2024-07-24"
+      },
+      "tickers": {
+        "supplier": [
+          "GEV",
+          "CEG",
+          "VST",
+          "BE"
+        ],
+        "adjacent": [
+          "VRT",
+          "ETN"
+        ],
+        "demand": []
+      },
       "benchmark": "NVDA",
       "events": [
-        {"date": "2024-09-20", "tier": 0, "who": "Constellation × Microsoft", "quote": "스리마일섬 1호기 재가동, 20년 PPA. 원전 전력의 가격 결정력 확인", "verified": false, "source": ""},
-        {"date": "2024-10-23", "tier": 1, "who": "GE Vernova Q3'24 어닝콜", "quote": "가스터빈 주문 급증, 슬롯 예약 계약 도입. 2026~28년 슬롯 상당 부분 소진", "verified": false, "source": ""},
-        {"date": "2024-11-14", "tier": 2, "who": "AEP × Bloom Energy", "quote": "1GW SOFC 공급계약. 계통 대기 우회(BTM) 수요 실증", "verified": false, "source": ""},
-        {"date": "2024-12-10", "tier": 2, "who": "GE Vernova 인베스터 업데이트", "quote": "가스터빈 가격 인상, 2028년까지 슬롯 대부분 예약", "verified": false, "source": ""},
-        {"date": "2025-01-22", "tier": 3, "who": "GE Vernova Q4'24", "quote": "가스터빈 백로그·슬롯 예약 20GW+ 수준, 가이던스 상향", "verified": false, "source": ""}
+        {
+          "date": "2024-07-24",
+          "tier": 1,
+          "who": "GE Vernova Scott Strazik CEO, 2Q24 어닝콜 (더 이른 T1)",
+          "quote": "희소한 슬롯에 맞춰 가격을 책정하고 있다. 2024~25년 수주분의 가스터빈 가격 환경이 더 건강해짐(매출 전환은 약 3년 후). 주조·단조 공급 제약도 언급",
+          "quote_en": "We look at our slots, we're pricing for the scarce slots that we have. We do continue to see a healthier pricing environment for Gas on orders that we'll book in '24 into '25.",
+          "source": "https://www.gevernova.com/sites/default/files/gev_webcast_transcript_07242024.pdf",
+          "verified": true,
+          "note": "'scarce slots' 첫 언급. 10/23 콜이 '2026~27 슬롯 희소'를 처음 명시. 1Q24 콜(4/25)은 HA 수주 증가만 언급, 타이트 표현 없음"
+        },
+        {
+          "date": "2024-09-20",
+          "tier": 0,
+          "who": "Constellation × Microsoft (8-K Ex.99.1)",
+          "quote": "스리마일섬 1호기 재가동(크레인 클린 에너지 센터, 약 835MW, 2028년 목표), 마이크로소프트와 20년 PPA",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/1868275/000186827524000058/ceg-202409208kexh991.htm",
+          "quote_en": "Constellation announced today the signing of a 20-year power purchase agreement with Microsoft that will pave the way for the launch of the Crane Clean Energy Center and restart of Three Mile Island Unit 1.",
+          "note": ""
+        },
+        {
+          "date": "2024-10-23",
+          "tier": 1,
+          "who": "GE Vernova Scott Strazik CEO, 3Q24 어닝콜",
+          "quote": "연초 이후 가스터빈 신규 수주 약 14GW(전년 2배). 2026년부터 연 70~80대 생산 체제로 늘려도 2026~27년 제조 슬롯은 희소. Q&A: 내년 1분기면 주로 2028년 슬롯을 채우게 될 것",
+          "verified": true,
+          "source": "https://www.gevernova.com/sites/default/files/gev_webcast_transcript_10232024.pdf",
+          "quote_en": "Year to date, we have booked approximately 14 gigawatts of orders for new gas turbines, nearly double last year's level. … even with this capacity expansion, manufacturing slots are scarce.",
+          "note": "초안의 '슬롯 예약 계약 도입'은 오류. 그 용어는 12/10 인베스터 업데이트에서 처음 등장"
+        },
+        {
+          "date": "2024-11-14",
+          "tier": 2,
+          "who": "Bloom Energy × AEP (보도자료)",
+          "quote": "AEP와 최대 1GW 연료전지(SOFC) 공급계약, 세계 최대 상업용 연료전지 조달. 우선 100MW 발주, 2025년 추가 발주 예정. AI 데이터센터 부하 대응",
+          "verified": true,
+          "source": "https://investor.bloomenergy.com/press-releases/press-release-details/2024/Bloom-Energy-Announces-Gigawatt-Fuel-Cell-Procurement-Agreement-with-AEP-to-Power-AI-Data-Centers/default.aspx",
+          "quote_en": "Bloom Energy announced that it has signed a supply agreement with American Electric Power for up to 1 gigawatt of its products, the largest commercial procurement of fuel cells in the world to date.",
+          "note": ""
+        },
+        {
+          "date": "2024-12-10",
+          "tier": 2,
+          "who": "GE Vernova Scott Strazik CEO, 2024 인베스터 업데이트",
+          "quote": "최근 30일간 9GW 슬롯 예약계약(현금 예치·고정가·전량 미국·AI 하이퍼스케일러 수요 연계). 2028년 가스 슬롯 마지막 물량 판매 중, 2029년 슬롯 판매 시작. 12월 초 가격 재인상. 2028년 목표 상향",
+          "verified": true,
+          "source": "https://www.gevernova.com/sites/default/files/2025-04/gev_investor_update_transcript_12102024_0.pdf",
+          "quote_en": "The 9GW of slot reservation agreements we've secured in the last 30 days. These are 9GW of contracts with cash, firm fixed price, all in the US … We're already into selling the last of our slots for Gas in '28 right now.",
+          "note": "'슬롯 예약 계약(SRA)' 용어의 첫 등장. 비정상 계약 구조 = 병목 확정 신호"
+        },
+        {
+          "date": "2025-01-22",
+          "tier": 3,
+          "who": "GE Vernova Strazik CEO / Ken Parks CFO, 4Q24 어닝콜",
+          "quote": "2024년 연간 가스 수주 약 20GW(전년 2배) + 슬롯 예약계약 9GW. 2027년부터 연 20GW 출하 체제. 2025년 가이던스는 12/10 수치 재확인(상향 아님). 2029년 슬롯 논의 예고",
+          "verified": true,
+          "source": "https://www.gevernova.com/sites/default/files/2025-04/gev_webcast_transcript_01222025.pdf",
+          "quote_en": "For the full year, we booked approximately 20 gigawatts of Gas orders, double last year's level, and secured 9 gigawatts of slot reservation agreements for new turbines.",
+          "note": "초안의 '가이던스 상향'은 오류. 상향은 12/10에 있었고 이 콜은 재확인"
+        }
       ],
-      "lesson": "'slot reservation'·'prepayment' 같은 비정상적 계약 구조가 등장하면 병목 확정. 터빈 → 변압기·냉각(Vertiv·Eaton) → 연료전지(BTM) 순으로 전이."
+      "lesson": "7/24 'scarce slots'(T1) → 10/23 '슬롯 희소, 2028년 채우는 중' → 12/10 '9GW 슬롯 예약계약·현금·고정가'(T2, 비정상 계약 구조 등장 = 병목 확정) → 1/22 컨센서스. 터빈 → 변압기·냉각(Vertiv·Eaton) → 연료전지(BTM, AEP-Bloom 1GW) 순으로 전이."
     },
     {
       "id": "cpo",
@@ -61,16 +262,78 @@
       "title": "광통신 — EML·트랜시버 → CPO",
       "bottleneck": "EML 레이저(인듐인 웨이퍼), 800G/1.6T 트랜시버, CPO 전환",
       "demandShock": "스케일아웃·스케일업 네트워킹 대역폭 수요",
-      "firstMention": {"who": "Lumentum CEO", "what": "EML 캐파 완판, 증설 중", "date": "2024-08-15"},
-      "tickers": {"supplier": ["LITE", "COHR"], "adjacent": ["FN", "AVGO"], "demand": ["NVDA"]},
+      "firstMention": {
+        "who": "Lumentum CEO Alan Lowe",
+        "what": "데이터컴 EML 다시 할당 상태 (2023-11) → InP 캐파 2025년 말까지 완전 예약 (2024-08)",
+        "date": "2023-11-08"
+      },
+      "tickers": {
+        "supplier": [
+          "LITE",
+          "COHR"
+        ],
+        "adjacent": [
+          "FN",
+          "AVGO"
+        ],
+        "demand": [
+          "NVDA"
+        ]
+      },
       "benchmark": "NVDA",
       "events": [
-        {"date": "2024-08-15", "tier": 1, "who": "Lumentum FQ4'24 어닝콜", "quote": "EML 레이저 수요가 캐파 초과. 캐파 확대 투자", "verified": false, "source": ""},
-        {"date": "2024-11-07", "tier": 2, "who": "Lumentum FQ1'25 어닝콜", "quote": "EML 2025년 물량 완판에 근접. 클라우드 매출 가이던스 상향", "verified": false, "source": ""},
-        {"date": "2025-03-18", "tier": 2, "who": "NVIDIA GTC 2025", "quote": "Spectrum-X·Quantum-X Photonics CPO 스위치 발표. TSMC COUPE, Lumentum·Coherent 파트너", "verified": false, "source": ""},
-        {"date": "2025-06-03", "tier": 3, "who": "Broadcom Tomahawk 6", "quote": "102.4T 스위치 CPO 옵션 출하", "verified": false, "source": ""}
+        {
+          "date": "2023-11-08",
+          "tier": 1,
+          "who": "Lumentum Alan Lowe CEO, FQ1'24 어닝콜 Q&A (가장 이른 T1)",
+          "quote": "데이터컴 EML 시장이 매우 강해 다시 할당(allocation) 상태. 캐파는 계획대로 올라오지만 하이퍼스케일러의 800G 전환으로 수요가 예상보다 훨씬 빨리 돌아옴",
+          "quote_en": "The datacom EML market is very robust and we are on allocation again unfortunately … the demand, again, is even more robust, given that the hyperscalers really want to go to 800 gig.",
+          "source": "https://www.sec.gov/Archives/edgar/data/1633978/000162828023037563/lite_ex991xq1fy24.htm",
+          "verified": true,
+          "note": "전문은 3자 PDF로 확인. 2024-02-08 FQ2'24 콜에서 'I am sold out on Datacom chips today, and through next quarter'(3자 전문 1건). 주의: 널리 인용되는 'EML 수급 갭 30% 이상' 발언은 2026년 5월 Hurlston CEO 발언이며 2024년이 아님"
+        },
+        {
+          "date": "2024-08-14",
+          "tier": 1,
+          "who": "Lumentum Alan Lowe CEO, FQ4'24 어닝콜",
+          "quote": "EML 출하량 사상 최대, 대규모 수주. 압도적 수요로 InP(EML) 캐파가 최소 2025년 말까지 완전 예약(fully subscribed)·할당 상태. 수요 충족은 증설로만 가능. 당분기 InP 팹에 4,300만 달러 투자",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/1633978/000162828024037191/lite_ex991xq4fy24.htm",
+          "quote_en": "Due to overwhelming demand for our critical technology, our Indium Phosphide capacity is fully subscribed to at least the end of calendar 2025. Therefore, we can only meet this demand by growing capacity.",
+          "note": "초안 날짜 8/15는 보도일. 콜·보도자료는 8/14"
+        },
+        {
+          "date": "2024-11-07",
+          "tier": 2,
+          "who": "Lumentum Alan Lowe CEO, FQ1'25 어닝콜",
+          "quote": "200G EML 포함 데이터컴 레이저칩 수주 사상 최대. FQ4'25까지 EML 캐파 40% 증설하나 2025년 내내 할당(allocation) 지속. 신규 하이퍼스케일 트랜시버 고객 확보. 분기 매출 5억 달러 목표는 '재확인'(상향 아님)",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/1633978/000162828024046302/lite_ex991xq1fy25.htm",
+          "quote_en": "We set a new record for Datacom laser chip orders, including 200-gig EML chips … This expansion will help alleviate the industry-wide shortage of indium phosphide capacity. However, we still expect to be on allocation throughout calendar year 2025.",
+          "note": "초안의 '가이던스 상향'은 오류 → 목표 재확인. 정확한 표현은 'sold out'이 아니라 'on allocation'"
+        },
+        {
+          "date": "2025-03-18",
+          "tier": 2,
+          "who": "NVIDIA GTC 2025 보도자료 (Jensen Huang / TSMC C.C. Wei 인용)",
+          "quote": "CPO 기반 Spectrum-X Photonics(이더넷)·Quantum-X Photonics(인피니밴드) 실리콘 포토닉스 스위치 공개. 포트당 1.6Tb/s. 생태계 파트너: TSMC, Coherent, Corning, Fabrinet, Foxconn, Lumentum, SENKO, SPIL, 스미토모전기. Quantum-X 2025 하반기, Spectrum-X 2026 출시",
+          "verified": true,
+          "source": "https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories",
+          "quote_en": "NVIDIA today unveiled NVIDIA Spectrum-X and NVIDIA Quantum-X silicon photonics networking switches … NVIDIA's silicon photonics ecosystem includes TSMC, Browave, Coherent, Corning, Fabrinet, Foxconn, Lumentum, SENKO, SPIL, Sumitomo Electric Industries and TFC Communication.",
+          "note": "보도자료에 'COUPE' 명칭은 없음(TSMC-SoIC 언급). COUPE는 TSMC·업계 보도 용어"
+        },
+        {
+          "date": "2025-06-03",
+          "tier": 3,
+          "who": "Broadcom 보도자료 (Ram Velaga SVP)",
+          "quote": "단일 칩 102.4Tbps 세계 최초 이더넷 스위치 Tomahawk 6 출하 개시. CPO 옵션은 '제공 예정'(출하는 2025-10-08 'Davisson'으로 별도 발표). 100만 XPU 이상 AI 클러스터 대상",
+          "verified": true,
+          "source": "https://www.globenewswire.com/news-release/2025/06/03/3092820/0/en/broadcom-ships-tomahawk-6-world-s-first-102-4-tbps-switch.html",
+          "quote_en": "Broadcom announced today that it is now shipping the Tomahawk 6 switch series, delivering the world's first 102.4 Terabits/sec … Tomahawk 6 will also be available with co-packaged optics.",
+          "note": "초안의 'CPO 옵션 출하'는 부정확 → 6/3은 CPO '제공 예정', CPO 버전 출하는 10/8"
+        }
       ],
-      "lesson": "부품(EML)의 완판 발언이 1차. 플랫폼 기업(NVIDIA·Broadcom)의 아키텍처 전환 발표가 2차. 아키텍처 전환은 병목을 트랜시버 조립에서 레이저·광학 소재로 옮긴다. 사용자 참고: 수 맹(Duquesne Family Office)의 CPO 통찰 — 원문(글·인터뷰·13F)을 확보한 뒤 여기에 링크."
+      "lesson": "부품(EML)의 'on allocation'(2023-11, T1)이 가장 이른 신호였고, 'fully subscribed through 2025'(2024-08)로 강도가 올라감. 플랫폼 기업(NVIDIA GTC 2025-03, Broadcom 2025-06)의 아키텍처 전환 발표가 T2. 아키텍처 전환은 병목을 트랜시버 조립에서 레이저·InP 소재로 옮긴다. 수 맹(Duquesne Family Office)의 CPO 통찰은 ⑥ 인물 연구 참조."
     },
     {
       "id": "nand",
@@ -78,40 +341,236 @@
       "title": "스토리지 — NAND·엔터프라이즈 SSD",
       "bottleneck": "NAND 캐파 (수년간 투자 부진) + AI 추론용 eSSD 수요",
       "demandShock": "추론 워크로드·KV 캐시·데이터 레이크로 스토리지 수요 급증",
-      "firstMention": {"who": "SanDisk CEO David Goeckeler", "what": "NAND 가격 인상, 공급 타이트", "date": "2025-08-06"},
-      "tickers": {"supplier": ["SNDK", "MU", "285A.T"], "adjacent": ["WDC"], "demand": []},
+      "firstMention": {
+        "who": "SanDisk CEO David Goeckeler",
+        "what": "가격 인상 시작, 일부 제품 할당, FY26 공급부족, 수요>공급 2026년 내내 지속",
+        "date": "2025-08-14"
+      },
+      "tickers": {
+        "supplier": [
+          "SNDK",
+          "MU",
+          "285A.T"
+        ],
+        "adjacent": [
+          "WDC"
+        ],
+        "demand": []
+      },
       "benchmark": "NVDA",
       "events": [
-        {"date": "2025-02-24", "tier": 0, "who": "SanDisk", "quote": "Western Digital에서 분사, 독립 상장. 순수 NAND 익스포저", "verified": false, "source": ""},
-        {"date": "2025-06-25", "tier": 1, "who": "Micron FQ3'25 어닝콜", "quote": "데이터센터 SSD 매출 기록. NAND 공급 규율 유지", "verified": false, "source": ""},
-        {"date": "2025-08-06", "tier": 1, "who": "SanDisk FQ4'25 어닝콜", "quote": "가격 인상 발표, 엔터프라이즈 SSD 수요 강세, 공급 타이트", "verified": false, "source": ""},
-        {"date": "2025-09-23", "tier": 2, "who": "Micron FQ4'25 어닝콜", "quote": "기록 실적. HBM·데이터센터 NAND 2026년까지 공급 타이트", "verified": false, "source": ""},
-        {"date": "2025-09-30", "tier": 2, "who": "NAND 계약가격", "quote": "3분기 NAND 계약가 상승 전환 (TrendForce 등)", "verified": false, "source": ""}
+        {
+          "date": "2025-02-24",
+          "tier": 0,
+          "who": "Western Digital 8-K / SanDisk",
+          "quote": "WD에서 분사 완료(2/21 기준), SNDK 2/24 나스닥 정규 거래 개시. 순수 NAND 익스포저",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/106040/000119312525033383/d847507d8k.htm",
+          "quote_en": "Sandisk Common Stock commenced trading 'regular way' under the symbol 'SNDK' on the Nasdaq Stock Market on February 24, 2025.",
+          "note": ""
+        },
+        {
+          "date": "2025-03-07",
+          "tier": 1,
+          "who": "SanDisk 고객 서한 (TrendForce·Reuters 보도) — 더 이른 T1 후보",
+          "quote": "4월 1일부터 전 NAND 제품 가격 10% 이상 인상. 공급 제약 시장으로의 전환과 관세 비용 상승을 이유로 제시",
+          "quote_en": "Sandisk announced plans to increase the prices of all its NAND products by over 10% starting from April 1, according to a letter sent to its customers on March 7.",
+          "source": "https://www.trendforce.com/news/2025/03/07/news-sandisk-to-raise-nand-prices-over-10-from-april-1-signaling-market-rebound/",
+          "verified": false,
+          "note": "서한 원문은 비공개, 2차 보도만 존재. 분사 직후 2주 만의 가격 인상 통보"
+        },
+        {
+          "date": "2025-06-25",
+          "tier": 1,
+          "who": "Micron Sanjay Mehrotra CEO, FQ3'25 어닝콜",
+          "quote": "데이터센터 SSD 점유율 3분기 연속 최고 기록. NAND 웨이퍼 캐파는 노드 전환으로 FY24 말 대비 10% 구조적 축소, 수요에 맞춰 절제된 속도로 운영(공급 규율). 단, 이 분기 NAND 가격은 아직 한 자릿수 후반 % 하락",
+          "verified": true,
+          "source": "https://www.fool.com/earnings/call-transcripts/2025/06/25/micron-mu-q3-2025-earnings-call-transcript/",
+          "quote_en": "Our efficient node conversions will result in 10% structurally lower NAND wafer capacity ending fiscal 2025 versus the end of fiscal 2024 levels. Micron plans to manage our node conversions at a measured pace consistent with our demand.",
+          "note": "초안의 '데이터센터 SSD 매출 기록'은 점유율 기록으로 정정. 가격은 아직 하락 중이었음 → 공급 규율이 신호"
+        },
+        {
+          "date": "2025-07-09",
+          "tier": 2,
+          "who": "TrendForce 보도자료",
+          "quote": "3Q25 NAND 계약가 5~10% 상승 전망 — 첫 상승 분기",
+          "quote_en": "NAND Flash contract prices are projected to rise 5-10% in 3Q25.",
+          "source": "https://www.trendforce.com/presscenter/news/20250709-12638.html",
+          "verified": true,
+          "note": ""
+        },
+        {
+          "date": "2025-08-14",
+          "tier": 1,
+          "who": "SanDisk David Goeckeler CEO, FQ4'25 어닝콜",
+          "quote": "4분기에 가격 인상 시행 시작. 일부 제품은 할당(allocation) 상태. FY26 중 한 자릿수 중반 % 공급부족 예상으로 추가 인상 지지. 수요>공급 상황이 2026년 내내 지속 전망",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/2023554/000119312525180782/d926236dex991.htm",
+          "quote_en": "In the fiscal fourth quarter, we also began implementing price increases. Several of our products are on allocation, and we expect mid single digit undersupply for the fiscal 2026, supporting further price increases. … demand exceeded supply, which we anticipate to continue through calendar year 2026.",
+          "note": "초안 날짜 8/6은 오류 → 8/14(8-K 기준)"
+        },
+        {
+          "date": "2025-09-23",
+          "tier": 2,
+          "who": "Micron Sanjay Mehrotra CEO, FQ4'25 어닝콜",
+          "quote": "FY25 매출 374억 달러 사상 최대(+49%). HBM3E 2026년 물량 대부분 가격 계약 완료. 2026년 DRAM 공급 타이트 지속, NAND 시황 강화 지속 전망. 데이터센터 SSD 매출·점유율 FY25 사상 최대",
+          "verified": true,
+          "source": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000024/a2025q4ex991-pressrelease.htm",
+          "quote_en": "In calendar 2026, we anticipate further DRAM supply tightness in the industry and continued strengthening in NAND market conditions. … Our data center SSD business reached record revenue and market share in fiscal 2025.",
+          "note": "NAND에 대한 정확한 표현은 'tightness'가 아니라 'continued strengthening'"
+        },
+        {
+          "date": "2025-09-25",
+          "tier": 2,
+          "who": "TrendForce 보도자료",
+          "quote": "4Q25 NAND 계약가 전 품목 평균 5~10% 상승 전망. 샌디스크가 먼저 10% 인상 발표, 마이크론은 견적 중단. 120TB+ 엔터프라이즈 SSD 수요 급증, 2026년 공급부족 가시화",
+          "verified": true,
+          "source": "https://www.trendforce.com/presscenter/news/20250925-12736.html",
+          "quote_en": "SanDisk was the first to announce a 10% price increase, while Micron paused quotations due to pricing and capacity issues. … supply shortages in 2026 are becoming increasingly apparent.",
+          "note": ""
+        },
+        {
+          "date": "2025-11-14",
+          "tier": 2,
+          "who": "Situational Awareness LP 13F (2025-09-30 기준)",
+          "quote": "아센브레너 펀드, 샌디스크 115,000주($12.9M) 첫 보유 보고 — 3분기 중 매수(8/14 샌디스크 콜 이후, 9/23 마이크론 콜 전후). 다음 분기(12/31) 1,054,200주($250.2M)로 약 9배 증액",
+          "quote_en": "SANDISK CORP COM: 115,000 shares, $12,903,000 (period 2025-09-30). Period 2025-12-31: 1,054,200 shares, $250,245,996.",
+          "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F",
+          "verified": true,
+          "note": "EDGAR XML 정보표에서 직접 확인. 2025-03-31, 06-30 보고서에는 SNDK 없음"
+        }
       ],
-      "lesson": "사용자 참고: 아센브레너(Situational Awareness LP)의 SanDisk 포지션 — 13F로 시점·규모 확인 필요. 공급 투자가 수년간 부진했던 산업에 새 수요가 붙으면 병목이 가장 오래 간다."
+      "lesson": "3/7 가격 인상 서한(사전 신호) → 6/25 마이크론 '캐파 10% 축소·공급 규율'(가격은 아직 하락) → 8/14 샌디스크 T1('allocation', 'undersupply') → 9/23 마이크론·9/25 TrendForce T2. 아센브레너는 T1~T2 사이(3분기)에 탐색 규모로 진입, T2 확인 후 9배 증액. 공급 투자가 수년간 부진했던 산업에 새 수요가 붙으면 병목이 가장 오래 간다."
     }
   ],
   "candidates": [
-    {"name": "기판 (ABF·글라스 코어)", "why": "AI 패키지 대형화, 레이어 증가", "watch": "Ibiden·Unimicron·Shinko 컨콜, 'substrate tight'", "status": "watch"},
-    {"name": "변압기·개폐장치", "why": "리드타임 2~4년, 데이터센터·그리드 동시 수요", "watch": "Eaton·Siemens Energy·HD현대일렉트릭 백로그", "status": "watch"},
-    {"name": "DRAM 범용 (HBM 전환 캐파 잠식)", "why": "HBM이 웨이퍼 캐파 흡수 → 범용 DRAM 공급 감소", "watch": "DRAM 계약가, 메모리 3사 CapEx 배분", "status": "watch"},
-    {"name": "후공정 테스트 (SLT·번인)", "why": "칩 복잡도 증가로 테스트 시간 급증", "watch": "Advantest·Teradyne·KYEC 가동률", "status": "watch"},
-    {"name": "액체냉각·CDU", "why": "랙당 100kW+ 전력밀도", "watch": "Vertiv·Delta·nVent 컨콜 'capacity'", "status": "watch"},
-    {"name": "인듐인(InP) 웨이퍼·EML", "why": "CPO·1.6T 전환 시 레이저 수요 배수 증가", "watch": "Lumentum·Coherent·AXT 컨콜", "status": "watch"}
+    {
+      "name": "기판 (ABF·글라스 코어)",
+      "why": "AI 패키지 대형화, 레이어 증가",
+      "watch": "Ibiden·Unimicron·Shinko 컨콜, 'substrate tight'",
+      "status": "watch"
+    },
+    {
+      "name": "변압기·개폐장치",
+      "why": "리드타임 2~4년, 데이터센터·그리드 동시 수요",
+      "watch": "Eaton·Siemens Energy·HD현대일렉트릭 백로그",
+      "status": "watch"
+    },
+    {
+      "name": "DRAM 범용 (HBM 전환 캐파 잠식)",
+      "why": "HBM이 웨이퍼 캐파 흡수 → 범용 DRAM 공급 감소",
+      "watch": "DRAM 계약가, 메모리 3사 CapEx 배분",
+      "status": "watch"
+    },
+    {
+      "name": "후공정 테스트 (SLT·번인)",
+      "why": "칩 복잡도 증가로 테스트 시간 급증",
+      "watch": "Advantest·Teradyne·KYEC 가동률",
+      "status": "watch"
+    },
+    {
+      "name": "액체냉각·CDU",
+      "why": "랙당 100kW+ 전력밀도",
+      "watch": "Vertiv·Delta·nVent 컨콜 'capacity'",
+      "status": "watch"
+    },
+    {
+      "name": "인듐인(InP) 웨이퍼·EML",
+      "why": "CPO·1.6T 전환 시 레이저 수요 배수 증가",
+      "watch": "Lumentum·Coherent·AXT 컨콜",
+      "status": "watch"
+    }
   ],
   "ceoWatch": [
-    {"company": "TSMC", "ceo": "C.C. Wei", "node": "선단 공정·CoWoS", "listen": "CoWoS/SoIC 캐파, 'tight', 가격 인상"},
-    {"company": "Micron", "ceo": "Sanjay Mehrotra", "node": "HBM·NAND", "listen": "'sold out', 'allocated', 공급 규율"},
-    {"company": "SK hynix", "ceo": "곽노정", "node": "HBM", "listen": "차기 연도 완판 시점"},
-    {"company": "GE Vernova", "ceo": "Scott Strazik", "node": "가스터빈", "listen": "슬롯 예약, 가격, 백로그 연도"},
-    {"company": "Lumentum", "ceo": "Michael Hurlston", "node": "EML·CPO", "listen": "EML 캐파, CPO 매출 시점"},
-    {"company": "Coherent", "ceo": "Jim Anderson", "node": "트랜시버·InP", "listen": "InP 캐파, 1.6T 램프"},
-    {"company": "SanDisk", "ceo": "David Goeckeler", "node": "NAND", "listen": "가격 인상, eSSD 비중"},
-    {"company": "Bloom Energy", "ceo": "KR Sridhar", "node": "BTM 발전", "listen": "데이터센터 수주, 캐파 증설"},
-    {"company": "Vertiv", "ceo": "Giordano Albertazzi", "node": "냉각·전력 인프라", "listen": "백로그, 액체냉각 비중"},
-    {"company": "Amkor", "ceo": "Giel Rutten", "node": "OSAT", "listen": "첨단 패키징 매출 비중, 미국 공장"},
-    {"company": "Broadcom", "ceo": "Hock Tan", "node": "커스텀 ASIC·스위치", "listen": "CPO 램프, 고객 수"},
-    {"company": "한미반도체", "ceo": "곽동신", "node": "TC 본더", "listen": "수주 공시, 하이브리드 본더 일정"}
+    {
+      "company": "TSMC",
+      "ceo": "C.C. Wei",
+      "node": "선단 공정·CoWoS",
+      "listen": "CoWoS/SoIC 캐파, 'tight', 가격 인상"
+    },
+    {
+      "company": "Micron",
+      "ceo": "Sanjay Mehrotra",
+      "node": "HBM·NAND",
+      "listen": "'sold out', 'allocated', 공급 규율"
+    },
+    {
+      "company": "SK hynix",
+      "ceo": "곽노정",
+      "node": "HBM",
+      "listen": "차기 연도 완판 시점"
+    },
+    {
+      "company": "GE Vernova",
+      "ceo": "Scott Strazik",
+      "node": "가스터빈",
+      "listen": "슬롯 예약, 가격, 백로그 연도"
+    },
+    {
+      "company": "Lumentum",
+      "ceo": "Michael Hurlston",
+      "node": "EML·CPO",
+      "listen": "EML 캐파, CPO 매출 시점"
+    },
+    {
+      "company": "Coherent",
+      "ceo": "Jim Anderson",
+      "node": "트랜시버·InP",
+      "listen": "InP 캐파, 1.6T 램프"
+    },
+    {
+      "company": "SanDisk",
+      "ceo": "David Goeckeler",
+      "node": "NAND",
+      "listen": "가격 인상, eSSD 비중"
+    },
+    {
+      "company": "Bloom Energy",
+      "ceo": "KR Sridhar",
+      "node": "BTM 발전",
+      "listen": "데이터센터 수주, 캐파 증설"
+    },
+    {
+      "company": "Vertiv",
+      "ceo": "Giordano Albertazzi",
+      "node": "냉각·전력 인프라",
+      "listen": "백로그, 액체냉각 비중"
+    },
+    {
+      "company": "Amkor",
+      "ceo": "Giel Rutten",
+      "node": "OSAT",
+      "listen": "첨단 패키징 매출 비중, 미국 공장"
+    },
+    {
+      "company": "Broadcom",
+      "ceo": "Hock Tan",
+      "node": "커스텀 ASIC·스위치",
+      "listen": "CPO 램프, 고객 수"
+    },
+    {
+      "company": "한미반도체",
+      "ceo": "곽동신",
+      "node": "TC 본더",
+      "listen": "수주 공시, 하이브리드 본더 일정"
+    }
   ],
-  "keywords": ["sold out", "allocated", "allocation", "capacity constrained", "tight", "lead time", "double capacity", "slot reservation", "prepayment", "take-or-pay", "long-term agreement", "LTA", "price increase", "cannot meet demand", "supply-limited", "ramping as fast as we can"]
+  "keywords": [
+    "sold out",
+    "allocated",
+    "allocation",
+    "capacity constrained",
+    "tight",
+    "lead time",
+    "double capacity",
+    "slot reservation",
+    "prepayment",
+    "take-or-pay",
+    "long-term agreement",
+    "LTA",
+    "price increase",
+    "cannot meet demand",
+    "supply-limited",
+    "ramping as fast as we can"
+  ]
 }

@@ -69,6 +69,7 @@
   .ev .who{font-weight:700;display:block;}
   .ev .v{font-size:10px;font-family:var(--mono);color:#b45309;margin-left:6px;}
   .ev .v.ok{color:var(--green);}
+  .ev .qen{font-size:11.5px;color:#555;font-style:italic;margin:3px 0 2px;line-height:1.5;border-left:2px solid var(--line);padding-left:8px;}
   .chart{width:100%;height:auto;display:block;}
   .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;font-family:var(--mono);color:#444;margin:6px 0 10px;}
   .legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:4px;border-radius:2px;}
@@ -315,7 +316,7 @@ function renderCases(){
         <div class="bn"><b>병목:</b> ${esc(c.bottleneck)} · <b>수요 쇼크:</b> ${esc(c.demandShock)}<br><b>T1 첫 언급:</b> ${esc(c.firstMention.who)} — "${esc(c.firstMention.what)}" (${c.firstMention.date})</div></div>
       <div class="case-body">
         <div class="case-left">
-          ${c.events.slice().sort((a,b)=>a.date<b.date?-1:1).map(e=>`<div class="ev"><span class="d">${e.date}</span><span class="t" style="background:${TIERC[e.tier]}">T${e.tier}</span><div><span class="who">${esc(e.who)}<span class="v ${e.verified?'ok':''}">${e.verified?'✓ 검증':'검증 필요'}</span></span>${esc(e.quote)}${e.source?` <a href="${esc(e.source)}" target="_blank">↗</a>`:''}</div></div>`).join('')}
+          ${c.events.slice().sort((a,b)=>a.date<b.date?-1:1).map(e=>`<div class="ev"><span class="d">${e.date}</span><span class="t" style="background:${TIERC[e.tier]}">T${e.tier}</span><div><span class="who">${esc(e.who)}<span class="v ${e.verified?'ok':''}">${e.verified?'✓ 검증':'검증 필요'}</span></span>${esc(e.quote)}${e.quote_en?`<div class="qen">“${esc(e.quote_en)}”</div>`:''}${e.source?` <a href="${esc(e.source)}" target="_blank">출처 ↗</a>`:''}</div></div>`).join('')}
           <div class="lesson">${esc(c.lesson)}</div>
         </div>
         <div class="case-right">${chart(c)}${retTable(c)}</div>
