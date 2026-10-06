@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>트리거 데스크 — 투자 트리거 탐색</title>
+<style>
+  :root{
+    --ink:#13171e; --ink-2:#1c222c; --paper:#f6f7f9; --card:#ffffff;
+    --text:#1a1f29; --muted:#6b7280; --line:#e6e9ee;
+    --accent:#e11d48; --accent-soft:#fff1f3;
+    --blue:#2563a8; --green:#1f7a4d; --purple:#7c3aed; --orange:#d9892b; --gray:#9ca3af;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR","Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{background:var(--paper);color:var(--text);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;}
+  a{color:var(--blue)}
+
+  /* 히어로 */
+  .hero{background:var(--ink);color:#fff;padding:56px 24px 48px;}
+  .hero-inner{max-width:960px;margin:0 auto;}
+  .hero-eyebrow{font-size:12px;font-weight:700;color:var(--accent);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+  .hero h1{font-size:32px;font-weight:800;margin:0 0 12px;letter-spacing:-.5px;line-height:1.2;}
+  .hero p{font-size:15px;color:#9aa6b7;margin:0;max-width:620px;line-height:1.6;}
+  .spark{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-right:8px;animation:pulse 2.4s infinite;vertical-align:middle;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(225,29,72,.55)}70%{box-shadow:0 0 0 8px rgba(225,29,72,0)}100%{box-shadow:0 0 0 0 rgba(225,29,72,0)}}
+  .hero-links{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
+  .hero-links a{font-size:12px;color:#c7d0dc;text-decoration:none;border:1px solid #2b3340;border-radius:20px;padding:4px 12px;}
+  .hero-links a:hover{border-color:var(--accent);color:#fff;}
+
+  main{max-width:960px;margin:0 auto;padding:36px 24px 80px;}
+  .section-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-family:var(--mono);margin:0 0 14px;}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:36px;}
+  .box h3{font-size:15px;font-weight:800;color:var(--ink);margin:0 0 14px;display:flex;align-items:center;gap:8px;}
+
+  /* 탐색 흐름 */
+  .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;}
+  .node{background:#f1f5fb;border:1px solid #c7d9f8;border-radius:8px;padding:8px 14px;font-weight:600;color:#1a2942;white-space:nowrap;}
+  .node.hi{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .arrow{color:var(--accent);font-size:18px;font-weight:700;}
+  .flow-desc{font-size:13px;color:#555;margin:14px 0 0;line-height:1.7;}
+
+  /* 트리거 유형 */
+  .types{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+  .type{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fafbfc;}
+  .type-h{font-size:14px;font-weight:800;margin:0 0 8px;display:flex;align-items:center;gap:8px;}
+  .type-h .dot{width:10px;height:10px;border-radius:50%;}
+  .type dl{margin:0;font-size:12.5px;line-height:1.6;}
+  .type dt{font-weight:700;color:var(--muted);font-size:11px;margin-top:6px;}
+  .type dd{margin:0;color:#333;}
+
+  /* 보드 툴바 */
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+  .toolbar input[type=search]{flex:1;min-width:200px;border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:13px;font-family:var(--sans);}
+  .toolbar select{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px;font-family:var(--sans);background:#fff;}
+  .btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 12px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--sans);color:var(--ink);}
+  .btn:hover{border-color:var(--accent);color:var(--accent);}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn.primary:hover{opacity:.9;color:#fff;}
+  .count{font-size:12px;color:var(--muted);font-family:var(--mono);}
+
+  /* 트리거 카드 */
+  .board{display:flex;flex-direction:column;gap:12px;}
+  .tr{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fff;transition:border-color .15s,box-shadow .15s;}
+  .tr:hover{border-color:var(--accent);box-shadow:0 4px 18px rgba(0,0,0,.06);}
+  .tr-top{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+  .tr-title{font-size:15px;font-weight:800;color:var(--ink);flex:1;min-width:200px;}
+  .tag{font-size:11px;font-weight:700;color:#fff;border-radius:4px;padding:2px 8px;white-space:nowrap;}
+  .status{font-size:11px;font-weight:700;border-radius:20px;padding:2px 10px;white-space:nowrap;border:1px solid;}
+  .status.watch{color:#6b7280;border-color:#cfd4db;background:#f3f4f6;}
+  .status.soon{color:#b45309;border-color:#fcd34d;background:#fffbeb;}
+  .status.fired{color:#166534;border-color:#86efac;background:#f0fdf4;}
+  .status.dead{color:#991b1b;border-color:#fca5a5;background:#fef2f2;}
+  .tr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px;margin-top:10px;font-size:12.5px;line-height:1.6;}
+  .tr-grid .k{font-size:11px;font-weight:700;color:var(--muted);display:block;}
+  .tr-foot{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-family:var(--mono);}
+  .tr-foot a{font-size:11.5px;}
+  .tr-foot .del{margin-left:auto;background:none;border:none;color:#b91c1c;cursor:pointer;font-size:11px;font-family:var(--sans);}
+  .tr-note{margin-top:8px;font-size:12.5px;color:#444;background:#fafbfc;border-left:3px solid var(--accent);padding:6px 10px;border-radius:4px;}
+  .empty{display:none;text-align:center;color:var(--muted);font-size:13px;padding:30px 0;}
+
+  /* 추가 폼 */
+  .form{display:none;border:1px dashed var(--accent);border-radius:12px;padding:16px 18px;background:var(--accent-soft);margin-bottom:14px;}
+  .form.open{display:block;}
+  .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+  .form label{font-size:11px;font-weight:700;color:var(--muted);display:block;margin-bottom:3px;}
+  .form input,.form select,.form textarea{width:100%;border:1px solid var(--line);border-radius:6px;padding:7px 9px;font-size:12.5px;font-family:var(--sans);background:#fff;}
+  .form textarea{resize:vertical;min-height:50px;}
+  .form-actions{display:flex;gap:8px;margin-top:10px;}
+  .full{grid-column:1/-1;}
+
+  /* 소스 */
+  .sources{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;}
+  .src{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;background:#fafbfc;}
+  .src b{display:block;font-size:13px;margin-bottom:3px;}
+  .src a{font-size:11.5px;font-family:var(--mono);word-break:break-all;}
+  .src p{margin:4px 0 0;color:#555;line-height:1.5;}
+
+  /* 체크리스트 */
+  .check{list-style:none;padding:0;margin:0;font-size:13px;}
+  .check li{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);line-height:1.6;}
+  .check li:last-child{border-bottom:none;}
+  .check input{margin-top:5px;accent-color:var(--accent);}
+  .check b{display:block;}
+  .check span{color:#555;font-size:12.5px;}
+
+  /* 메모 */
+  .memo textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;font-family:var(--sans);resize:vertical;}
+  .memo-status{font-size:11px;color:var(--muted);margin-top:4px;font-family:var(--mono);}
+  .memo-status.saved{color:var(--green);}
+
+  footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:#9aa1ab;font-size:11px;font-family:var(--mono);line-height:1.6;}
+  @media(max-width:560px){ .hero h1{font-size:24px;} .flow{gap:6px;} .box{padding:18px 16px;} }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="spark"></span>Trigger Desk</div>
+    <h1>투자 트리거 탐색</h1>
+    <p>주가를 움직일 "사건"을 미리 정의하고, 그 사건이 오기 전에 보이는 선행 신호를 어디서 찾을지 정리한다. 전력·패키징 데스크의 논지가 실제로 작동하는 시점을 잡기 위한 레이더.</p>
+    <div class="hero-links">
+      <a href="https://wooyagi.github.io/power/">⚡ 전력 데스크</a>
+      <a href="https://wooyagi.github.io/packaging/">🧩 패키징 데스크</a>
+      <a href="#board">📍 트리거 보드</a>
+      <a href="#sources">🔎 탐색 소스</a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <p class="section-label">탐색 흐름</p>
+  <div class="box">
+    <h3>🎯 트리거는 "논지가 가격에 반영되는 순간"이다</h3>
+    <div class="flow">
+      <span class="node">투자 논지</span><span class="arrow">→</span>
+      <span class="node">논지가 맞다면 반드시 일어나야 할 사건</span><span class="arrow">→</span>
+      <span class="node hi">트리거 정의</span><span class="arrow">→</span>
+      <span class="node">사건 전에 보이는 선행 신호</span><span class="arrow">→</span>
+      <span class="node">확인 소스·시점</span><span class="arrow">→</span>
+      <span class="node">액션</span>
+    </div>
+    <p class="flow-desc">
+      좋은 트리거는 <b>날짜가 있거나(실적·규제 일정)</b>, <b>숫자로 확인되거나(캐파·수주·가격)</b>, 적어도 <b>공식 문서로 발동 여부를 판정할 수 있어야</b> 한다.
+      "분위기가 좋아진다" 같은 건 트리거가 아니다. 아래 보드에 트리거를 쌓고, 상태(관찰 → 임박 → 발동/무산)를 갱신한다.
+    </p>
+  </div>
+
+  <p class="section-label">트리거 유형</p>
+  <div class="box">
+    <div class="types">
+      <div class="type">
+        <p class="type-h"><span class="dot" style="background:var(--blue)"></span>실적·가이던스</p>
+        <dl>
+          <dt>무엇을 보나</dt><dd>CapEx 가이던스, 백로그/Book-to-Bill, 마진 변곡, 가이던스 상·하향</dd>
+          <dt>선행 신호</dt><dd>고객사 CapEx, 공급사 수주, 리스·PPA 체결 뉴스</dd>
+          <dt>확인</dt><dd>8-K/10-Q, 어닝콜 Q&amp;A, IR 슬라이드</dd>
+        </dl>
+      </div>
+      <div class="type">
+        <p class="type-h"><span class="dot" style="background:var(--purple)"></span>정책·규제</p>
+        <dl>
+          <dt>무엇을 보나</dt><dd>인허가 결정, 규칙 제정(NOPR→Final Rule), 세액공제 가이던스, 관세</dd>
+          <dt>선행 신호</dt><dd>도킷 일정, 의견수렴 마감일, 청문회 일정</dd>
+          <dt>확인</dt><dd>FERC/NRC 도킷, Federal Register, 관보</dd>
+        </dl>
+      </div>
+      <div class="type">
+        <p class="type-h"><span class="dot" style="background:var(--green)"></span>계약·수주</p>
+        <dl>
+          <dt>무엇을 보나</dt><dd>LOI/MOU → 구속력 있는 계약 전환, 대형 PPA, 장기 공급계약</dd>
+          <dt>선행 신호</dt><dd>MOU 체결, 파일럿 프로젝트, 부지 확보, 컨콜 "advanced discussions" 발언</dd>
+          <dt>확인</dt><dd>8-K Item 1.01, 보도자료, 상대방 공시</dd>
+        </dl>
+      </div>
+      <div class="type">
+        <p class="type-h"><span class="dot" style="background:var(--orange)"></span>기술·마일스톤</p>
+        <dl>
+          <dt>무엇을 보나</dt><dd>양산 전환, 퀄 통과, 차세대 제품 출시, 첫 상업 가동</dd>
+          <dt>선행 신호</dt><dd>장비 발주, 샘플 출하, 고객 퀄 일정, 로드맵 발표</dd>
+          <dt>확인</dt><dd>기술 심포지엄, IR, 고객사 컨콜</dd>
+        </dl>
+      </div>
+      <div class="type">
+        <p class="type-h"><span class="dot" style="background:#0f766e"></span>수급·가격</p>
+        <dl>
+          <dt>무엇을 보나</dt><dd>캐파 증설·병목 해소, 리드타임, 현물가격, 재고 수준</dd>
+          <dt>선행 신호</dt><dd>장비사 수주, 리드타임 변화, 가격 협상 뉴스</dd>
+          <dt>확인</dt><dd>공급사 IR, 산업 데이터, 가격 지표</dd>
+        </dl>
+      </div>
+      <div class="type">
+        <p class="type-h"><span class="dot" style="background:var(--gray)"></span>매크로·이벤트</p>
+        <dl>
+          <dt>무엇을 보나</dt><dd>금리 결정, 지수 편입, 락업 해제, 유상증자, 인덱스 리밸런싱</dd>
+          <dt>선행 신호</dt><dd>일정표 자체가 신호. 날짜가 확정돼 있음</dd>
+          <dt>확인</dt><dd>중앙은행 캘린더, 거래소 공지</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-label" id="board">트리거 보드</p>
+  <div class="box">
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="검색: 제목·종목·키워드">
+      <select id="fTheme">
+        <option value="">테마 전체</option>
+        <option value="power">전력</option>
+        <option value="packaging">패키징</option>
+        <option value="macro">매크로</option>
+        <option value="other">기타</option>
+      </select>
+      <select id="fType">
+        <option value="">유형 전체</option>
+        <option>실적·가이던스</option><option>정책·규제</option><option>계약·수주</option>
+        <option>기술·마일스톤</option><option>수급·가격</option><option>매크로·이벤트</option>
+      </select>
+      <select id="fStatus">
+        <option value="">상태 전체</option>
+        <option value="watch">👀 관찰</option><option value="soon">⏳ 임박</option>
+        <option value="fired">✅ 발동</option><option value="dead">❌ 무산</option>
+      </select>
+      <button class="btn primary" id="addBtn">+ 트리거 추가</button>
+      <button class="btn" id="exportBtn">내보내기</button>
+      <span class="count"><span id="shown">0</span> / <span id="total">0</span></span>
+    </div>
+
+    <div class="form" id="form">
+      <div class="form-grid">
+        <div class="full"><label>제목 *</label><input id="nTitle" placeholder="예: TSMC CoWoS 월 캐파 증설 발표"></div>
+        <div><label>테마</label><select id="nTheme"><option value="power">전력</option><option value="packaging">패키징</option><option value="macro">매크로</option><option value="other">기타</option></select></div>
+        <div><label>유형</label><select id="nType"><option>실적·가이던스</option><option>정책·규제</option><option>계약·수주</option><option>기술·마일스톤</option><option>수급·가격</option><option>매크로·이벤트</option></select></div>
+        <div><label>상태</label><select id="nStatus"><option value="watch">👀 관찰</option><option value="soon">⏳ 임박</option><option value="fired">✅ 발동</option><option value="dead">❌ 무산</option></select></div>
+        <div><label>예상 시점</label><input id="nWhen" placeholder="예: 2026-Q4 / 분기 실적 시"></div>
+        <div><label>관련 종목</label><input id="nTickers" placeholder="예: TSM, AMKR"></div>
+        <div><label>확인 소스 링크</label><input id="nLink" placeholder="https://"></div>
+        <div class="full"><label>선행 신호 (사건 전에 무엇이 보이나)</label><textarea id="nSignal"></textarea></div>
+        <div class="full"><label>확인 방법 (발동 여부를 어떻게 판정하나)</label><textarea id="nConfirm"></textarea></div>
+        <div class="full"><label>메모</label><textarea id="nNote"></textarea></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn primary" id="saveBtn">저장</button>
+        <button class="btn" id="cancelBtn">취소</button>
+      </div>
+    </div>
+
+    <div class="board" id="list"></div>
+    <div class="empty" id="empty">조건에 맞는 트리거가 없습니다.</div>
+  </div>
+
+  <p class="section-label" id="sources">탐색 소스</p>
+  <div class="box">
+    <h3>🔎 트리거를 어디서 찾나</h3>
+    <div class="sources">
+      <div class="src"><b>SEC EDGAR 전문 검색</b><a href="https://efts.sec.gov/LATEST/search-index?q=&dateRange=custom" target="_blank">efts.sec.gov · Full-Text Search</a><p>8-K Item 1.01(중요 계약), 2.02(실적), 7.01(Reg FD). "binding agreement", "definitive agreement" 키워드로 LOI→계약 전환 포착.</p></div>
+      <div class="src"><b>SEC EDGAR 공시 검색</b><a href="https://www.sec.gov/edgar/search/" target="_blank">sec.gov/edgar/search</a><p>회사별 10-Q/10-K/8-K 원문. 가이던스·백로그 수치는 여기서 확인.</p></div>
+      <div class="src"><b>FERC eLibrary</b><a href="https://elibrary.ferc.gov/eLibrary/search" target="_blank">elibrary.ferc.gov</a><p>코로케이션·BTM·계통연계 규칙 도킷. 의견수렴 마감일과 Final Rule 일정이 곧 트리거 날짜.</p></div>
+      <div class="src"><b>NRC 신규 원자로</b><a href="https://www.nrc.gov/reactors/new-reactors.html" target="_blank">nrc.gov · New Reactors</a><p>건설허가(CP)·운영허가(OL)·설계인증 심사 일정. SMR 종목의 핵심 규제 트리거.</p></div>
+      <div class="src"><b>Federal Register</b><a href="https://www.federalregister.gov/" target="_blank">federalregister.gov</a><p>세액공제 가이던스, 관세, 수출규제 등 연방 규칙 공고. 공고일이 트리거.</p></div>
+      <div class="src"><b>FOMC 캘린더</b><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank">federalreserve.gov</a><p>금리 결정·점도표 발표 일정. 날짜 확정형 매크로 트리거.</p></div>
+      <div class="src"><b>TSMC IR</b><a href="https://investor.tsmc.com/" target="_blank">investor.tsmc.com</a><p>분기 실적·기술 심포지엄. CoWoS 캐파·첨단 패키징 매출 비중 언급이 패키징 밸류체인 전체의 트리거.</p></div>
+      <div class="src"><b>DART (국내 공시)</b><a href="https://dart.fss.or.kr/" target="_blank">dart.fss.or.kr</a><p>국내 기업 단일판매·공급계약 체결, 유상증자, 투자 결정 공시.</p></div>
+      <div class="src"><b>실적 캘린더</b><a href="https://www.nasdaq.com/market-activity/earnings" target="_blank">nasdaq.com · Earnings</a><p>실적 발표 일정. 고객사 → 공급사 순서로 읽으면 선행 신호가 된다.</p></div>
+    </div>
+  </div>
+
+  <p class="section-label">트리거 판정 체크리스트</p>
+  <div class="box">
+    <ul class="check" id="checklist">
+      <li><input type="checkbox" data-k="c1"><div><b>날짜 또는 판정 기준이 있는가</b><span>"언제" 또는 "무엇이 나오면"이 명확해야 한다. 둘 다 없으면 트리거가 아니라 희망이다.</span></div></li>
+      <li><input type="checkbox" data-k="c2"><div><b>가격에 아직 반영되지 않았는가</b><span>컨센서스·뉴스 빈도·주가 반응을 보고 판단. 이미 다 아는 이벤트는 트리거가 아니라 리스크다.</span></div></li>
+      <li><input type="checkbox" data-k="c3"><div><b>선행 신호를 어디서 볼 수 있는가</b><span>사건 전에 공급사 수주, 도킷 일정, 고객사 발언 등으로 확률을 올릴 수 있어야 한다.</span></div></li>
+      <li><input type="checkbox" data-k="c4"><div><b>LOI/MOU와 구속력 있는 계약을 구분했는가</b><span>MOU는 선행 신호, 구속력 있는 계약이 트리거. 섞지 않는다.</span></div></li>
+      <li><input type="checkbox" data-k="c5"><div><b>무산 조건도 정의했는가</b><span>어떤 결과가 나오면 논지를 접을지 미리 적어 둔다.</span></div></li>
+      <li><input type="checkbox" data-k="c6"><div><b>1차 자료로 확인 가능한가</b><span>공시·규제기관 문서·IR 자료. 추측·날조 금지.</span></div></li>
+    </ul>
+  </div>
+
+  <p class="section-label">메모</p>
+  <div class="box memo">
+    <textarea id="memo" placeholder="이 페이지에 대한 메모 (브라우저에 저장됨)"></textarea>
+    <div class="memo-status" id="memoStatus">저장 안 됨</div>
+  </div>
+
+</main>
+
+<footer>
+  trigger desk · 보드의 사용자 추가 항목·체크·메모는 이 브라우저(localStorage)에만 저장됩니다. 기본 항목은 index.html의 SEED 배열에서 관리.
+</footer>
+
+<script>
+/* ── 기본 트리거 (코드로 관리, /trigger 명령으로 추가) ── */
+const SEED = [
+  // NEW_TRIGGER_INSERT (새 항목은 이 주석 바로 아래에 추가)
+  {id:"s-hyperscaler-capex",theme:"power",type:"실적·가이던스",status:"watch",
+   title:"하이퍼스케일러 CapEx 가이던스 상향",when:"매 분기 실적 발표",tickers:"MSFT, GOOGL, AMZN, META, ORCL",
+   signal:"데이터센터 부지·리스 체결 뉴스, 서버 ODM 매출, 전력 PPA 체결 속도",
+   confirm:"10-Q 및 어닝콜에서 연간 CapEx 가이던스 숫자 변화 확인",
+   link:"https://www.sec.gov/edgar/search/",note:"전력·패키징 두 데스크 공통의 최상위 수요 트리거.",added:"2026-10-06"},
+  {id:"s-tsmc-cowos",theme:"packaging",type:"수급·가격",status:"watch",
+   title:"TSMC CoWoS 캐파 증설·병목 해소 발언",when:"TSMC 분기 실적 / 기술 심포지엄",tickers:"TSM, ASX, AMKR, DISCO, TOELY",
+   signal:"후공정 장비사(DISCO·도쿄일렉트론·Camtek 등) 수주·가이던스, OSAT 설비투자 공시",
+   confirm:"TSMC IR에서 첨단 패키징 캐파·매출 비중 언급, 고객사 공급 코멘트",
+   link:"https://investor.tsmc.com/",note:"",added:"2026-10-06"},
+  {id:"s-nrc-permit",theme:"power",type:"정책·규제",status:"watch",
+   title:"NRC 신형 원자로·SMR 건설허가 결정",when:"NRC 심사 일정에 따름",tickers:"OKLO, SMR, CEG",
+   signal:"NRC 심사 일정(schedule letter) 공개, 환경영향평가 초안 발행, 청문회 일정",
+   confirm:"NRC 도킷에 허가 발급 문서 게시",
+   link:"https://www.nrc.gov/reactors/new-reactors.html",note:"허가 지연·추가 자료 요구(RAI)는 무산 신호가 아니라 일정 연기 신호로 구분.",added:"2026-10-06"},
+  {id:"s-ferc-colocation",theme:"power",type:"정책·규제",status:"watch",
+   title:"FERC 데이터센터 코로케이션·BTM 규칙 확정",when:"FERC 도킷 일정",tickers:"CEG, VST, TLN, NRG",
+   signal:"NOPR 발행, 의견수렴 마감, 위원회 회의 안건 등재",
+   confirm:"Final Rule 또는 Order 발행 (eLibrary)",
+   link:"https://elibrary.ferc.gov/eLibrary/search",note:"",added:"2026-10-06"},
+  {id:"s-hbm-next",theme:"packaging",type:"기술·마일스톤",status:"watch",
+   title:"차세대 HBM 양산·퀄 통과",when:"메모리 3사 분기 실적",tickers:"MU, 000660.KS, 005930.KS",
+   signal:"NVIDIA 차세대 GPU 일정, 본딩·검사 장비 발주, 샘플 출하 발표",
+   confirm:"각사 IR에서 양산·공급 개시 공식 발표",
+   link:"",note:"",added:"2026-10-06"},
+  {id:"s-tax-credit",theme:"power",type:"정책·규제",status:"watch",
+   title:"청정전력 세액공제(45Y/48E) 적용 범위 가이던스",when:"재무부/IRS 공고",tickers:"BE, FCEL, OKLO, SMR",
+   signal:"Federal Register 규칙 제안, 의회 예산 협상 뉴스",
+   confirm:"Federal Register 최종 규칙 공고",
+   link:"https://www.federalregister.gov/",note:"연료전지·원자력 포함 여부가 핵심.",added:"2026-10-06"},
+  {id:"s-fomc",theme:"macro",type:"매크로·이벤트",status:"watch",
+   title:"FOMC 금리 결정",when:"연 8회 (캘린더 확정)",tickers:"전체",
+   signal:"CPI·고용 지표, 연준 인사 발언",
+   confirm:"성명서·점도표 발표",
+   link:"https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",note:"고밸류 성장주(SMR·연료전지)의 할인율 민감도 큼.",added:"2026-10-06"},
+];
+
+const THEME = {power:["전력","#d9892b"],packaging:["패키징","#7c3aed"],macro:["매크로","#6b7280"],other:["기타","#2563a8"]};
+const STATUS = {watch:"👀 관찰",soon:"⏳ 임박",fired:"✅ 발동",dead:"❌ 무산"};
+const LS = 'trigger-board-v1';
+
+function loadUser(){ try{ return JSON.parse(localStorage.getItem(LS)||'[]'); }catch(e){ return []; } }
+function saveUser(a){ try{ localStorage.setItem(LS, JSON.stringify(a)); }catch(e){} }
+function esc(s){ return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function all(){ return [...loadUser(), ...SEED]; }
+
+function render(){
+  const term=document.getElementById('q').value.trim().toLowerCase();
+  const th=document.getElementById('fTheme').value, ty=document.getElementById('fType').value, st=document.getElementById('fStatus').value;
+  const items=all();
+  const list=document.getElementById('list'); list.innerHTML='';
+  let shown=0;
+  items.forEach(t=>{
+    if(th&&t.theme!==th) return; if(ty&&t.type!==ty) return; if(st&&t.status!==st) return;
+    if(term && !(`${t.title} ${t.tickers} ${t.signal} ${t.confirm} ${t.note} ${t.when}`.toLowerCase().includes(term))) return;
+    shown++;
+    const [tname,tcol]=THEME[t.theme]||THEME.other;
+    const user=!String(t.id).startsWith('s-');
+    const el=document.createElement('div'); el.className='tr'; el.dataset.id=t.id;
+    el.innerHTML=`
+      <div class="tr-top">
+        <div class="tr-title">${esc(t.title)}</div>
+        <span class="tag" style="background:${tcol}">${tname}</span>
+        <span class="tag" style="background:#1c222c">${esc(t.type)}</span>
+        <select class="status ${t.status}" data-id="${esc(t.id)}">
+          ${Object.keys(STATUS).map(k=>`<option value="${k}" ${k===t.status?'selected':''}>${STATUS[k]}</option>`).join('')}
+        </select>
+      </div>
+      <div class="tr-grid">
+        <div><span class="k">예상 시점</span>${esc(t.when)||'-'}</div>
+        <div><span class="k">관련 종목</span>${esc(t.tickers)||'-'}</div>
+        <div><span class="k">선행 신호</span>${esc(t.signal)||'-'}</div>
+        <div><span class="k">확인 방법</span>${esc(t.confirm)||'-'}</div>
+      </div>
+      ${t.note?`<div class="tr-note">${esc(t.note)}</div>`:''}
+      <div class="tr-foot">
+        <span>${esc(t.added||'')}</span>
+        ${t.link?`<a href="${esc(t.link)}" target="_blank">확인 소스 ↗</a>`:''}
+        ${user?`<button class="del" data-id="${esc(t.id)}">삭제</button>`:''}
+      </div>`;
+    list.appendChild(el);
+  });
+  document.getElementById('shown').textContent=shown;
+  document.getElementById('total').textContent=items.length;
+  document.getElementById('empty').style.display=shown?'none':'block';
+}
+
+/* 상태 변경: 사용자 항목은 저장, 기본 항목은 override로 저장 */
+const OV='trigger-status-override-v1';
+function loadOv(){ try{ return JSON.parse(localStorage.getItem(OV)||'{}'); }catch(e){ return {}; } }
+(function applyOv(){ const o=loadOv(); SEED.forEach(s=>{ if(o[s.id]) s.status=o[s.id]; }); })();
+
+document.getElementById('list').addEventListener('change',e=>{
+  if(!e.target.matches('select.status')) return;
+  const id=e.target.dataset.id, v=e.target.value;
+  if(id.startsWith('s-')){ const o=loadOv(); o[id]=v; try{localStorage.setItem(OV,JSON.stringify(o));}catch(_){ } const s=SEED.find(x=>x.id===id); if(s) s.status=v; }
+  else { const u=loadUser(); const t=u.find(x=>x.id===id); if(t){ t.status=v; saveUser(u);} }
+  render();
+});
+document.getElementById('list').addEventListener('click',e=>{
+  if(!e.target.matches('.del')) return;
+  const u=loadUser().filter(x=>x.id!==e.target.dataset.id); saveUser(u); render();
+});
+
+['q','fTheme','fType','fStatus'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+
+/* 추가 폼 */
+const form=document.getElementById('form');
+document.getElementById('addBtn').onclick=()=>{ form.classList.toggle('open'); document.getElementById('nTitle').focus(); };
+document.getElementById('cancelBtn').onclick=()=>form.classList.remove('open');
+document.getElementById('saveBtn').onclick=()=>{
+  const g=id=>document.getElementById(id).value.trim();
+  if(!g('nTitle')) { alert('제목을 입력하세요.'); return; }
+  const u=loadUser();
+  u.unshift({id:'u-'+Date.now(),theme:g('nTheme'),type:g('nType'),status:g('nStatus'),title:g('nTitle'),when:g('nWhen'),
+    tickers:g('nTickers'),link:g('nLink'),signal:g('nSignal'),confirm:g('nConfirm'),note:g('nNote'),added:new Date().toISOString().slice(0,10)});
+  saveUser(u);
+  ['nTitle','nWhen','nTickers','nLink','nSignal','nConfirm','nNote'].forEach(id=>document.getElementById(id).value='');
+  form.classList.remove('open'); render();
+};
+
+/* 내보내기: 사용자 항목 JSON 다운로드 (SEED에 옮겨 붙이기 용) */
+document.getElementById('exportBtn').onclick=()=>{
+  const blob=new Blob([JSON.stringify(loadUser(),null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='triggers-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+};
+
+/* 체크리스트 */
+const CK='trigger-check-v1';
+(function(){ let s={}; try{s=JSON.parse(localStorage.getItem(CK)||'{}');}catch(e){}
+  document.querySelectorAll('#checklist input').forEach(c=>{ c.checked=!!s[c.dataset.k];
+    c.onchange=()=>{ s[c.dataset.k]=c.checked; try{localStorage.setItem(CK,JSON.stringify(s));}catch(e){} }; }); })();
+
+/* 메모 */
+(function(){ const m=document.getElementById('memo'), st=document.getElementById('memoStatus'); const K='trigger-memo-v1';
+  try{ m.value=localStorage.getItem(K)||''; if(m.value){st.textContent='저장됨';st.classList.add('saved');} }catch(e){}
+  let t; m.addEventListener('input',()=>{ clearTimeout(t); st.textContent='저장 중…'; st.classList.remove('saved');
+    t=setTimeout(()=>{ try{localStorage.setItem(K,m.value);}catch(e){} st.textContent='저장됨 '+new Date().toLocaleTimeString(); st.classList.add('saved'); },400); }); })();
+
+render();
+</script>
+</body>
+</html>
