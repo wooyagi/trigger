@@ -380,6 +380,16 @@
           "note": "서한 원문은 비공개, 2차 보도만 존재. 분사 직후 2주 만의 가격 인상 통보"
         },
         {
+          "date": "2025-05-20",
+          "tier": 0,
+          "who": "TrendForce (Commercial Times 인용)",
+          "quote": "상위 5개 NAND사 상반기 10~15% 감산. 1분기 가격 -15~20% 후 2분기 3~8% 반등 전망 — 공급 규율의 시작",
+          "quote_en": "The top five NAND Flash makers have all launched production cuts of 10% to 15% in the first half of 2025.",
+          "source": "https://www.trendforce.com/news/2025/05/20/news-top-five-nand-manufacturers-reportedly-cut-production-by-10-15-fueling-q2-price-rebound/",
+          "verified": true,
+          "note": "1/22 TrendForce가 감산 재개를 먼저 보도(%는 없음)"
+        },
+        {
           "date": "2025-06-25",
           "tier": 1,
           "who": "Micron Sanjay Mehrotra CEO, FQ3'25 어닝콜",
@@ -400,6 +410,16 @@
           "note": ""
         },
         {
+          "date": "2025-07-23",
+          "tier": 0,
+          "who": "Alphabet 2Q25 어닝콜, 순다르 피차이",
+          "quote": "월 처리 토큰 480조(5월) → 980조 이상. 추론 수요의 크기를 보여준 수요측 쇼크",
+          "quote_en": "At I/O in May, we announced that we processed 480 trillion monthly tokens across our surfaces. Since then we have doubled that number, now processing over 980 trillion monthly tokens.",
+          "source": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2025/",
+          "verified": true,
+          "note": ""
+        },
+        {
           "date": "2025-08-14",
           "tier": 1,
           "who": "SanDisk David Goeckeler CEO, FQ4'25 어닝콜",
@@ -408,6 +428,26 @@
           "source": "https://www.sec.gov/Archives/edgar/data/2023554/000119312525180782/d926236dex991.htm",
           "quote_en": "In the fiscal fourth quarter, we also began implementing price increases. Several of our products are on allocation, and we expect mid single digit undersupply for the fiscal 2026, supporting further price increases. … demand exceeded supply, which we anticipate to continue through calendar year 2026.",
           "note": "초안 날짜 8/6은 오류 → 8/14(8-K 기준)"
+        },
+        {
+          "date": "2025-09-04",
+          "tier": 1,
+          "who": "SanDisk 고객 공지 (DIGITIMES 9/5 단독)",
+          "quote": "전 채널·소비자 제품 10% 인상, 9/5 이후 신규 주문부터 적용. AI·데이터센터·모바일 수요 이유",
+          "quote_en": "SanDisk notified customers of a 10% price increase across all channels and consumer products, applying to new orders placed after September 5, 2025.",
+          "source": "https://www.digitimes.com/news/a20250905PD216/sandisk-nand-flash-price-increase-demand.html",
+          "verified": true,
+          "note": "TrendForce 9/10·9/17 보도는 집계. '2026년까지 부족'은 9/10 골드만 컨퍼런스 발언"
+        },
+        {
+          "date": "2025-09-15",
+          "tier": 2,
+          "who": "TrendForce 보도자료",
+          "quote": "추론 AI 수요로 니어라인 HDD 리드타임이 수 주에서 52주 이상으로 급증. 인접 스토리지(HDD)로 병목 전이 확인",
+          "quote_en": "Lead times for nearline HDDs have ballooned from just a few weeks to over 52 weeks.",
+          "source": "https://www.trendforce.com/presscenter/news/20250915-12714.html",
+          "verified": true,
+          "note": "아센브레너가 같은 분기 STX·WDC 스타터 매수"
         },
         {
           "date": "2025-09-23",
@@ -438,9 +478,29 @@
           "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F",
           "verified": true,
           "note": "EDGAR XML 정보표에서 직접 확인. 2025-03-31, 06-30 보고서에는 SNDK 없음"
+        },
+        {
+          "date": "2026-01-05",
+          "tier": 2,
+          "who": "NVIDIA Jensen Huang, CES 2026 애널리스트 미팅",
+          "quote": "스토리지는 완전히 미충족(unserved) 시장. AI의 작업 기억(KV 캐시)을 담는 세계 최대 스토리지 시장이 될 것. SNDK 다음 날 +27.5%($349.63)",
+          "quote_en": "For storage, that is a completely unserved market today. … this market will likely be the largest storage market in the world, basically holding the working memory of the world's AIs.",
+          "source": "https://sherwood.news/markets/data-storage-stocks-surge-as-nvidia-ceo-calls-the-market-completely-unserved/",
+          "verified": true,
+          "note": "고객측(플랫폼) CEO의 확인 = 교과서적 T2"
+        },
+        {
+          "date": "2026-08-04",
+          "tier": 3,
+          "who": "Elon Musk, SpaceX 2Q26 어닝콜",
+          "quote": "지금의 제약 요인은 메모리. 메모리 공급은 연 20% 느는데 수요는 200%. 이미 15배 오른 뒤의 T3",
+          "quote_en": "Limiting factor currently is memory.",
+          "source": "https://en.sedaily.com/technology/2026/08/08/musk-says-memory-is-biggest-constraint-as-terafab-advances",
+          "verified": true,
+          "note": "7월 -47% 직후. 모두가 말하는 시점 = 새로 늘리지 않는 구간"
         }
       ],
-      "lesson": "3/7 가격 인상 서한(사전 신호) → 6/25 마이크론 '캐파 10% 축소·공급 규율'(가격은 아직 하락) → 8/14 샌디스크 T1('allocation', 'undersupply') → 9/23 마이크론·9/25 TrendForce T2. 아센브레너는 T1~T2 사이(3분기)에 탐색 규모로 진입, T2 확인 후 9배 증액. 공급 투자가 수년간 부진했던 산업에 새 수요가 붙으면 병목이 가장 오래 간다."
+      "lesson": "3/7 가격 인상 서한(사전 신호) → 6/25 마이크론 '캐파 10% 축소·공급 규율'(가격은 아직 하락) → 8/14 샌디스크 T1('allocation', 'undersupply') → 9/23 마이크론·9/25 TrendForce T2. 아센브레너는 T1~T2 사이(3분기)에 탐색 규모로 진입, T2 확인 후 9배 증액. 공급 투자가 수년간 부진했던 산업에 새 수요가 붙으면 병목이 가장 오래 간다. T0 신호(감산·토큰 980조·HDD 납기 52주)는 모두 공개 자료였고, T2(젠슨 황 1/5)까지 6.5배, T3(머스크 8/4)는 15배 오른 뒤였다. 아센브레너의 7월 -67%는 논지가 아니라 레버리지·집중의 실패."
     }
   ],
   "candidates": [

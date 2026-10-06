@@ -1,0 +1,796 @@
+{
+  "note": "공개 자료로 재구성. 검증일 2026-10-06.",
+  "people": [
+    {
+      "id": "aschenbrenner",
+      "name": "레오폴드 아센브레너 (Leopold Aschenbrenner)",
+      "org": "Situational Awareness LP (2024-07 설립, CIK 2045724)",
+      "role": "창업자·CIO. 전 OpenAI 수퍼얼라인먼트 팀. 2024-06 에세이 'Situational Awareness: The Decade Ahead'",
+      "verified": true,
+      "summary": "'AI 베타'를 순서대로 산다: NVIDIA(1차) → TSMC·패키징 → 메모리·스토리지·전력(2차) → 하이퍼스케일러(3차). 13F로 본 궤적은 2024-4Q 전력·냉각 → 2025 상반기 인텔콜·브로드컴·가스 → 2025 하반기 네오클라우드·블룸에너지 + 샌디스크·HDD 스타터 → 2026 상반기 메모리(SNDK·MU) 56% 집중. 항상 NVDA·SMH 풋으로 '명백한 종목'을 헤지. 2026-07 최대 400% 레버리지·집중·크라우딩으로 -67%, 마진콜, 블록매각. 샌디스크 매수 이유를 본인이 직접 설명한 적은 없음(재구성).",
+      "method": [
+        {
+          "principle": "AI 베타가 생기는 순간에만 산다 — 순서가 전부",
+          "quote_en": "The only place to find the AI beta, basically was Nvidia for a while. Now it's broadening. Now TSMC is like 20% AI by 2027 … There's a whole stack. There's people making memory and coops and power. Utilities companies are starting to get excited about AI … I don't really care about them before then. I care about it once you get the AI beta.",
+          "detail": "'그 기업 매출에서 AI 비중이 의미 있게 커지는 시점'이 트리거. 그 전에는 관심 없음.",
+          "source": "https://www.dwarkesh.com/p/leopold-aschenbrenner"
+        },
+        {
+          "principle": "타이밍과 베팅 순서를 과소평가하지 말 것",
+          "quote_en": "You have to get the timing right. The sequence of bets on the way to AGI is actually pretty critical. People underrate it. Where does the story start? Obviously, the only bet over the last year was Nvidia. It's obvious now, very few people did it.",
+          "detail": "",
+          "source": "https://www.dwarkesh.com/p/leopold-aschenbrenner"
+        },
+        {
+          "principle": "컴퓨트 CapEx는 2년마다 10배 → 물리적 건설이 트레이드",
+          "quote_en": "Training cluster cost: 2022 ~$500M; 2026 $10s of billions; 2028 $100s of billions; 2030 $1T+. Total AI investment could be north of $1T annually by 2027.",
+          "detail": "에세이 'Racing to the Trillion-Dollar Cluster' 장. 수요 쇼크의 크기를 먼저 추정한 뒤 어느 공급망이 그 속도를 못 따라가는지 찾는다.",
+          "source": "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/"
+        },
+        {
+          "principle": "전력이 구속 조건 → 유틸리티·가스·온사이트 발전",
+          "quote_en": "Power has become the binding constraint … Total US electricity generation has barely grown 5% in the last decade. There simply isn't much spare capacity, and power contracts are usually long-term locked-in.",
+          "detail": "첫 13F(2024-12)가 VST·VRT·TLN·CEG·MRVL였던 이유. 에세이의 '병목' 장이 곧 포트폴리오.",
+          "source": "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/"
+        },
+        {
+          "principle": "칩 공급망은 역사보다 2배 빨리 늘어야 한다 → 팹·패키징·메모리",
+          "quote_en": "Global production of AI chips is still a pretty small percent of TSMC-leading-edge production, likely less than 10% … they'd likely need to go ~at least twice as fast.",
+          "detail": "",
+          "source": "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/"
+        },
+        {
+          "principle": "정보 우위 = 산업 지식(situational awareness), 헤지펀드 안의 싱크탱크",
+          "quote_en": "This investment firm will be kind of like a brain trust on AI … We're going to have way more situational awareness than any of the people who manage money in New York.",
+          "detail": "",
+          "source": "https://www.dwarkesh.com/p/leopold-aschenbrenner"
+        },
+        {
+          "principle": "롱: 물리적 빌드아웃 / 숏: AI에 잠식될 소프트웨어 + '명백한 종목' 풋",
+          "quote_en": "Accumulating stakes in businesses that stood to benefit from AI's physical buildout — memory chipmakers, data center operators, and power providers — while simultaneously shorting software companies.",
+          "detail": "2026-1Q 13F: 풋 명목 $8.5B(SMH·NVDA·ORCL·AVGO·AMD·TSM·ASML·MU) > 주식 $3.9B. 롱은 2차 병목에 집중.",
+          "source": "https://qz.com/situational-awareness-13f-micron-sandisk-july-collapse-081826"
+        },
+        {
+          "principle": "스타터 → 확인 → 집중: 0.3%에서 28%까지",
+          "quote_en": "",
+          "detail": "2025-3Q에 SNDK 0.31%·WDC 0.44%·STX 0.28%를 동시에 스타터로 매수(8/14 샌디스크 콜 이후). 4Q에 HDD 2종은 정리, SNDK만 9배 증액(4.5%). 2026-1Q 18.8%(주식 기준)+콜옵션, 2Q 28.0%로 1위. 13F 주식수에서 도출.",
+          "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F"
+        },
+        {
+          "principle": "'터지지 않는 것이 1번과 2번 과제' — 본인이 말하고 본인이 어김",
+          "quote_en": "Obviously, not blowing up is task number one and two. … you have to be able to resist one or a couple or a few individual calls.",
+          "detail": "2026-07: 최대 400% 레버리지 + SNDK·MU 56% 집중 + 소프트웨어 숏 양방향 손실 → -67%, 마진콜(BofA·GS·JPM), Citadel에 약 10% 할인 블록매각, AUM $45B→~$10B.",
+          "source": "https://www.cnbc.com/2026/07/30/leopold-aschenbrenners-hedge-fund-is-facing-steep-ai-losses.html"
+        },
+        {
+          "principle": "사후 분석: 레버리지 + 크라우딩 = 뱅크런. 레버리지는 걷어내고 논지는 유지",
+          "quote_en": "We let you down this month. We came closer to permanent capital impairment than is acceptable to us. … [we executed] a block transaction to remove all leverage … underlying fundamentals are accelerating at the very same time that prices have declined significantly.",
+          "detail": "2026-07-30 투자자 서한(WSJ·Reuters 보도). 8월에 $400M 프라이빗 베팅, 9월 옵션 매수 재개(CNBC).",
+          "source": "https://www.investing.com/news/stock-market-news/situational-awareness-portfolio-sinks-67-in-july-on-ai-stock-rout-letter-shows-4828944"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2024-06-04",
+          "event": "에세이 'Situational Awareness' 공개 + Dwarkesh 인터뷰. Collison 형제·Nat Friedman·Daniel Gross 후원으로 AGI 투자사 설립 발표",
+          "source": "https://www.dwarkesh.com/p/leopold-aschenbrenner"
+        },
+        {
+          "date": "2024-12-31",
+          "event": "첫 13F $255M, 6종목: MRVL 34%, VST 23%, VRT 20%, TLN 11%, CEG 8%, MOD 3% — 전력·냉각·네트워킹, NVDA 없음",
+          "source": "https://www.sec.gov/Archives/edgar/data/2045724/000093583625000120/infotable.xml"
+        },
+        {
+          "date": "2025-03-31",
+          "event": "$1.0B. INTC 콜 46%, AVGO 12%, ONTO·VST·MOD·EQT(가스)·CRWV·CEG·CORZ·TLN·APLD·IREN 추가",
+          "source": "https://www.sec.gov/Archives/edgar/data/2045724/000204572425000002/SALP13fq1.xml"
+        },
+        {
+          "date": "2025-06-30",
+          "event": "$2.1B. SMH 풋 27%(헤지), INTC 콜 21%, AVGO 15%, VST 12%. WSJ: 상반기 +47%",
+          "source": "https://www.sec.gov/Archives/edgar/data/2045724/000204572425000006/Salpform13fq2.xml"
+        },
+        {
+          "date": "2025-09-30",
+          "event": "$4.1B. 네오클라우드·채굴장 전환 DC(CRWV·CORZ·IREN·APLD·CIFR·RIOT)로 피벗. SNDK·WDC·STX·BE·LITE 스타터 첫 등장. NVDA·SMH·AVGO·TSM·MU 풋",
+          "source": "https://www.sec.gov/Archives/edgar/data/2045724/000204572425000008/SALP13FinfotableQ3.xml"
+        },
+        {
+          "date": "2025-10-08",
+          "event": "Fortune(WSJ 인용): AUM $1.5B+, 2025 상반기 +47%(S&P ~6%)",
+          "source": "https://fortune.com/2025/10/08/leopold-aschenbrenner-openai-ftx-1-5-billion-hedge-fund-situational-awareness/"
+        },
+        {
+          "date": "2025-12-31",
+          "event": "$5.5B. BE 1위 15.9%, LITE 8.7%, SNDK 4.5%(9배 증액). STX·WDC 매도",
+          "source": "https://www.sec.gov/Archives/edgar/data/2045724/000204572426000002/SALP_13FQ425.xml"
+        },
+        {
+          "date": "2026-03-31",
+          "event": "$13.7B. 풋 명목 $8.5B vs 주식 $3.9B. SNDK 주식 18.8%(주식 기준) + SNDK 콜 신규. MU는 콜+풋 양방향",
+          "source": "https://www.sec.gov/Archives/edgar/data/2045724/000204572426000008/salp13fq1xml.xml"
+        },
+        {
+          "date": "2026-06-30",
+          "event": "$20.2B, 옵션 거의 소멸. SNDK 28.0%, MU 27.5%, BE 9.4%, TSM 6.3%, NBIS 6.1% — 메모리 56%",
+          "source": "https://www.sec.gov/Archives/edgar/data/2045724/000093583626000418/form13fInfoTable.xml"
+        },
+        {
+          "date": "2026-07-24",
+          "event": "투자자 서한(FT): 2026 상반기 +439%, AUM $20B+, 자금 모집",
+          "source": "https://www.disruptionbanking.com/2026/07/30/can-the-situational-awareness-hedge-fund-raise-capital-after-its-439-h1-gain/"
+        },
+        {
+          "date": "2026-07-30",
+          "event": "CNBC·Bloomberg·WSJ: 마진콜, 최대 400% 레버리지, Citadel에 공개 포트 대부분 ~10% 할인 매각, AUM $45B→~$10B",
+          "source": "https://www.cnbc.com/2026/07/30/leopold-aschenbrenners-hedge-fund-is-facing-steep-ai-losses.html"
+        },
+        {
+          "date": "2026-07-31",
+          "event": "Reuters: 7월 -67%, YTD +80%. 'We let you down this month'",
+          "source": "https://www.investing.com/news/stock-market-news/situational-awareness-portfolio-sinks-67-in-july-on-ai-stock-rout-letter-shows-4828944"
+        },
+        {
+          "date": "2026-08-05",
+          "event": "샌디스크 FQ4'26 콜: NBM 계약 최소 매출 $93.9B(바닥가 기준), 보증 $16.5B. Bloomberg: SA $400M 프라이빗 베팅",
+          "source": "https://www.fool.com/earnings/call-transcripts/2026/08/12/sandisk-sndk-q4-2026-earnings-call-transcript/"
+        },
+        {
+          "date": "2026-08-21",
+          "event": "Citadel, 인수한 SA 포트 80% 이상 청산(100건+ 블록, $4B+)",
+          "source": "https://www.cnbc.com/2026/08/21/citadel-situational-awareness-ken-griffin.html"
+        },
+        {
+          "date": "2026-09-11",
+          "event": "CNBC: SA 옵션 매수 재개(AMD·BE·CRWV)",
+          "source": "https://www.cnbc.com/2026/09/11/leopold-aschenbrenners-situational-awareness-is-active-in-options-market-sources-say.html"
+        }
+      ],
+      "holdings": [
+        {
+          "period": "2024-12",
+          "top": [
+            {
+              "ticker": "MRVL",
+              "pct": 34
+            },
+            {
+              "ticker": "VST",
+              "pct": 23
+            },
+            {
+              "ticker": "VRT",
+              "pct": 20
+            },
+            {
+              "ticker": "TLN",
+              "pct": 11
+            },
+            {
+              "ticker": "CEG",
+              "pct": 8
+            },
+            {
+              "ticker": "MOD",
+              "pct": 3
+            }
+          ]
+        },
+        {
+          "period": "2025-06",
+          "top": [
+            {
+              "ticker": "SMH풋",
+              "pct": 27
+            },
+            {
+              "ticker": "INTC콜",
+              "pct": 21
+            },
+            {
+              "ticker": "AVGO",
+              "pct": 15
+            },
+            {
+              "ticker": "VST",
+              "pct": 12
+            }
+          ]
+        },
+        {
+          "period": "2025-09",
+          "top": [
+            {
+              "ticker": "INTC콜",
+              "pct": 16.4
+            },
+            {
+              "ticker": "CRWV",
+              "pct": 13.6
+            },
+            {
+              "ticker": "CORZ",
+              "pct": 8.8
+            },
+            {
+              "ticker": "IREN",
+              "pct": 8.2
+            },
+            {
+              "ticker": "CRWV콜",
+              "pct": 7.7
+            },
+            {
+              "ticker": "NVDA풋",
+              "pct": 7.2
+            },
+            {
+              "ticker": "VST",
+              "pct": 6.1
+            },
+            {
+              "ticker": "SMH풋",
+              "pct": 4.7
+            },
+            {
+              "ticker": "APLD",
+              "pct": 3.4
+            },
+            {
+              "ticker": "BE",
+              "pct": 1.1
+            },
+            {
+              "ticker": "WDC",
+              "pct": 0.4
+            },
+            {
+              "ticker": "SNDK",
+              "pct": 0.3
+            },
+            {
+              "ticker": "STX",
+              "pct": 0.3
+            }
+          ]
+        },
+        {
+          "period": "2025-12",
+          "top": [
+            {
+              "ticker": "BE",
+              "pct": 15.9
+            },
+            {
+              "ticker": "CRWV콜",
+              "pct": 14.0
+            },
+            {
+              "ticker": "INTC콜",
+              "pct": 13.5
+            },
+            {
+              "ticker": "LITE",
+              "pct": 8.7
+            },
+            {
+              "ticker": "CRWV",
+              "pct": 7.9
+            },
+            {
+              "ticker": "CORZ",
+              "pct": 7.6
+            },
+            {
+              "ticker": "IREN",
+              "pct": 6.0
+            },
+            {
+              "ticker": "APLD",
+              "pct": 5.0
+            },
+            {
+              "ticker": "SNDK",
+              "pct": 4.5
+            },
+            {
+              "ticker": "CIFR",
+              "pct": 2.8
+            },
+            {
+              "ticker": "EQT",
+              "pct": 2.4
+            }
+          ]
+        },
+        {
+          "period": "2026-03",
+          "top": [
+            {
+              "ticker": "SMH풋",
+              "pct": 14.9
+            },
+            {
+              "ticker": "NVDA풋",
+              "pct": 11.5
+            },
+            {
+              "ticker": "ORCL풋",
+              "pct": 7.8
+            },
+            {
+              "ticker": "AVGO풋",
+              "pct": 7.4
+            },
+            {
+              "ticker": "AMD풋",
+              "pct": 7.1
+            },
+            {
+              "ticker": "BE",
+              "pct": 6.4
+            },
+            {
+              "ticker": "SNDK",
+              "pct": 5.3
+            },
+            {
+              "ticker": "MU풋",
+              "pct": 4.3
+            },
+            {
+              "ticker": "CRWV",
+              "pct": 4.1
+            },
+            {
+              "ticker": "TSM풋",
+              "pct": 3.9
+            },
+            {
+              "ticker": "ASML풋",
+              "pct": 3.6
+            },
+            {
+              "ticker": "MU콜",
+              "pct": 3.1
+            },
+            {
+              "ticker": "IREN",
+              "pct": 2.9
+            },
+            {
+              "ticker": "CORZ",
+              "pct": 2.8
+            },
+            {
+              "ticker": "SNDK콜",
+              "pct": 2.8
+            },
+            {
+              "ticker": "TSM콜",
+              "pct": 2.6
+            },
+            {
+              "ticker": "APLD",
+              "pct": 2.3
+            }
+          ]
+        },
+        {
+          "period": "2026-06",
+          "top": [
+            {
+              "ticker": "SNDK",
+              "pct": 28.0
+            },
+            {
+              "ticker": "MU",
+              "pct": 27.5
+            },
+            {
+              "ticker": "BE",
+              "pct": 9.4
+            },
+            {
+              "ticker": "TSM",
+              "pct": 6.3
+            },
+            {
+              "ticker": "NBIS",
+              "pct": 6.1
+            },
+            {
+              "ticker": "CRWV",
+              "pct": 3.7
+            },
+            {
+              "ticker": "CORZ",
+              "pct": 3.3
+            },
+            {
+              "ticker": "STM",
+              "pct": 2.9
+            },
+            {
+              "ticker": "APLD",
+              "pct": 2.3
+            },
+            {
+              "ticker": "RIOT",
+              "pct": 2.3
+            },
+            {
+              "ticker": "SHAZ",
+              "pct": 2.3
+            },
+            {
+              "ticker": "IREN",
+              "pct": 2.1
+            }
+          ]
+        }
+      ],
+      "holdingsNote": "Situational Awareness LP 13F(CIK 2045724). % = 보고 총액(풋·콜 명목 포함) 대비. 13F는 미국 롱 주식·옵션만 보여주며 공매도·해외주식·프라이빗은 미포함. EDGAR XML에서 직접 계산.",
+      "lessons": [
+        "트리거 = '다음 병목'. 1차(NVDA)는 놓쳐도 2차(TSMC·메모리·전력)를 잡는다는 이 데스크의 목표와 정확히 같은 사고. 그는 '그 기업 매출의 AI 비중이 커지는 순간'을 진입 조건으로 삼았다.",
+        "에세이의 병목 장(전력·팹·칩)이 1년 뒤 포트폴리오가 됐다. 먼저 수요 쇼크의 크기(2년마다 10배)를 적고, 그 속도를 못 따라갈 공급망을 고른다.",
+        "새 아이디어는 0.3~0.5% 스타터로 한 묶음(SNDK·WDC·STX)을 사고, 다음 분기 확인(9/23 마이크론·9/25 TrendForce)이 붙으면 살릴 것만 9배 키운다. HDD는 한 분기 만에 버렸다.",
+        "'명백한 종목'(NVDA·SMH)에는 풋을 들고 2차 병목에 롱을 집중했다. 롱만 있는 개인에게는 '컨센서스 종목을 안 사는 것'이 그 대체물.",
+        "계약 구조로 2차 확인: 샌디스크 NBM(바닥가 최소 $93.9B, 보증금 $16.5B, 평균 4년+)은 '수요가 계약으로 잠겼다'는 증거. 단, 이 수치는 실적 콜 발언이지 10-K의 '구매확약' 항목이 아니다.",
+        "논지가 맞아도 레버리지·집중·크라우딩이 틀리면 진다. 2026-07 SNDK -47%·MU -29%는 펀더멘털이 아니라 포지션이 알려진 뒤의 '뱅크런'. 개인은 레버리지 없이 포지션 크기로만 확신을 표현해야 한다.",
+        "13F 해석 주의: 비중은 옵션 명목 포함 여부에 따라 3배 차이(2026-1Q SNDK 5.3% vs 주식만 18.8%)."
+      ],
+      "sources": [
+        "https://situational-awareness.ai/",
+        "https://www.dwarkesh.com/p/leopold-aschenbrenner",
+        "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F"
+      ]
+    },
+    {
+      "id": "meng",
+      "name": "수 맹 (Sue Meng)",
+      "org": "Duquesne Family Office (스탠리 드러켄밀러 패밀리 오피스)",
+      "role": "파트너·매니징 디렉터 — 프라이빗(비상장) 투자 총괄 겸 법무총괄(GC). 전 Debevoise & Plimpton M&A 파트너, 하버드·옥스퍼드(로즈 장학생)·예일 로스쿨",
+      "verified": true,
+      "summary": "중요: 공개 자료 어디에도 수 맹이 CPO(코패키지드 옵틱스)·광 트랜시버·EML에 대해 발언한 기록이 없다(팟캐스트·컨퍼런스·Substack·X 전부 검색). 그녀의 유일한 공개 투자 발언은 2026-03 EE Times 인터뷰로, '전력 수급 불균형이 AI의 병목'이며 그 해법으로 빛으로 연산하는 광 컴퓨팅(Q.ANT, TFLN 기판)에 투자했다는 내용이다. Duquesne 13F의 Coherent·Lumentum 등 상장 광학주는 드러켄밀러의 공개시장 운용이며 수 맹에게 귀속할 근거가 없다. 'CPO 통찰'의 출처를 사용자가 알고 있다면 추가 필요.",
+      "method": [
+        {
+          "principle": "물리적 제약(전력)에서 출발한다",
+          "quote_en": "The imbalance between data center electricity demand and available energy supply is an extraordinary constraint on progress, and it's only getting worse.",
+          "detail": "제품이 아니라 '무엇이 모자라는가'에서 시작. (EE Times가 전한 발언)",
+          "source": "https://www.eetimes.com/q-ant-hits-full-production-capacity-for-photonic-ai-processors/"
+        },
+        {
+          "principle": "점진적 개선이 아니라 패러다임 교체에 베팅",
+          "quote_en": "Rather than tweaking the existing paradigm, they compute natively with light instead of electricity—a fundamentally different approach that delivers dramatic efficiency gains.",
+          "detail": "",
+          "source": "https://www.eetimes.com/q-ant-hits-full-production-capacity-for-photonic-ai-processors/"
+        },
+        {
+          "principle": "기존 칩이 구조적으로 비효율적인 워크로드를 특정",
+          "quote_en": "Real-world AI applications—image and video processing, physics simulations, sensor fusion—involve analog, non-linear signal processing workloads where today's GPUs and ASICs are genuinely inefficient.",
+          "detail": "수요 쪽에서 '어디에 쓰이는가'를 좁힌다.",
+          "source": "https://www.eetimes.com/q-ant-hits-full-production-capacity-for-photonic-ai-processors/"
+        },
+        {
+          "principle": "해자 = 남들과 다른 소재·공정 선택 + 수년의 축적",
+          "quote_en": "Q.ANT made an early and contrarian bet on TFLN—a materially superior substrate that took years of hard-won process expertise to master. Competitors who chose different materials now face the prospect of effectively starting over.",
+          "detail": "병목 공급사를 고를 때 '따라 만들기까지 몇 년 걸리나'를 본다.",
+          "source": "https://www.eetimes.com/q-ant-hits-full-production-capacity-for-photonic-ai-processors/"
+        },
+        {
+          "principle": "(드러켄밀러, 수 맹 아님) 병목 구간에 집중, 컨센서스가 되면 줄인다",
+          "quote_en": "Looking for opportunities to invest in companies positioned at critical bottlenecks in chips, energy and power infrastructure. … reduced AI-related exposure to 20% of what it was six months ago.",
+          "detail": "KED Global(2026-09-22 방한 인터뷰), Piper Sandler 컨퍼런스(2026-09-10) 보도.",
+          "source": "https://www.kedglobal.com/interview/newsView/ked202609220010"
+        },
+        {
+          "principle": "(드러켄밀러, 13F에서 관찰) 트리거가 신선할 때 빠르게 키우고, 컨센서스가 되면 줄이고, 옵션성으로 소량 재진입 후 빠르게 정리",
+          "quote_en": "",
+          "detail": "Coherent: 2024-1Q 신규 3.5% → 2Q 8.9% → 2024-4Q부터 축소 → 2025-3Q 전량 청산 → 2026-1Q LITE 0.14%·COHR 0.29% 재진입 → 2Q 제거. 직접 발언은 없음, 13F 주식수에서 도출.",
+          "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001536411&type=13F"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2024-05-15",
+          "event": "Duquesne 13F(3/31 기준)에 Coherent 첫 등장 (2,525,070주, $153M, 3.5%). 800G/1.6T 트랜시버 사이클·NVIDIA 2차 공급사 부상 시점",
+          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641124000005/"
+        },
+        {
+          "date": "2024-08-14",
+          "event": "13F(6/30): Coherent 3,589,540주, $260M, 8.9%로 집중 — 한 분기 만에 비중 2.5배",
+          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641124000007/"
+        },
+        {
+          "date": "2024-11-14",
+          "event": "13F(9/30): Coherent 9.0%(정점). 이후 4분기부터 축소",
+          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641124000009/"
+        },
+        {
+          "date": "2025-11-14",
+          "event": "13F(9/30): Coherent·Corning·Broadcom·Entegris 모두 사라짐. TSMC 5.3%",
+          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641125000017/form13f_20250930.xml"
+        },
+        {
+          "date": "2025-10-30",
+          "event": "Duquesne, Q.ANT(광 컴퓨팅, TFLN) 시리즈A 2차 클로징 리드 (총 $80M). 수 맹 자문위원회 옵저버",
+          "source": "https://qant.com/press-releases/duquesne-family-office-invests-in-q-ant-to-drive-sustainable-photonic-ai-infrastructure/"
+        },
+        {
+          "date": "2026-03-19",
+          "event": "EE Times 인터뷰 — 전력 병목, 광 컴퓨팅, TFLN 해자 (수 맹의 유일한 공개 투자 발언)",
+          "source": "https://www.eetimes.com/q-ant-hits-full-production-capacity-for-photonic-ai-processors/"
+        },
+        {
+          "date": "2026-05-15",
+          "event": "13F(3/31): Lumentum 0.14%·Coherent 0.29% 소량 재진입, Broadcom 1.8%, STMicro 2.7%, TSMC 5.0%",
+          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641126000004/form13f_20260331.xml"
+        },
+        {
+          "date": "2026-08-14",
+          "event": "13F(6/30): 광학주 전부 제거. TSMC 5.4%, STMicro 4.5%, AMD·Lam·Entegris 소량 — '제조·소재 병목'으로 이동",
+          "source": "https://www.sec.gov/Archives/edgar/data/1536411/000153641126000006/form13f_20260630.xml"
+        },
+        {
+          "date": "2026-09-10",
+          "event": "드러켄밀러(Piper Sandler): AI 익스포저를 6개월 전의 20%로 축소 (보도)",
+          "source": "https://finance.biggo.com/news/201cff53-f5a5-49b1-a4df-d19ba6921d2e"
+        },
+        {
+          "date": "2026-09-22",
+          "event": "드러켄밀러 방한 — '칩·에너지·전력 인프라의 핵심 병목 기업' 탐색 (KED Global)",
+          "source": "https://www.kedglobal.com/interview/newsView/ked202609220010"
+        }
+      ],
+      "holdings": [
+        {
+          "period": "2024-06",
+          "top": [
+            {
+              "ticker": "COHR",
+              "pct": 8.9
+            }
+          ]
+        },
+        {
+          "period": "2024-09",
+          "top": [
+            {
+              "ticker": "COHR",
+              "pct": 9.0
+            }
+          ]
+        },
+        {
+          "period": "2024-12",
+          "top": [
+            {
+              "ticker": "COHR",
+              "pct": 7.2
+            },
+            {
+              "ticker": "MU",
+              "pct": 0.9
+            },
+            {
+              "ticker": "TSM",
+              "pct": 0.6
+            }
+          ]
+        },
+        {
+          "period": "2025-06",
+          "top": [
+            {
+              "ticker": "TSM",
+              "pct": 4.3
+            },
+            {
+              "ticker": "ENTG",
+              "pct": 3.3
+            },
+            {
+              "ticker": "COHR",
+              "pct": 2.5
+            },
+            {
+              "ticker": "GLW",
+              "pct": 0.8
+            },
+            {
+              "ticker": "AVGO",
+              "pct": 0.6
+            }
+          ]
+        },
+        {
+          "period": "2025-09",
+          "top": [
+            {
+              "ticker": "TSM",
+              "pct": 5.3
+            }
+          ]
+        },
+        {
+          "period": "2026-03",
+          "top": [
+            {
+              "ticker": "TSM",
+              "pct": 5.0
+            },
+            {
+              "ticker": "STM",
+              "pct": 2.7
+            },
+            {
+              "ticker": "AVGO",
+              "pct": 1.8
+            },
+            {
+              "ticker": "JBL",
+              "pct": 0.7
+            },
+            {
+              "ticker": "COHR",
+              "pct": 0.3
+            },
+            {
+              "ticker": "LITE",
+              "pct": 0.1
+            }
+          ]
+        },
+        {
+          "period": "2026-06",
+          "top": [
+            {
+              "ticker": "TSM",
+              "pct": 5.4
+            },
+            {
+              "ticker": "STM",
+              "pct": 4.5
+            },
+            {
+              "ticker": "AMD",
+              "pct": 0.8
+            },
+            {
+              "ticker": "ENTG",
+              "pct": 0.4
+            },
+            {
+              "ticker": "LRCX",
+              "pct": 0.4
+            }
+          ]
+        }
+      ],
+      "holdingsNote": "Duquesne Family Office 13F(CIK 1536411) 중 AI 인프라·광학 관련 종목만 표시(전체 포트 대비 %). 13F는 미국 상장 롱 포지션만 보여줌.",
+      "lessons": [
+        "수 맹의 공개된 사고법은 '전력이라는 물리적 제약 → 패러다임을 바꾸는 기술 → 기존 칩이 못 하는 워크로드 → 따라 만들기 어려운 소재·공정'의 4단계다. CPO가 아니라 광 컴퓨팅에 적용됐다.",
+        "드러켄밀러의 Coherent 궤적은 '트리거 → 1분기 안에 집중 → 컨센서스화되면 축소 → 청산'의 교과서적 패턴. T1~T2 구간에서 키우고 T3에서 줄이는 이 데스크의 규칙과 일치한다.",
+        "인터넷에 떠도는 귀속을 믿지 말 것: 'Coherent 경영진 교체 때문에 팔았다'는 설명은 드러켄밀러가 아니라 Giverny Capital 서한의 내용이다."
+      ],
+      "sources": [
+        "https://pdsoros.org/fellows/sue-meng/",
+        "https://directwomen.org/alum/sue-meng/",
+        "https://www.eetimes.com/q-ant-hits-full-production-capacity-for-photonic-ai-processors/",
+        "https://qant.com/press-releases/duquesne-family-office-invests-in-q-ant-to-drive-sustainable-photonic-ai-infrastructure/"
+      ]
+    }
+  ],
+  "factcheck": [
+    {
+      "claim": "아센브레너 샌디스크 비중: 13F 기준 0.4%(2025-3Q) → 약 13%(2026-1Q, 주식만) → 28%(2026-2Q)",
+      "verdict": "partly",
+      "detail": "EDGAR 원문: 3Q25 0.31%(총액 기준)/0.58%(주식만), 4Q25 4.5%, 1Q26 5.3%(총액)/18.8%(주식만)+콜옵션 2.8%, 2Q26 28.0%(1위). '13%'는 어느 기준으로도 맞지 않음. 0.4%·28%는 근사 일치.",
+      "source": "https://www.sec.gov/Archives/edgar/data/2045724/000204572426000008/salp13fq1xml.xml"
+    },
+    {
+      "claim": "첫 매수 분기에 HDD 두 종목을 함께 샀다",
+      "verdict": "true",
+      "detail": "2025-3Q 13F에 SNDK(0.31%)·WDC(0.44%)·STX(0.28%) 동시 첫 등장. 4Q에 STX·WDC는 사라지고 SNDK만 9배 증액.",
+      "source": "https://www.sec.gov/Archives/edgar/data/2045724/000204572425000008/SALP13FinfotableQ3.xml"
+    },
+    {
+      "claim": "마이크론 27.5%, 2026년 7월 -29%",
+      "verdict": "true",
+      "detail": "2Q26 13F MU 27.54%(2위, SNDK+MU=55.6%). 7월 -29%는 Quartz·Yahoo 보도 기준. 이 저장소 주봉으로는 6/29→7/27 -16%(일봉 미확인).",
+      "source": "https://qz.com/situational-awareness-13f-micron-sandisk-july-collapse-081826"
+    },
+    {
+      "claim": "최대 4배 차입, 7월 펀드 -67% (Fortune 8/2, CNBC 7/7·7/29, Reuters 7/31)",
+      "verdict": "partly",
+      "detail": "내용은 사실: Reuters 7/31 서한 보도 -67%(YTD +80%), CNBC 7/30·7/31 '최대 400% 레버리지', AUM $45B→~$10B, Citadel 블록매각. 다만 Fortune 8/2, CNBC 7/7·7/29 기사는 존재하지 않음(CNBC는 7/30·7/31·8/5·8/21·9/11).",
+      "source": "https://www.cnbc.com/2026/07/31/why-leopold-aschenbrenner-situational-awareness-hedge-fund-imploded.html"
+    },
+    {
+      "claim": "샌디스크 최소 확약 939억 달러",
+      "verdict": "partly",
+      "detail": "실제 수치이나 출처·성격이 다름: 2026-08-05 FQ4'26 콜에서 CFO가 'NBM 10건의 최소 예상 매출 $93.9B(바닥가 기준), 보증 $16.5B'라고 발언. 8-K 보도자료와 10-K에는 이 숫자 없음(10-K는 RPO $59.8B). '구매확약' 공시 항목이 아니라 콜 발언.",
+      "source": "https://www.fool.com/earnings/call-transcripts/2026/08/12/sandisk-sndk-q4-2026-earnings-call-transcript/"
+    },
+    {
+      "claim": "2025 상반기 +47%, AUM $1.5B+",
+      "verdict": "true",
+      "detail": "Fortune 2025-10-08(WSJ 인용). 이후 2026 상반기 +439%(FT 서한), 7월 정점 AUM $45B(CNBC).",
+      "source": "https://fortune.com/2025/10/08/leopold-aschenbrenner-openai-ftx-1-5-billion-hedge-fund-situational-awareness/"
+    },
+    {
+      "claim": "2025.1~5 NAND 5개사 10~15% 감산",
+      "verdict": "true",
+      "detail": "TrendForce 2025-01-22 '2025년 감산 재개'(%는 없음), 2025-05-20(Commercial Times 인용) '상위 5개사 상반기 10~15% 감산, 1Q -15~20% 후 2Q 3~8% 반등 전망'.",
+      "source": "https://www.trendforce.com/news/2025/05/20/news-top-five-nand-manufacturers-reportedly-cut-production-by-10-15-fueling-q2-price-rebound/"
+    },
+    {
+      "claim": "2025.7 구글 월 토큰 980조",
+      "verdict": "true",
+      "detail": "Alphabet 2Q25 콜(2025-07-23) 피차이: 5월 I/O 480조 → 현재 월 980조 토큰 이상.",
+      "source": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2025/"
+    },
+    {
+      "claim": "2025.9.15 니어라인 HDD 납기 52주 이상",
+      "verdict": "true",
+      "detail": "TrendForce 2025-09-15: 추론 수요로 니어라인 HDD 리드타임이 수 주 → 52주 이상.",
+      "source": "https://www.trendforce.com/presscenter/news/20250915-12714.html"
+    },
+    {
+      "claim": "2025.9 샌디스크 10% 인상 + 2026년까지 공급 부족 전망 (9/17)",
+      "verdict": "partly",
+      "detail": "인상 통지는 2025-09-04 고객 공지(DIGITIMES 9/5 단독), 9/5 이후 신규 주문부터 10%. TrendForce 9/10·9/17 보도는 집계일. '2026년까지 부족'은 2025-02 애널리스트데이와 9/10 골드만 컨퍼런스 발언이며 인상 서한과 같은 문서가 아님.",
+      "source": "https://www.digitimes.com/news/a20250905PD216/sandisk-nand-flash-price-increase-demand.html"
+    },
+    {
+      "claim": "2026.1.5 젠슨 황 'AI 작업 기억용 스토리지는 비어 있는 시장', 다음 날 종가 $349.63",
+      "verdict": "true",
+      "detail": "CES 2026-01-05 애널리스트 미팅: 'For storage, that is a completely unserved market today … holding the working memory of the world's AIs.' 표현은 'unserved'. SNDK 1/6 종가 $349.63(+27.5%).",
+      "source": "https://sherwood.news/markets/data-storage-stocks-surge-as-nvidia-ceo-calls-the-market-completely-unserved/"
+    },
+    {
+      "claim": "2026.8.4 머스크 '지금 제약은 메모리'",
+      "verdict": "true",
+      "detail": "SpaceX 2Q26 콜(2026-08-04): 'Limiting factor currently is memory.' 메모리 공급 연 +20% vs 수요 +200%.",
+      "source": "https://en.sedaily.com/technology/2026/08/08/musk-says-memory-is-biggest-constraint-as-terafab-advances"
+    },
+    {
+      "claim": "SNDK 주가: 9월 말 ≈$112 / 12/31 $237 / 6/30 $2,274 / 7월 -47% / 7/31 ≈$1,205 / 9/9 ≈$1,740",
+      "verdict": "partly",
+      "detail": "일봉: 2025-09-30 $112.20 ✓, 12-31 $237.38 ✓, 2026-06-30 $2,273.73 ✓(사상 최고 종가 6/25 $2,335), 7월 -46.6% ✓, 07-31 $1,214.83(≈1,205는 약간 낮음), $1,737.99는 9/8 종가이고 9/9는 $1,764.17(하루 차이). 이 저장소 주봉과도 근사 일치.",
+      "source": "https://www.statmuse.com/money/ask/sndk-stock-price-july-2026"
+    },
+    {
+      "claim": "NAND 계약가 상승률 둔화(분기 70~75% → 10~15%), 공급 완화 2027 하반기",
+      "verdict": "true",
+      "detail": "TrendForce 2026-03-31 2Q26 +70~75%, 2026-07-03 3Q26 +10~15%, 2026-07-21 '2027 하반기 수급 균형 전환'. 단 2026-09-30에 4Q26 전망을 +15~20%로 상향.",
+      "source": "https://www.trendforce.com/presscenter/news/20260721-13148.html"
+    },
+    {
+      "claim": "SK하이닉스: 5/2 곽노정 발언 전일 종가 173,600 / 9/19 152,800(두 단계 하향) / 10/25 201,000 / 2026-06-22 2,919,000",
+      "verdict": "partly",
+      "detail": "173,600은 5/2 당일 종가(전일 4/30은 174,200). 9/19 152,800 ✓(모건스탠리 'Winter Looms' 9/15, OW→UW). 3Q 사상 최대 실적 10/24 발표, 10/25 종가 201,000 ✓. 2026-06-22 2,919,000 ✓(삼성 시총 추월일, 주봉으로는 6/26 2,673,000).",
+      "source": "https://www.kedglobal.com/korean-chipmakers/newsView/ked202606220007"
+    },
+    {
+      "claim": "GE버노바: 9/12 연 70~80기 증설 / 11/20 보도자료 / 2025-12-09 '2028년까지 완판' 종가 $625.30 / 2026.3 $909",
+      "verdict": "partly",
+      "detail": "9/12 '2026년부터 연 70~80기' ✓. 11/20 보도자료는 12/10 행사 예고일 뿐(실질 내용은 12/10). 2025-12-09 인베스터 업데이트: 2028년까지 신규 가스터빈 완판, 2029년 10GW 미만 잔여, 2026년 말까지 2030년분 완판 예상(Utility Dive). 종가 $625.30 ✓. $909.41은 2026-03-24 종가(월말 $872).",
+      "source": "https://www.gevernova.com/sites/default/files/gev_webcast_transcript_12092025.pdf"
+    },
+    {
+      "claim": "마이크론 2018: 5월 투자자의 날 '사이클 완화' / 주가 $60대 초반 / 연말 $30 아래 / FY19 EPS 절반 이하",
+      "verdict": "partly",
+      "detail": "2018-05-21 투자자 행사($10B 자사주) — 메시지 ✓. 주가는 행사일 $55.48, 5/29 $62.6 정점. 연말: 12/24 $29.02로 잠깐 $30 아래였으나 12/31은 $31.73. FY19 GAAP EPS $5.51 vs FY18 $11.51(48%) ✓.",
+      "source": "https://www.fool.com/investing/2018/05/24/why-microns-analyst-day-sent-shares-soaring.aspx"
+    },
+    {
+      "claim": "울프스피드: 2021.11 고점 ≈$140 / 2025-06-30 파산 신청 종가 $0.39 / 부채 64억 달러",
+      "verdict": "partly",
+      "detail": "사상 최고 $142.33(2021-11-15) ✓. 챕터11 2025-06-30, 당일 종가 $0.39 ✓. 부채는 회사 8-K 기준 약 $6.75B(≈64억은 과소).",
+      "source": "https://www.sec.gov/Archives/edgar/data/895419/000119312525153145/d755867dex991.htm"
+    }
+  ]
+}
