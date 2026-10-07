@@ -563,7 +563,336 @@
           "유명 펀드의 집중 보유 종목을 따라 사기. 그 펀드의 마진콜이 내 손실이 된다",
           "13F 비중을 옵션 포함 여부 확인 없이 읽기 (5.3% vs 18.8%)"
         ]
-      }
+      },
+      "docs": [
+        {
+          "title": "IIIa. Racing to the Trillion-Dollar Cluster (Situational Awareness)",
+          "date": "2024-06-04",
+          "url": "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/",
+          "type": "에세이",
+          "summary_ko": "AGI 경쟁은 코드가 아니라 '미국 산업 역량의 총동원' 경쟁이며, AI는 거대 클러스터·발전소·팹을 요구하는 산업 프로세스라고 규정한다. 훈련 클러스터 비용은 2022년 ~5억달러(10MW)에서 2024년 수십억달러(100MW), 2026년 수백억달러(1GW), 2028년 수천억달러(10GW), 2030년 1조달러+(100GW)로 연 0.5 OOM씩 커지고, 총 AI 투자는 2027년 연 1조달러를 넘을 수 있다고 추정한다. 2024년 AI 투자만 1,000억~2,000억달러이며 Nvidia 데이터센터 매출이 분기 250억달러 런레이트에 달하고, 데이터센터 capex의 절반 가까이가 칩 외(부지·건물·냉각·전력)라고 지적한다. 공급 측 최대 제약은 전력으로, 1GW/2026, 10GW/2028 단계에서 이미 전력이 '구속 제약(binding constraint)'이며 미국 발전량은 지난 10년간 5%밖에 안 늘었다. 해법은 풍부한 천연가스(Marcellus/Utica만 일 360억 입방피트)이고, 100GW 클러스터는 현 미국 발전량의 20%를 요구한다. 칩은 전력보다 작은 제약이나 AI 칩이 TSMC 선단공정의 10% 미만이라 TSMC는 확장 속도를 2배 이상 올려야 하고, CoWoS 패키징과 HBM이 이미 핵심 병목이라고 본다. 빅테크의 AI 매출이 2026년 중반 1,000억달러 런레이트에 도달하면 자본 동원이 더 가속될 것이라고 전망한다.",
+          "keyPoints": [
+            {
+              "point_ko": "AI는 산업 프로세스이며 AGI 경쟁은 미국 산업 역량의 동원 경쟁이다.",
+              "quote_en": "The race to AGI won't just play out in code and behind laptops—it'll be a race to mobilize America's industrial might. Unlike anything else we've recently seen come out of Silicon Valley, AI is a massive industrial process: each new model requires a giant new cluster, soon giant new power plants, and eventually giant new chip fabs.",
+              "section": "Intro"
+            },
+            {
+              "point_ko": "클러스터 비용 스케일링 표: 2022 ~5억달러/10MW → 2024 수십억/100MW → 2026 수백억/1GW → 2028 수천억/10GW → 2030 1조달러+/100GW.",
+              "quote_en": "2026: +2 OOMs, ~1M, $10s of billions, ~1 GW ... 2028: +3 OOMs, ~10M, $100s of billions, ~10 GW ... 2030: +4 OOMs, ~100M, $1T+, ~100GW",
+              "section": "Training compute (table)"
+            },
+            {
+              "point_ko": "빅테크 AI 매출 1,000억달러 런레이트(~2026)가 총 AI 투자 연 1조달러+(2027)를 끌어낸다.",
+              "quote_en": "As revenue from AI products grows rapidly—plausibly hitting a $100B annual run rate for companies like Google or Microsoft by ~2026, with powerful but pre-AGI systems—that will motivate ever-greater capital mobilization, and total AI investment could be north of $1T annually by 2027.",
+              "section": "Intro"
+            },
+            {
+              "point_ko": "2024년 AI 투자 1,000억~2,000억달러; Nvidia 데이터센터 매출 분기 250억달러; capex의 절반 가까이가 칩 외(냉각·전력 등)로 흐른다.",
+              "quote_en": "My rough estimate is that 2024 will already feature $100B-$200B of AI investment: Nvidia datacenter revenue will hit a ~$25B/quarter run rate soon, i.e. ~$100B of capex flowing via Nvidia alone. But of course, Nvidia isn't the only player (Google's TPUs are great too!), and close to half of datacenter capex is on things other than the chips (site, building, cooling, power, etc.)",
+              "section": "Overall compute"
+            },
+            {
+              "point_ko": "빅테크 capex 급증: MSFT/GOOG 500억달러+, AWS/META 400억달러+ (2024).",
+              "quote_en": "Big tech has been dramatically ramping their capex numbers: Microsoft and Google will likely do $50B+, AWS and Meta $40B+, in capex this year.",
+              "section": "Overall compute"
+            },
+            {
+              "point_ko": "지출 의지가 아니라 인프라(전력·부지·인허가)가 제약이다. 'Where do I find 10GW?'",
+              "quote_en": "Perhaps the wildest part is that willingness-to-spend doesn't even seem to be the binding constraint at the moment, at least for training clusters. It's finding the infrastructure itself: \"Where do I find 10GW?\" (power for the $100B+, trend 2028 cluster) is a favorite topic of conversation in SF.",
+              "section": "Training compute"
+            },
+            {
+              "point_ko": "전력이 공급 측 최대 제약이며 1GW/2026, 10GW/2028 단계에서 이미 구속 제약; 장기 계약으로 잠겨 있고 원전 신설은 10년 소요.",
+              "quote_en": "Probably the single biggest constraint on the supply-side will be power. Already, at nearer-term scales (1GW/2026 and especially 10GW/2028), power has become the binding constraint: there simply isn't much spare capacity, and power contracts are usually long-term locked-in. And building, say, a new gigawatt-class nuclear power plant takes a decade.",
+              "section": "Power"
+            },
+            {
+              "point_ko": "미국 발전량은 10년간 5% 성장에 그쳤고 유틸리티는 아직 수요를 제대로 반영 못 함; 100GW 클러스터만 미국 발전량의 20%.",
+              "quote_en": "Total US electricity generation has barely grown 5% in the last decade. Utilities are starting to get excited about AI (instead of 2.6% growth over the next 5 years, they now estimate 4.7%!). But they're barely pricing in what's coming. The trillion-dollar, 100GW cluster alone would require ~20% of current US electricity generation in 6 years; together with large inference capacity, demand will be multiples higher.",
+              "section": "Power"
+            },
+            {
+              "point_ko": "해법은 천연가스: Marcellus/Utica 일 360억 입방피트, 미국 가스 생산 10년간 2배 이상, 추세 유지만으로 복수의 1조달러 데이터센터 전력 공급 가능.",
+              "quote_en": "Right now the Marcellus/Utica shale (around Pennsylvania) alone is producing around 36 billion cubic feet a day of gas; that would be enough to generate just under 150GW continuously with generators ... More generally, US natural gas production has more than doubled in a decade; simply continuing that trend could power multiple trillion-dollar datacenters.",
+              "section": "Power"
+            },
+            {
+              "point_ko": "전력 제약은 국가안보 문제이며 반드시 해결된다.",
+              "quote_en": "I'd prefer clean energy too—but this is simply too important for US national security. We will need a new level of determination to make this happen. The power constraint can, must, and will be solved.",
+              "section": "Power"
+            },
+            {
+              "point_ko": "AI 칩은 TSMC 선단공정의 10% 미만; TSMC는 확장 속도를 최소 2배로 올려야 하며 대규모 신규 팹 투자가 필요.",
+              "quote_en": "Global production of AI chips is still a pretty small percent of TSMC-leading-edge production, likely less than 10%. ... TSMC ~doubled in the past 5 years; they'd likely need to go ~at least twice as fast on their pace of expansion to meet AI chip demand. Massive new fab investments would be necessary.",
+              "section": "Chips"
+            },
+            {
+              "point_ko": "CoWoS 패키징과 HBM이 이미 핵심 병목이며 기존 캐파가 적어 AI 스케일링의 주요 제약이 된다.",
+              "quote_en": "Even if raw logic fabs won't be the constraint, chip-on-wafer-on-substrate (CoWoS) advanced packaging (connecting chips to memory, also made by TSMC, Intel, and others) and HBM memory (for which demand is enormous) are already key bottlenecks for the current AI GPU scaleup; these are more specialized to AI, unlike the pure logic chips, so there's less pre-existing capacity. In the near term, these will be the primary constraint on churning out more GPUs, and these will be the huge constraints as AI scales.",
+              "section": "Chips"
+            },
+            {
+              "point_ko": "기가팹 1기 200억달러; 수십 기 필요하고 메모리·패키징·네트워킹 buildout까지 포함하면 1조달러+ capex.",
+              "quote_en": "A new TSMC Gigafab (a technological marvel) costs around $20B in capex and produces 100k wafer-starts a month. For hundreds of millions of AI GPUs a year by the end of the decade, TSMC would need to build dozens of these—as well as a huge buildout for memory, advanced packaging, networking, etc., which will be a major fraction of capex. It could add up to over $1T of capex.",
+              "section": "Chips"
+            }
+          ],
+          "portfolioLink_ko": "'전력이 구속 제약'·'capex의 절반이 칩 외(냉각·전력)'라는 주장은 2024-12 전력·냉각 바스켓(VST/TLN/CEG 발전, VRT 냉각)과 직접 연결된다(추론). 'Marcellus 천연가스가 해법'은 2025 EQT(애팔래치아 최대 가스 생산자) 편입의 논거이며, 'CoWoS·HBM이 핵심 병목'은 MRVL/AVGO(커스텀 ASIC·네트워킹)와 2026 SNDK·MU 56% 메모리 집중의 사상적 뿌리다(추론). 'TSMC가 2배 속도로 팹을 지어야 한다'는 대목은 미국 내 대체 파운드리 수요를 시사하며 2025 INTC 콜 베팅과 맥이 닿는다(추론). 반면 '1조달러 클러스터'가 결국 AI 매출 증명(2026 $100B 런레이트)에 의존한다는 점은 NVDA/SMH 풋 헤지가 겨냥하는 리스크와 일치한다(추론)."
+        },
+        {
+          "title": "Dwarkesh Podcast — 2027 AGI, China/US Race, & The Return of History (투자 섹션)",
+          "date": "2024-06-04",
+          "url": "https://www.dwarkesh.com/p/leopold-aschenbrenner",
+          "type": "인터뷰",
+          "summary_ko": "인터뷰 전반에서 AI를 '산업 프로세스'로 규정하며 2026년 1GW, 2028년 10GW, 2030년 100GW(미국 발전량 20% 이상) 클러스터 경로와, Nvidia 데이터센터 매출이 1년 만에 분기 250억달러로 폭증했음을 언급한다. 전력 문제의 해법으로 서부 텍사스·펜실베이니아 Marcellus 셰일의 천연가스를 제시하고, 클러스터는 반드시 미국 내에 있어야 한다고 강조한다. 마지막 '투자 회사' 섹션에서 Collison 형제·Nat Friedman·Daniel Gross의 앵커 투자로 '헤지펀드 안의 싱크탱크' 같은 AGI 베팅 펀드를 세운다고 밝힌다. 원칙은 '터지지 않는 것(not blowing up)이 1·2순위'이며 개별 콜(데이터 월, 매출 타이밍)이 틀려도 견딜 수 있는 포지셔닝이다. 'AI 베타' 개념을 제시해, 과거엔 Nvidia만 AI 비중이 커 베타가 있었지만 이제 TSMC(2027년 AI 20%), 메모리, 패키징, 전력·유틸리티, 나아가 Google로 베타가 확산된다고 설명하고, 유틸리티의 5% 성장 전망도 과소평가라고 본다. 시퀀스가 중요하며 후반에는 실질금리 급등으로 주식 역풍과 '빅 본드 숏'이 오고, 10% 실질금리 같은 꼬리 리스크에 저렴한 보험을 사두라고 말한다.",
+          "keyPoints": [
+            {
+              "point_ko": "AI는 산업 프로세스; Nvidia 데이터센터 매출이 1년 만에 분기 250억달러로, 빅테크 capex 급등.",
+              "quote_en": "Unlike most things that have recently come out of Silicon Valley, AI is an industrial process. The next model doesn't just require some code. It's building a giant new cluster. It's building giant new power plants. Pretty soon, it's going to involve building giant new fabs. ... Within a year, Nvidia data center revenue has gone from a few billion a quarter to $25 billion a quarter and continues to go up. Big Tech capex is skyrocketing.",
+              "section": "00:01 The trillion-dollar cluster"
+            },
+            {
+              "point_ko": "2030년 100GW·1조달러 클러스터 = 미국 발전량 20% 이상; 미국 전력 생산은 수십 년간 정체.",
+              "quote_en": "By 2030, you get the trillion-dollar cluster using 100 gigawatts, over 20% of US electricity production. That's 100 million H100 equivalents. That's just the training cluster. There are more inference GPUs as well. ... US power production has barely grown for decades. Now we're really in for a ride.",
+              "section": "00:03"
+            },
+            {
+              "point_ko": "지금은 신규 발전 건설이 필요; 10GW는 미국 가스 생산의 몇 %면 가능.",
+              "quote_en": "In practice what it requires, at least right now, is building new power. ... 10 GW is quite doable. It's like a few percent of US natural gas production. ... 100 gigawatts is where it starts getting pretty wild. That's over 20% of US electricity production. It's pretty doable, especially if you're willing to go for natural gas. It is incredibly important that these clusters are in the United States.",
+              "section": "00:41"
+            },
+            {
+              "point_ko": "천연가스 경로: 서부 텍사스·Marcellus 셰일에 클러스터 건설; 가스 생산 한 번 더 2배면 복수의 1조달러 DC 전력 가능.",
+              "quote_en": "One is you just have to be willing to do natural gas. There's ample natural gas. You put your cluster in West Texas. You put it in southwest Pennsylvania by the Marcellus Shale. The 10 GW cluster is super easy. The 100 GW cluster is also pretty doable. I think natural gas production in the United States has almost doubled in a decade. You do that one more time over the next seven years, you could power multiple trillion-dollar data centers.",
+              "section": "00:4x"
+            },
+            {
+              "point_ko": "펀드는 '헤지펀드 안의 싱크탱크'; AGI가 내일 가격에 반영되면 100배 가능, 시퀀싱과 자본이 중요.",
+              "quote_en": "If AGI were priced in tomorrow, you could maybe make 100x. Probably you can make even way more than that because of the sequencing and capital matters. ... Basically, this investment firm will be kind of like a brain trust on AI. It's going to be all about situational awareness.",
+              "section": "04:08 Launching an AGI hedge fund"
+            },
+            {
+              "point_ko": "터지지 않는 것이 1·2순위; 개별 콜(데이터 월, 매출 타이밍)이 틀려도 견딜 수 있어야 하고 베팅의 시퀀스가 핵심.",
+              "quote_en": "Obviously, not blowing up is task number one and two. This investment firm is going to just be betting on AGI. ... The thing you have to be resistant to is you have to be able to resist one or a couple or a few individual calls. AI stagnates for a year because of the data wall, or you got the call wrong on when revenue would go up. That's pretty critical. You have to get the timing right. The sequence of bets on the way to AGI is actually pretty critical. People underrate it.",
+              "section": "04:10"
+            },
+            {
+              "point_ko": "'AI 베타' — 과거엔 Nvidia만 AI 비중이 커 베타가 있었고 TSMC는 AI 비중이 몇 %라 아니었다.",
+              "quote_en": "But only Nvidia had the AI beta, because only Nvidia was kind of like large fraction AI. The next few doublings would just meaningfully explode their revenue, whereas TSMC was a couple percent AI. ... The only place to find the AI beta, basically was Nvidia for a while. Now it's broadening. Now TSMC is like 20% AI by 2027 or something.",
+              "section": "04:11"
+            },
+            {
+              "point_ko": "베타가 스택 전체로 확산: 메모리·패키징·전력; 유틸리티의 5% 성장 전망도 과소평가.",
+              "quote_en": "There's a whole stack. There's people making memory and coops and power. Utilities companies are starting to get excited about AI. They're like, \"power production in the United States will grow not 2.5%, but 5% over the next five years.\" I'm like, \"no, it'll grow more.\"",
+              "section": "04:12 ('coops'는 CoWoS 전사 오타로 추정)"
+            },
+            {
+              "point_ko": "Google 같은 빅테크는 AI 매출 1,000억달러로 AI 베타를 얻는 시점에 흥미로워진다; 타이밍과 시퀀스가 중요.",
+              "quote_en": "I don't really care about them before then. I care about it once you get the AI beta. At some point Google will get $100 billion of revenue from AI. Probably their stock will explode. ... The timing there is very important. You have to get the timing right. You have to get the sequence right.",
+              "section": "04:13"
+            },
+            {
+              "point_ko": "후반 시퀀스: 실질금리 급등 → 주식 역풍 → '빅 본드 숏'; 국유화도 맞혀야 한다.",
+              "quote_en": "At some point real interest rates will go up. Higher growth rate expectations mean equities go down because the interest rate effect outweighs the growth rate effect. At some point there's the big bond short. You got to get that right. You got to get it right on nationalization. There's this whole sequence of things.",
+              "section": "04:14"
+            },
+            {
+              "point_ko": "리스크 포지셔닝에 극도로 신중; 꼬리(실질금리 10%+)에 대한 저렴한 보험을 산다.",
+              "quote_en": "You've got to be really, really careful about your overall risk positioning. If you expect these crazy events to play out, there's going to be crazy things you didn't foresee. You do also want to make the bets that are tailored to your scenarios in the sense of you want to find bets that are bets on the tails. I don't think anyone is expecting interest rates to go above 10%, real interest rates. There's at least a serious chance of that before the decade is out. Maybe there's some cheap insurance you can buy on that.",
+              "section": "04:14"
+            }
+          ],
+          "portfolioLink_ko": "'AI 베타가 Nvidia에서 스택 전체(메모리·패키징·전력)로 확산된다'는 프레임이 펀드의 시퀀스 그 자체다: 2024-12 전력·냉각(VST/VRT/TLN/CEG)과 유틸리티 과소평가 발언, 2025 EQT는 'Marcellus 천연가스' 발언, 2025-3Q 스토리지 스타터(SNDK/WDC/STX)와 2026 SNDK·MU 56%는 '메모리가 AI 베타를 얻는 시점'을 노린 베팅으로 읽힌다(추론). 'TSMC가 2027년 AI 20%'라는 언급은 AVGO/MRVL 등 커스텀 실리콘과 INTC 콜(대체 팹) 쪽으로의 확장과 맞닿는다(추론). '터지지 않는 것이 1·2순위', '꼬리 보험' 원칙은 NVDA/SMH 풋 헤지의 직접적 논거이며, 네오클라우드·BE(온사이트 전력) 편입은 '신규 발전을 직접 지어야 한다'는 발언의 연장이다(추론). 인터뷰에서 개별 주식 숏 언급은 없고 '빅 본드 숏'만 있다."
+        },
+        {
+          "title": "투자자 서한 전문 — 'We let you down this month' (Business Insider/AOL 게재)",
+          "date": "2026-07-31",
+          "url": "https://www.aol.com/articles/let-down-month-read-leopold-191821000.html",
+          "type": "서한",
+          "summary_ko": "7월 -67% 손실 직후 LP에게 보낸 전문 공개 서한. 7월 들어 AI 종목이 반토막 나고 롱/숏 스프레드가 급반전된 가운데, 펀드와 공개적으로 연관된 종목에 적대적 거래가 몰리는 '뱅크런' 양상이 나타났다고 설명한다. 수요일 밤~목요일 새벽 공개 포트폴리오 일부를 블록 거래(Citadel)로 넘겨 레버리지를 전부 제거하고 모든 숏을 청산했으며, 현재는 마진·청산 위험이 없는 '완전 납입(fully-paid-for)' 공개 북(롱 주식+롱 옵션)만 운용한다. 펀드는 청산·폐쇄·프라이빗 전환이 아니라 하이브리드로 계속 운영한다고 명시했고, 펀더멘털은 가속 중이고 주가는 크게 하락해 기회는 매우 매력적이라고 강조한다. 자신의 자본 거의 전부가 펀드에 들어 있다고 밝혔다.",
+          "keyPoints": [
+            {
+              "point_ko": "사과와 책임 인정: 영구적 자본 손상에 허용 범위 이상으로 근접했다.",
+              "quote_en": "We let you down this month. We came closer to permanent capital impairment than is acceptable to us. While we ultimately found a solution that protected the fund and you as investors, our intention in running the fund is to never find ourselves in such a position in the first place.",
+              "section": "서두"
+            },
+            {
+              "point_ko": "변동성은 장기 수익의 대가이지만, 펀드는 손실 후에도 다시 싸울 수 있게 구조화돼야 한다.",
+              "quote_en": "Volatility is the price of long-term investment returns. Over the past two years, we have delivered outstanding results, despite occasional sharp pullbacks. But our fund must always be structured such that we can take a loss and fight another day.",
+              "section": "서두"
+            },
+            {
+              "point_ko": "무슨 일이 있었나: 핵심 포지션의 극단적 변동, AI 종목 반토막, 롱/숏 스프레드 급반전.",
+              "quote_en": "Many AI names drew down by half or more, while our positive L/S spread reversed violently. While we could say much about how unusual the month was, we hold ourselves to a higher standard, irrespective of market conditions.",
+              "section": "What happened"
+            },
+            {
+              "point_ko": "뱅크런 역학: 펀드와 연관된 종목에 적대적 거래가 몰리며 취약성이 취약성을 낳았고, 유동성이 말라 리스크 한도 유지가 어려워졌다.",
+              "quote_en": "As these moves proceeded, we started to see increasingly adverse trading in names publicly associated with us. These dynamics are essentially similar to a bank run: vulnerability begetting more vulnerability. We worked to keep the portfolio within our risk parameters, but gradually this became more difficult as positions rapidly moved against us and market liquidity dried up.",
+              "section": "What happened"
+            },
+            {
+              "point_ko": "취한 조치: 블록 거래로 레버리지 전부 제거, 숏 전량 청산. 현재 마진 위험 없는 완전 납입 공개 북 운용, 프라이빗 보존.",
+              "quote_en": "We traded a portion of our public portfolio in a block transaction to remove all leverage from the fund, and prevent further losses. All shorts were closed and reliance on portfolio financing removed. We currently manage a fully-paid-for public book (long stock and long fully-paid-for options, with no margin/liquidation risk). This restored stability and allowed us to preserve our private positions.",
+              "section": "Actions taken"
+            },
+            {
+              "point_ko": "변동성은 수용하되 펀드 존속을 위협해서는 안 된다.",
+              "quote_en": "When AI stocks draw down dramatically while AI technical/business fundamentals are improving, you should expect our fund to be down a lot. We embrace volatility. But it should never jeopardize the fund.",
+              "section": "Actions taken"
+            },
+            {
+              "point_ko": "펀드는 폐쇄·청산 아님. 당분간 공개 북은 완전 납입 기준.",
+              "quote_en": "The fund was not shut down, liquidated, or transformed into a private-only fund. We are continuing to operate as a hybrid public-private fund as before. However, we will manage our public book on a fully-paid-for basis while we draw the lessons from these developments. Most importantly: we took the steps that were necessary to fight another day.",
+              "section": "Status"
+            },
+            {
+              "point_ko": "향후: 포트폴리오 관리·리스크팀·경계 체계 개편. AI가 수년간 시장 변동성을 키울 것.",
+              "quote_en": "AI may continue to intensify market volatility for years to come. These were very expensive scars, but I am dedicated to ensuring they will be invaluable lessons for our organization and for myself as we move forward.",
+              "section": "Plans"
+            },
+            {
+              "point_ko": "펀더멘털 가속 + 가격 급락 = 매우 매력적인 기회라는 낙관.",
+              "quote_en": "On the portfolio itself: we are very optimistic about the current investment opportunity set. The underlying fundamentals are accelerating at the very same time that prices have declined significantly.",
+              "section": "Outlook"
+            },
+            {
+              "point_ko": "본인 자본 거의 전부가 펀드에.",
+              "quote_en": "I am fully invested alongside you—virtually all of my capital is in the fund—and I intend to work relentlessly to demonstrate that the events of this month have made me a wiser and stronger investor.",
+              "section": "Closing"
+            },
+            {
+              "point_ko": "잠정 성과: 7월 -67%, YTD +80%.",
+              "quote_en": "As an interim update, our current, unaudited estimate of net MTD performance is -67%, and net YTD performance is +80%.",
+              "section": "Performance"
+            }
+          ],
+          "portfolioLink_ko": "서한이 말하는 '핵심 포지션의 극단적 변동'은 6월 말 13F의 SNDK 28%·MU 27.5%(7월 -47%·-29%)다. '뱅크런'은 포지션이 13F·언론으로 공개된 뒤 생긴 크라우딩 리스크를 뜻한다. 조치(레버리지 전부 제거, 숏 청산, 완전 납입 롱만 운용)는 Dwarkesh 인터뷰의 '터지지 않는 것이 1·2순위' 원칙으로의 회귀다. 2026-08 $400M 프라이빗 베팅과 9월 옵션 매수 재개(AMD·BE·CRWV)는 '펀더멘털 가속' 낙관의 실행이다."
+        },
+        {
+          "title": "2026년 상반기 투자자 서한 (FT 보도, 7/24자) — +439%, 추가 자본 모집",
+          "date": "2026-07-24",
+          "url": "https://www.disruptionbanking.com/2026/07/30/can-the-situational-awareness-hedge-fund-raise-capital-after-its-439-h1-gain/",
+          "type": "서한",
+          "summary_ko": "FT가 검토한 7월 24일자 서한. 2026년 상반기 순수익률 +439%, 운용자산 약 200억 달러(보도 시점). 최근 아시아 중심의 시장 급변에 '면역이 아니었다'고 인정하면서도 매도세가 2025년 초 이후 가장 매력적인 기회를 만들고 있다며 8월 1일부터 추가 자본 약정을 받겠다고 제안했다. Anthropic IPO 가능성을 촉매로 언급. 차입을 통한 수익 증폭이 반전 시 손실도 키울 수 있음을 인정했다. 붕괴 불과 1주일 전의 서한이다.",
+          "keyPoints": [
+            {
+              "point_ko": "상반기 순수익률 439%.",
+              "quote_en": "439% net return in the first half of 2026",
+              "section": "Performance (reported)"
+            },
+            {
+              "point_ko": "매도세를 2025년 초 이후 가장 매력적인 기회로 규정, 8/1부터 추가 자본 모집.",
+              "quote_en": "some of the most attractive opportunities since early 2025 … from 1 August",
+              "section": "Opportunity / Capital raise"
+            },
+            {
+              "point_ko": "Anthropic IPO 가능성을 촉매로 제시.",
+              "quote_en": "a possible IPO of Anthropic",
+              "section": "Catalyst"
+            }
+          ],
+          "portfolioLink_ko": "공개 보유로 Riot, Core Scientific, CleanSpark, Bloom Energy, AMD, Oracle, 프라이빗으로 Anthropic, Fluidstack, MatX, T1 Energy, Sharon AI가 거론됐다. '가장 매력적인 기회'라며 자본을 더 모으려던 시점에 레버리지가 최대였고, 일주일 뒤 -67%가 왔다. 낙관이 정점일 때가 포지션 리스크도 정점이었다는 대비."
+        },
+        {
+          "title": "Fortune 프로필 — $1.5B 헤지펀드, 2025 상반기 +47%",
+          "date": "2025-10-08",
+          "url": "https://fortune.com/2025/10/08/leopold-aschenbrenner-openai-ftx-1-5-billion-hedge-fund-situational-awareness/",
+          "type": "프로필",
+          "summary_ko": "붕괴 전 프로필. AUM 15억 달러, 2025년 상반기 수수료 차감 후 +47%. 전략은 반도체·인프라·전력 등 AI 수혜주 롱과 AI에 뒤처지는 산업 숏의 결합. 공개된 포지션은 Intel, Broadcom, Vistra, Core Scientific. 후원자는 Nat Friedman, Daniel Gross, Collison 형제, 리서치 디렉터는 Carl Shulman. AGI가 가격에 반영되면 100배도 가능하다며 '자본이 정말 중요해진다'고 강조.",
+          "keyPoints": [
+            {
+              "point_ko": "AGI 이후 10년은 격변기이며 자본이 핵심.",
+              "quote_en": "The decade after is also going to be wild. Capital will really matter. If AGI were priced in tomorrow, you could maybe make 100x.",
+              "section": "Thesis"
+            }
+          ],
+          "portfolioLink_ko": "2025-10 시점 공개 포지션(Intel, Broadcom, Vistra, Core Scientific)은 2025-1Q~3Q 13F(INTC 콜 46%→, AVGO, VST, CORZ)와 일치. '반도체·인프라·전력 롱 + 뒤처지는 산업 숏' 구조가 2026년 '물리적 빌드아웃 롱 / 소프트웨어 숏'으로 확대됐다."
+        },
+        {
+          "title": "CNBC — 조용한 시장에서 펀드가 무너진 이유",
+          "date": "2026-07-31",
+          "url": "https://www.cnbc.com/2026/07/31/why-leopold-aschenbrenner-situational-awareness-hedge-fund-imploded.html",
+          "type": "언론",
+          "summary_ko": "S&P 500이 사상 최고 부근인 조용한 시장에서 약 450억 달러 펀드가 수 주 만에 무너진 메커니즘. AI 인프라 공급자 롱 + 취약 소프트웨어 숏이라는 월가 최대 인기 트레이드에 집중 포지션을 쌓았는데, 역사상 가장 빠른 모멘텀 붕괴(모건스탠리 섹터중립 모멘텀 지수 4거래일 -17.4%)로 롱은 고점 대비 50~78% 급락하고 숏(Adobe 등)은 반등해 양쪽에서 동시에 손실. 자본 완충이 줄자 프라임 브로커의 담보 요구→매도→추가 하락의 디레버리징 소용돌이로 이어졌다.",
+          "keyPoints": [
+            {
+              "point_ko": "헤지 실패: 롱과 숏이 동시에 손실.",
+              "quote_en": "That meant the fund wasn't protected by its hedges. Instead, the longs and shorts lost money simultaneously.",
+              "section": "What went wrong"
+            },
+            {
+              "point_ko": "디레버리징 소용돌이 메커니즘.",
+              "quote_en": "As the value of the portfolio fell, the fund's equity cushion shrank and its prime brokers demanded additional collateral. Raising cash required selling more holdings, adding further pressure to sliding stocks and generating additional losses. What might otherwise have been a painful drawdown became a deleveraging spiral.",
+              "section": "What went wrong"
+            },
+            {
+              "point_ko": "역대 최대·최속 모멘텀 붕괴(BTIG Krinsky).",
+              "quote_en": "There is no other way to put it, we just witnessed the largest/ fastest momentum crash in modern history",
+              "section": "Market context"
+            }
+          ],
+          "portfolioLink_ko": "3/31 기준 공시 롱(Nebius, Bloom, Sandisk, CoreWeave, SharonAI, IREN)이 고점 대비 -50~-78%. 숏 레그(소프트웨어)가 반등해 헤지가 작동하지 않았다. 교훈: '물리적 빌드아웃 롱 / 소프트웨어 숏'은 하나의 크라우디드 페어 트레이드였고, 두 다리가 같은 요인(모멘텀)에 묶여 있었다."
+        },
+        {
+          "title": "Quartz — 13F로 본 메모리 베팅의 깊이",
+          "date": "2026-08-18",
+          "url": "https://qz.com/situational-awareness-13f-micron-sandisk-july-collapse-081826",
+          "type": "언론",
+          "summary_ko": "6월 말 13F 분석. Sandisk 57억·Micron 56억 달러로 두 메모리 종목이 56% 이상, 이어 Bloom, TSMC, Nebius, CoreWeave(7.45억). 7월 Sandisk -47%, Micron -29%, Bloom -32%, Nebius -31%, TSMC -15%. 레버리지 최대 400%, 2024-07 출범~2026-06 누적 1,000% 이상, 피크 AUM 450억 달러에서 Citadel 매각 후 약 100억 달러.",
+          "keyPoints": [
+            {
+              "point_ko": "메모리 집중: Sandisk+Micron이 56% 이상.",
+              "quote_en": "Sandisk and Micron together represented over 56% of fund holdings",
+              "section": "13F"
+            },
+            {
+              "point_ko": "전략 요약(기자 서술): 물리적 빌드아웃 롱 + 소프트웨어 숏.",
+              "quote_en": "accumulating stakes in businesses that stood to benefit from AI's physical buildout — memory chipmakers, data center operators, and power providers — while simultaneously shorting software companies",
+              "section": "Strategy"
+            }
+          ],
+          "portfolioLink_ko": "에세이의 'CoWoS·HBM이 핵심 병목'(2024-06) → Dwarkesh의 '메모리가 AI 베타를 얻는 시점'(2024-06) → 2025-3Q SNDK 스타터 → 2026-2Q 메모리 56%. 논지는 2년에 걸쳐 일관됐고, 실패는 논지가 아니라 크기와 차입에서 왔다."
+        }
+      ],
+      "thesisChain": [
+        {
+          "claim": "AI는 산업 프로세스 — 클러스터·발전소·팹이 필요하다",
+          "evidence": "에세이 IIIa: 'AI is a massive industrial process: each new model requires a giant new cluster, soon giant new power plants, and eventually giant new chip fabs'",
+          "portfolio": "칩(NVDA) 대신 물리적 빌드아웃 전체를 산다. 첫 13F(2024-12)에 NVDA 없음"
+        },
+        {
+          "claim": "전력이 구속 제약, 해법은 천연가스·신규 발전",
+          "evidence": "IIIa: 'power has become the binding constraint'; Dwarkesh: 'what it requires… is building new power', 'Marcellus Shale'",
+          "portfolio": "2024-12 VST·TLN·CEG(발전)·VRT(냉각) 65%; 2025 EQT(가스); 2025-4Q BE(온사이트) 15.9%"
+        },
+        {
+          "claim": "CoWoS·HBM·메모리가 칩의 진짜 병목",
+          "evidence": "IIIa: 'CoWoS advanced packaging… and HBM memory… are already key bottlenecks'; Dwarkesh: 'people making memory and coops and power'",
+          "portfolio": "2025-3Q SNDK·WDC·STX 스타터 → 2026-2Q SNDK 28%·MU 27.5%"
+        },
+        {
+          "claim": "AI 베타가 생기는 시점에만, 순서대로 산다",
+          "evidence": "Dwarkesh: 'I care about it once you get the AI beta… You have to get the sequence right'",
+          "portfolio": "전력(2024) → 칩 옵션·가스(2025 상반기) → 네오클라우드(2025-3Q) → 메모리(2026). 하이퍼스케일러는 아직 없음"
+        },
+        {
+          "claim": "TSMC는 2배 속도로 팹을 지어야 한다",
+          "evidence": "IIIa: 'they'd likely need to go ~at least twice as fast on their pace of expansion'",
+          "portfolio": "2025-1Q INTC 콜 46%(대체 파운드리, 추론); 2026-2Q TSM 6.3%"
+        },
+        {
+          "claim": "터지지 않는 것이 1·2순위, 꼬리 보험을 산다",
+          "evidence": "Dwarkesh: 'not blowing up is task number one and two'; 'cheap insurance… on the tails'",
+          "portfolio": "NVDA·SMH·AVGO·TSM 풋(2025-2Q 27%, 2026-1Q $8.5B). 그러나 400% 레버리지로 원칙 자체를 어김"
+        },
+        {
+          "claim": "(사후) 레버리지·크라우딩이 뱅크런을 만든다",
+          "evidence": "7/31 서한: 'essentially similar to a bank run: vulnerability begetting more vulnerability'; 'remove all leverage'",
+          "portfolio": "Citadel 블록매각, 숏 청산, 완전 납입 롱만 운용. 논지(메모리·전력)는 유지"
+        }
+      ]
     },
     {
       "id": "meng",
@@ -633,7 +962,7 @@
         },
         {
           "date": "2025-10-30",
-          "event": "Duquesne, Q.ANT(광 컴퓨팅, TFLN) 시리즈A 2차 클로징 리드 (총 $80M). 수 맹 자문위원회 옵저버",
+          "event": "Duquesne, Q.ANT(광 컴퓨팅, TFLN) 시리즈A 2차 클로징 참여 (누적 $80M, 리드는 Cherry·UVC·imec.xpand). 수 맹 자문위원회 옵저버",
           "source": "https://qant.com/press-releases/duquesne-family-office-invests-in-q-ant-to-drive-sustainable-photonic-ai-infrastructure/"
         },
         {
@@ -848,7 +1177,7 @@
           },
           {
             "s": "비상장 리드 투자",
-            "d": "Q.ANT 시리즈A $80M 리드 (2025-10)"
+            "d": "Q.ANT 시리즈A 2차 클로징 참여 (2025-10)"
           }
         ],
         "numbers": [
@@ -866,7 +1195,7 @@
           },
           {
             "v": "$80M",
-            "l": "Q.ANT 시리즈A, Duquesne 리드"
+            "l": "Q.ANT 시리즈A 누적, Duquesne 참여"
           },
           {
             "v": "20%",
@@ -896,7 +1225,7 @@
           },
           {
             "p": "2025-10",
-            "l": "Q.ANT 리드",
+            "l": "Q.ANT 참여",
             "d": "광 컴퓨팅 비상장 (수 맹)"
           },
           {
@@ -922,7 +1251,241 @@
           "정점(9%)에서 따라 들어가기. 13F 공개 시점엔 이미 축소 중일 수 있다",
           "인터넷에 떠도는 매도 이유(경영진 교체 등)를 본인 발언으로 착각"
         ]
-      }
+      },
+      "docs": [
+        {
+          "title": "EE Times — Q.ANT, 포토닉 AI 프로세서 양산 체제 도달 (수 맹 인터뷰)",
+          "date": "2026-03-19",
+          "url": "https://www.eetimes.com/q-ant-hits-full-production-capacity-for-photonic-ai-processors/",
+          "type": "기사",
+          "summary_ko": "Q.ANT가 슈투트가르트의 재활용 팹에서 연 1,000 웨이퍼 스타트, 5만~6만 개 칩 규모의 TFLN(박막 리튬나이오베이트) 포토닉 프로세서 생산 체제에 도달했다는 보도. IEA 전망(2026년 글로벌 데이터센터 전력이 일본 연간 소비 초과, 2030년까지 미국 전력수요 증가의 약 50%가 데이터센터)을 전제로 깐다. 수 맹은 데이터센터 전력 수요·공급 불균형을 '극도의 제약'으로 규정하고, Q.ANT가 전기가 아닌 빛으로 네이티브 연산해 문제를 근본에서 해결한다고 말했다. 이미지/비디오, 물리 시뮬레이션, 센서 퓨전 같은 아날로그·비선형 워크로드에서 GPU/ASIC이 비효율적이며 Q.ANT 아키텍처가 이에 특화됐다고 강조했고, 실리콘 포토닉스·자유공간 광학 대신 TFLN에 일찍 '역발상 베팅'한 것이 수년간의 공정 노하우라는 해자를 만들었다고 설명했다. LRZ 의장은 30W 칩이 700~1,000W GPU 대비 행렬-벡터 곱에서 50배 빠르다고 주장. 수 맹의 직접 인용은 이 기사에만 존재한다.",
+          "keyPoints": [
+            {
+              "point_ko": "제약: 데이터센터 전력 수급 불균형이 진보를 가로막는 극도의 제약이며 악화 중 (기자 전언).",
+              "quote_en": "The imbalance between data center electricity demand and available energy supply is an extraordinary constraint on progress, and it's only getting worse, according to Sue Meng, who leads private investments for Duquesne Family Office.",
+              "section": "Energy constraint"
+            },
+            {
+              "point_ko": "기술: 패러다임을 손보는 대신 빛으로 네이티브 연산.",
+              "quote_en": "Q.ANT addresses that problem at its foundation. Rather than tweaking the existing paradigm, they compute natively with light instead of electricity—a fundamentally different approach that delivers dramatic efficiency gains.",
+              "section": "Meng quote 1"
+            },
+            {
+              "point_ko": "워크로드: 아날로그·비선형 워크로드에서 GPU/ASIC은 비효율적, Q.ANT는 이에 특화.",
+              "quote_en": "Q.ANT's photonic architecture is purpose-built for exactly these workloads, delivering dramatic gains in both performance and energy efficiency that conventional chips cannot match.",
+              "section": "Meng quote 2"
+            },
+            {
+              "point_ko": "해자: TFLN 조기 역발상 베팅 + 수년의 공정 노하우. 경쟁사는 처음부터 다시.",
+              "quote_en": "While other photonic computing startups chose silicon photonics or free-space optics, Q.ANT made an early and contrarian bet on TFLN—a materially superior substrate that took years of hard-won process expertise to master. Competitors who chose different materials now face the prospect of effectively starting over, and new entrants are only beginning to copy Q.ANT's approach.",
+              "section": "Meng quote 3"
+            },
+            {
+              "point_ko": "에너지 맥락(비-맹): IEA 전망, 30W vs 700~1,000W GPU.",
+              "quote_en": "A report from the IEA estimates that by 2026, global data center energy use will surpass the annual electricity consumption of a nation like Japan.",
+              "section": "Article context"
+            }
+          ],
+          "portfolioLink_ko": "Duquesne의 사모투자 책임자이자 Q.ANT 투자자 입장에서의 발언. 2025-10-30 시리즈 A 2차 클로징 참여(누적 $80M) 이후 투자 논리(에너지 제약 → TFLN 광연산 → 비선형 워크로드 → 공정 해자)를 가장 완결적으로 공개한 1차 자료다. CPO·광 인터커넥트·Coherent·Lumentum 언급은 없다."
+        },
+        {
+          "title": "TechTimes — Q.ANT 개발자 툴킷 공개, Graphcore의 소프트웨어 공백을 겨냥",
+          "date": "2026-09-24",
+          "url": "https://www.techtimes.com/articles/327988/20260924/photonic-ai-firm-qant-opens-developer-toolkit-targeting-software-gap-that-ended-graphcore.htm",
+          "type": "기사",
+          "summary_ko": "Q.ANT가 Python/C API, 샘플 앱, CPU 시뮬레이션 백엔드를 포함한 툴킷을 GitHub에 무료 공개. 하드웨어 없이 노트북에서 포토닉 AI 코드를 작성·테스트하고 같은 API로 실제 하드웨어에서 실행하게 해, 하드웨어는 좋았으나 CUDA 생태계를 넘지 못한 Graphcore의 전철을 피하려는 전략. 2세대 TFLN NPU는 CMOS에서 1,200개 트랜지스터가 필요한 8비트 곱셈을 광소자 하나로 수행. 수 맹은 TFLN 기판 선택이 경쟁사가 복제하기 어려운 차별점임을 재확인(EE Times 문장의 재인용, 오타 포함).",
+          "keyPoints": [
+            {
+              "point_ko": "해자 재확인 (EE Times 문장 재인용).",
+              "quote_en": "While other photonic computing startups chose silicon photonics or free-space optics, Q.ANT made an early and contrarian bet on TFLN materially superior substrate — a materially superior substrate that took years of hard-won process expertise to master.",
+              "section": "Meng quote"
+            },
+            {
+              "point_ko": "소프트웨어 해자: CPU 시뮬레이터로 하드웨어 가용성과 개발자 채택을 분리.",
+              "quote_en": "a developer can write, test, and benchmark photonic AI code on an ordinary laptop today, then run the identical application on real photonic hardware when access opens — same API, no rewrite required.",
+              "section": "Toolkit"
+            }
+          ],
+          "portfolioLink_ko": "투자 11개월 후에도 수 맹이 Q.ANT의 '재료 해자' 대변자로 등장. 하드웨어 해자(TFLN)에 소프트웨어 생태계를 더해 Graphcore형 실패를 피하려는 점이 포트폴리오 리스크 관리의 핵심."
+        },
+        {
+          "title": "Q.ANT 보도자료 — Duquesne Family Office 투자",
+          "date": "2025-10-30",
+          "url": "https://qant.com/press-releases/duquesne-family-office-invests-in-q-ant-to-drive-sustainable-photonic-ai-infrastructure/",
+          "type": "보도자료",
+          "summary_ko": "Duquesne Family Office LLC와 함께 시리즈 A 2차 클로징을 완료해 누적 8,000만 달러(유럽 최대 포토닉 컴퓨팅 파이낸싱). 리드 투자자는 Cherry Ventures, UVC Partners, imec.xpand이고 Duquesne는 2차 클로징에 '합류'한 것으로 표기(리드 아님). 수 맹이 자문위원회 옵저버로 합류. 데이터센터가 전력망의 점점 큰 비중을 차지하면서 효율이 진보의 결정적 제약이 됐다고 전제하고, 5년간 5.2조 달러 AI 데이터센터 인프라 지출 전망을 인용. 수 맹의 직접 인용은 없고 CEO Förtsch 인용만 있다.",
+          "keyPoints": [
+            {
+              "point_ko": "수 맹, 자문위원회 옵저버 합류.",
+              "quote_en": "To further enhance its strategic expertise, Q.ANT welcomes Sue Meng, Managing Director at Duquesne Family Office, as an observer to its advisory board.",
+              "section": "Advisory board"
+            },
+            {
+              "point_ko": "효율이 진보의 결정적 제약 (회사 프레이밍).",
+              "quote_en": "As the world's data centres consume increasing shares of national power grids, efficiency has become the defining constraint on progress.",
+              "section": "Lead"
+            },
+            {
+              "point_ko": "CEO: 브루트 파워가 아닌 효율로 성능.",
+              "quote_en": "AI is pushing the limits of global resources – energy, hardware, and capital. At Q.ANT, we achieve performance through efficiency, not brute power alone, redefining how AI can scale.",
+              "section": "Förtsch quote"
+            },
+            {
+              "point_ko": "라운드 구조: Duquesne는 기존 리드에 합류.",
+              "quote_en": "The Duquesne Family Office joins current lead investors: Cherry Ventures, UVC Partners and imec.xpand and other deep tech investors...",
+              "section": "Funding"
+            }
+          ],
+          "portfolioLink_ko": "Duquesne의 Q.ANT 참여를 공식화한 1차 자료. 이 페이지의 이전 표기 '시리즈A 리드'는 보도자료 원문과 달라 '2차 클로징 참여'로 정정."
+        },
+        {
+          "title": "Paul & Daisy Soros Fellows — 수 맹 약력",
+          "date": "프로필(펠로십 2007)",
+          "url": "https://pdsoros.org/fellows/sue-meng/",
+          "type": "약력",
+          "summary_ko": "Duquesne Family Office LLC의 MD 겸 파트너이자 드러켄밀러의 General Counsel. 글로벌 '파괴적 고성장 기술·생명과학 기업'에 대한 사모투자 전략을 이끈다. Ledgebrook, Soley Therapeutics 이사, Q.ANT 자문위원, Brearley School 이사회 의장. 전 Debevoise & Plimpton 기업파트너로 Toyota-SoftBank-Uber($1B), Discovery-WarnerMedia($130B) 거래로 American Lawyer 'Dealmaker of the Year'(2020, 2022). 하버드 BA, 옥스퍼드(로즈), 예일 JD. AI·에너지·포토닉스 직접 발언은 없다.",
+          "keyPoints": [
+            {
+              "point_ko": "역할: 사모투자 총괄 + General Counsel. 초점은 파괴적 고성장 기술·생명과학.",
+              "quote_en": "disruptive, high-growth technology and life sciences companies globally",
+              "section": "Bio"
+            }
+          ],
+          "portfolioLink_ko": "대형 전략투자 딜 구조화 경험이 Q.ANT 시리즈 A 참여와 옵저버 역할로 이어진다. 상장주 운용(Coherent 등)은 그녀의 영역이 아니다."
+        },
+        {
+          "title": "[드러켄밀러] Norges Bank 'In Good Company' 팟캐스트",
+          "date": "2024-10",
+          "url": "https://www.nbim.no/en/news-and-insights/podcast/2024/stan-druckenmiller-inside-the-mind-of-a-legendary-investor/",
+          "type": "팟캐스트",
+          "summary_ko": "드러켄밀러는 성공의 핵심을 '집중'과 자산군을 넘나드는 유연성으로 설명하고, 소로스식 'invest and then investigate'의 사례로 엔비디아를 들었다(370달러대에 '몇 년 보유' 발언 후 800~900달러에 매도). AI에는 '매우 강세'이나 '어디서 어떻게 공격적으로 플레이할지'는 확신이 없다고 했고, 모델 개발사들의 막대한 capex와 승자독식이 아닐 가능성을 언급. 손절 원칙은 '매수 근거가 사라지면 매입가와 무관하게 감정 없이 정리', 사이징은 '확신이 있을 때 아주 크게'. (인용은 podscripts.co 전사본 기준)",
+          "keyPoints": [
+            {
+              "point_ko": "집중투자가 성공의 핵심. 집중하려면 플레이할 '바구니'가 여러 개여야 한다.",
+              "quote_en": "Concentration, not to be afraid of concentration, that's a big reason for my success. And probably the other big reason was sort of self-taught, is being willing to go into other asset categories. And if you're going to concentrate, it's better to have five buckets to plan than to plan one.",
+              "section": "Concentration"
+            },
+            {
+              "point_ko": "먼저 사고 조사한다 — 엔비디아 사례.",
+              "quote_en": "Soros used to call it invest and then investigate. I think I just gave a classic example. I didn't know that much about Nvidia. ... I sold it at $800 or $900 right when the party was really getting going",
+              "section": "Nvidia"
+            },
+            {
+              "point_ko": "AI 장기 강세, 그러나 어디서 어떻게 공격적으로 베팅할지는 불명확.",
+              "quote_en": "we are seeing just massive amounts of capital being spent by these modelers... I don't see it as a winner-take-all model. ... we're very bullish on AI, but we're not bullish currently on exactly where we're supposed to be and how to play it aggressively.",
+              "section": "AI"
+            },
+            {
+              "point_ko": "매수 근거가 사라지면 매입가는 무관.",
+              "quote_en": "If the reason I bought a stock is no longer the case, I don't care what I paid for it. And if I bought it at 60 and it's 50 because the market's discovered the problem before me, I have no emotion whatsoever.",
+              "section": "When to cut"
+            },
+            {
+              "point_ko": "확신이 있을 때는 아주 크게.",
+              "quote_en": "when you have conviction, you should bet really big... it's not whether you're right or wrong, it's how much you make when you're right, and how much you lose when you're wrong.",
+              "section": "Sizing"
+            }
+          ],
+          "portfolioLink_ko": "COHR 2024-1Q 3.5% → 2Q 8.9% → 3Q 9.0%는 '확신 시 크게'+'invest-then-investigate'의 전형이며, 이후 트림 → 2025-3Q 제로는 '근거 소멸 시 매입가 무관하게 정리'의 적용으로 읽힌다(추론). 'AI는 강세이나 어디서 플레이할지 불확실'은 대형주보다 병목·인프라로 회전한 배경과 일치(추론)."
+        },
+        {
+          "title": "[드러켄밀러] KED Global — 첫 방한, 원익IPS·SK하이닉스·두산에너빌리티 면담",
+          "date": "2026-09-22",
+          "url": "https://www.kedglobal.com/interview/newsView/ked202609220010",
+          "type": "인터뷰",
+          "summary_ko": "첫 방한에서 원익IPS를 방문하고 삼성전자·SK하이닉스·두산에너빌리티 경영진을 만났다. 기사에 따르면 '칩·에너지·전력 인프라의 핵심 병목에 위치한 기업'에서 투자 기회를 찾고 있으며 한국 투자를 확대하려 한다. 직접 인용은 거의 없고 간접 인용 위주.",
+          "keyPoints": [
+            {
+              "point_ko": "투자 기준: 칩·에너지·전력 인프라의 핵심 병목.",
+              "quote_en": "looking for opportunities to invest in companies positioned at critical bottlenecks in chips, energy and power infrastructure",
+              "section": "Criteria (paraphrase)"
+            },
+            {
+              "point_ko": "면담 대상: 원익IPS(장비), 삼성전자, SK하이닉스(HBM), 두산에너빌리티(전력설비).",
+              "quote_en": "",
+              "section": "Korean names"
+            }
+          ],
+          "portfolioLink_ko": "2026-1Q→2Q TSM 5.0→5.4%, STM 2.7→4.5% 증액과 광학주 완전 정리는 '칩·전력 병목' 집중과 부합. 한국 종목은 13F(미국 상장분)에 잡히지 않아 보유 여부 확인 불가."
+        },
+        {
+          "title": "[드러켄밀러] Piper Sandler 컨퍼런스 — AI 익스포저를 6개월 전의 20%로",
+          "date": "2026-09-10",
+          "url": "https://finance.biggo.com/news/201cff53-f5a5-49b1-a4df-d19ba6921d2e",
+          "type": "언론",
+          "summary_ko": "뉴욕 파이퍼샌들러 컨퍼런스에서 AI 관련 익스포저를 6개월 전의 20% 수준으로 줄였다고 밝혔다(보도). 13F 상 마이크론·인텔·브로드컴 매도, AMD 추가, 아마존 대폭 증액. 2월 모건스탠리 행사에서 한국·일본 시장에 '큰 포지션'을 보유 중이라 말한 점도 언급. 2차 독립 소스는 미확보.",
+          "keyPoints": [
+            {
+              "point_ko": "AI 익스포저를 6개월 전 대비 20%로 축소.",
+              "quote_en": "reduced AI-related investment exposure to 20% of what it was six months ago",
+              "section": "As reported"
+            }
+          ],
+          "portfolioLink_ko": "2026-1Q AVGO 1.8%·LITE 0.14%·COHR 0.29% → 2Q 광학·AVGO 소멸은 이 축소와 직접 일치. 남긴 TSM·STM은 그가 말하는 '병목'(파운드리·전력반도체) 포지션으로 해석(추론)."
+        },
+        {
+          "title": "[드러켄밀러] CNBC 2024-05-07 / Bloomberg 2024-10-16 (원문 접근 실패 — 널리 보도된 문구, 재검증 필요)",
+          "date": "2024-05 / 2024-10",
+          "url": "https://www.cnbc.com/2024/05/07/druckenmiller-cut-his-nvidia-position-in-late-march-says-ai-may-be-a-little-overhyped-now.html",
+          "type": "인터뷰",
+          "summary_ko": "CNBC(2024-05-07): 3월 말 엔비디아 비중을 줄였으며 AI가 단기적으로는 다소 과열, 장기적으로는 저평가라고 말한 것으로 보도. Bloomberg(2024-10-16): 엔비디아 매도가 '큰 실수'였다고 인정하면서도 현재 밸류에이션에서 재매수하지 않겠다고 발언한 것으로 보도. 두 기사 모두 원문 접근이 막혀 이번 세션에서 재검증하지 못함.",
+          "keyPoints": [
+            {
+              "point_ko": "AI는 지금은 과열, 장기적으로는 과소평가 (재검증 필요).",
+              "quote_en": "AI might be a little overhyped now, but underhyped long term",
+              "section": "CNBC 2024-05-07"
+            },
+            {
+              "point_ko": "엔비디아 매도는 큰 실수였으나 재매수 의사 없음 (재검증 필요).",
+              "quote_en": "it was a big mistake",
+              "section": "Bloomberg 2024-10-16"
+            }
+          ],
+          "portfolioLink_ko": "2024-1Q→2Q 엔비디아를 줄이고 COHR을 3.5%→8.9%로 키운 것은 '장기 AI 강세'를 유지하되 과열 대형주에서 병목(광 트랜시버)으로 회전한 것으로 해석(추론)."
+        }
+      ],
+      "thesisChain": [
+        {
+          "claim": "[수 맹] 전력 수급 불균형이 AI 확장의 결정적 제약",
+          "evidence": "EE Times 2026-03: 'an extraordinary constraint on progress, and it's only getting worse'; Q.ANT 보도자료: 'efficiency has become the defining constraint on progress'",
+          "portfolio": "Duquesne, Q.ANT 시리즈A 2차 클로징 참여 (누적 $80M, 2025-10-30)"
+        },
+        {
+          "claim": "[수 맹] 해법은 패러다임 수정이 아닌 빛으로 네이티브 연산하는 TFLN 포토닉 컴퓨팅",
+          "evidence": "'they compute natively with light instead of electricity'; 30W 칩 vs 700~1,000W GPU",
+          "portfolio": "Q.ANT NPS(TFLN) — 수 맹 자문위원회 옵저버"
+        },
+        {
+          "claim": "[수 맹] GPU/ASIC이 비효율적인 아날로그·비선형 워크로드가 초기 시장",
+          "evidence": "'purpose-built for exactly these workloads'; SDK 초기 타깃 이미지 분류·객체 인식",
+          "portfolio": "GPU 대체가 아닌 보완 포지셔닝"
+        },
+        {
+          "claim": "[수 맹] 해자 = TFLN 기판 선택 + 수년의 공정 노하우 (+소프트웨어 생태계)",
+          "evidence": "'early and contrarian bet on TFLN … years of hard-won process expertise'; GitHub SDK·CPU 시뮬레이터",
+          "portfolio": "투자 11개월 후에도 대외 메시지의 핵심"
+        },
+        {
+          "claim": "[드러켄밀러] AI는 장기 강세이나 '어디서 어떻게'가 핵심",
+          "evidence": "NBIM 2024-10: 'very bullish on AI, but we're not bullish currently on exactly where we're supposed to be'",
+          "portfolio": "NVDA 축소(2024-1Q~2Q) 후 COHR 3.5%→8.9%→9.0%"
+        },
+        {
+          "claim": "[드러켄밀러] 확신 시 크게, 먼저 사고 조사한다",
+          "evidence": "'when you have conviction, you should bet really big'; 'invest and then investigate'",
+          "portfolio": "COHR 한 분기 만에 3.5%→8.9%"
+        },
+        {
+          "claim": "[드러켄밀러] 근거가 사라지면 매입가와 무관하게 정리",
+          "evidence": "'If the reason I bought a stock is no longer the case, I don't care what I paid for it'",
+          "portfolio": "COHR 트림 → 2025-3Q 제로; 2026-2Q 광학 완전 소멸"
+        },
+        {
+          "claim": "[드러켄밀러] 남는 것은 칩·에너지·전력 인프라의 핵심 병목",
+          "evidence": "KED 2026-09-22; Piper Sandler 2026-09-10 'AI 익스포저 20%로'",
+          "portfolio": "TSM 5.4%·STM 4.5% 유지, 광학·AVGO 정리. 한국 종목 면담"
+        }
+      ]
     }
   ],
   "factcheck": [

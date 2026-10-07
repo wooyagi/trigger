@@ -160,6 +160,30 @@
   details.more summary::before{content:'▸ ';}
   details[open].more summary::before{content:'▾ ';}
   @media(max-width:600px){ .dd{grid-template-columns:1fr;} }
+
+  /* 원문 요약 */
+  .docs{padding:18px 22px;border-bottom:1px solid var(--line);}
+  .docs>h5{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-family:var(--mono);margin:0 0 10px;}
+  .doc{border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:#fff;overflow:hidden;}
+  .doc summary{cursor:pointer;padding:10px 14px;list-style:none;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#fafbfc;}
+  .doc summary::before{content:'▸';color:var(--muted);font-size:12px;}
+  .doc[open] summary::before{content:'▾';}
+  .doc summary b{font-size:13px;flex:1;min-width:200px;}
+  .doc summary .dt{font-family:var(--mono);font-size:10.5px;color:var(--muted);}
+  .doc summary .ty{font-size:10px;font-weight:700;color:#fff;background:var(--ink);border-radius:3px;padding:1px 6px;}
+  .doc .body{padding:12px 14px;}
+  .doc .sum{font-size:12.5px;color:#333;line-height:1.7;margin:0 0 10px;}
+  .doc .kp{margin:0;padding:0;list-style:none;}
+  .doc .kp li{padding:7px 0;border-top:1px solid var(--line);font-size:12.5px;line-height:1.55;}
+  .doc .kp li b{display:block;}
+  .doc .kp .q{font-size:11.5px;color:#555;font-style:italic;border-left:2px solid var(--line);padding-left:8px;margin:3px 0 2px;line-height:1.5;}
+  .doc .kp .sec{font-family:var(--mono);font-size:10px;color:var(--muted);}
+  .doc .pl{margin-top:10px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:4px;padding:8px 10px;font-size:12.5px;line-height:1.6;}
+  .doc .pl b{color:var(--accent);}
+  .chain{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px;}
+  .chain th,.chain td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.5;}
+  .chain th{font-size:11px;color:var(--muted);}
+  .chain td:first-child{font-weight:700;width:30%;}
   /* 인물 연구 */
   .person{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:22px;overflow:hidden;}
   .person-h{padding:18px 22px;background:#fafbfc;border-bottom:1px solid var(--line);}
@@ -469,6 +493,14 @@ fetch('data/people.json?v='+DV).then(r=>r.json()).then(P=>{
         <div class="arc">${p.insight.arc.map(a=>`<div class="ph ${/붕괴|제거/.test(a.l)?'bad':/집중|9배|56%|정점|리드/.test(a.l)?'hot':''}"><span class="p">${esc(a.p)}</span><b>${esc(a.l)}</b><span>${esc(a.d)}</span></div>`).join('')}</div>
         <h5>따라 할 것 / 하지 말 것</h5>
         <div class="dd"><div class="do"><b>✅ 따라 할 것</b><ul>${p.insight.do.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="dont"><b>⛔ 하지 말 것</b><ul>${p.insight.dont.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+      </div>`:''}
+      ${p.docs&&p.docs.length?`<div class="docs">
+        <h5>원문으로 읽는 사고법 — 논문·인터뷰·서한·발언 요약과 포트폴리오 연결</h5>
+        ${p.docs.map((d,i)=>`<details class="doc" ${i===0?'open':''}><summary><b>${esc(d.title)}</b><span class="ty">${esc(d.type)}</span><span class="dt">${esc(d.date)}</span>${d.url?`<a href="${esc(d.url)}" target="_blank" style="font-size:11px">원문 ↗</a>`:''}</summary>
+          <div class="body"><p class="sum">${esc(d.summary_ko)}</p>
+          <ul class="kp">${(d.keyPoints||[]).map(k=>`<li><b>${esc(k.point_ko)}</b>${k.quote_en?`<div class="q">“${esc(k.quote_en)}”</div>`:''}${k.section?`<span class="sec">${esc(k.section)}</span>`:''}</li>`).join('')}</ul>
+          ${d.portfolioLink_ko?`<div class="pl"><b>→ 포트폴리오 연결:</b> ${esc(d.portfolioLink_ko)}</div>`:''}</div></details>`).join('')}
+        ${p.thesisChain&&p.thesisChain.length?`<h5 style="margin-top:16px">논지 사슬 — 주장 → 근거 → 포트폴리오</h5><table class="chain"><thead><tr><th>주장</th><th>근거(원문)</th><th>포트폴리오 결정</th></tr></thead><tbody>${p.thesisChain.map(c=>`<tr><td>${esc(c.claim)}</td><td>${esc(c.evidence)}</td><td>${esc(c.portfolio)}</td></tr>`).join('')}</tbody></table>`:''}
       </div>`:''}
       <details class="more"><summary>자세히 — 요약 · 원문 인용 · 타임라인 · 13F 분기별 보유</summary>
       <p class="sum" style="padding:14px 22px 0;margin:0;font-size:13px;color:#333;line-height:1.65">${esc(p.summary)}</p>
