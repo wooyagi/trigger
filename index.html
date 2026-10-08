@@ -184,6 +184,15 @@
   .chain th,.chain td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.5;}
   .chain th{font-size:11px;color:var(--muted);}
   .chain td:first-child{font-weight:700;width:30%;}
+
+  /* 13F 히트맵 */
+  .hm{overflow-x:auto;margin-top:8px;}
+  .hm table{border-collapse:collapse;font-family:var(--mono);font-size:10.5px;}
+  .hm th,.hm td{padding:3px 5px;text-align:center;white-space:nowrap;border:1px solid #fff;}
+  .hm th{color:var(--muted);font-weight:700;background:#fafbfc;}
+  .hm td.t{text-align:left;font-weight:700;color:var(--ink);background:#fafbfc;position:sticky;left:0;}
+  .hm td.g{color:#1a1f29;}
+  .hm .grp{text-align:left;font-size:10px;color:var(--muted);background:#f1f3f6;padding:2px 5px;}
   /* 인물 연구 */
   .person{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:22px;overflow:hidden;}
   .person-h{padding:18px 22px;background:#fafbfc;border-bottom:1px solid var(--line);}
@@ -474,6 +483,21 @@ document.getElementById('exportBtn').onclick=()=>{ const b=new Blob([JSON.string
 renderBoard();
 
 
+
+/* ───────── Duquesne 13F 히트맵 ───────── */
+function renderHeatmap(){
+  const box=document.getElementById('hm-meng'); if(!box) return;
+  fetch('data/duquesne-13f.json?v='+DV).then(r=>r.json()).then(D=>{
+    const groups=[['광학·네트워킹',['COHR','LITE','GLW','ANET','MRVL','AVGO','CLS','JBL']],['전력·냉각',['VRT','VST','CEG','GEV','BE','CCJ','IREN']],['반도체·제조',['NVDA','AMD','TSM','STM','ENTG','LRCX','MU','INTC']],['하이퍼스케일러',['MSFT','AMZN','GOOGL']]];
+    const qs=D.history.map(x=>x.period);
+    const get=(q,t)=>{const h=D.history.find(x=>x.period===q); const p=h&&h.positions.find(x=>x.ticker===t); return p?p.pct:null;};
+    const col=v=>{ if(v==null) return '#fff'; const a=Math.min(1,v/9); return `rgba(225,29,72,${(0.08+a*0.85).toFixed(2)})`; };
+    let s='<table><thead><tr><th></th>'+qs.map(q=>`<th>${q.slice(2,4)}Q${Math.ceil(+q.slice(5,7)/3)}</th>`).join('')+'</tr></thead><tbody>';
+    groups.forEach(([g,ts])=>{ s+=`<tr><td class="grp" colspan="${qs.length+1}">${g}</td></tr>`; ts.forEach(t=>{ if(!qs.some(q=>get(q,t)!=null)) return; s+=`<tr><td class="t">${t}</td>`+qs.map(q=>{const v=get(q,t); return `<td class="g" style="background:${col(v)};color:${v!=null&&v>4.5?'#fff':'#1a1f29'}">${v==null?'':v.toFixed(1)}</td>`;}).join('')+'</tr>'; }); });
+    box.innerHTML=s+'</tbody></table>';
+  }).catch(e=>{ box.innerHTML='<p class="muted">13F 데이터 로드 실패</p>'; });
+}
+
 /* ───────── 인물 연구 ───────── */
 const HCOL=['#e11d48','#2563a8','#1f7a4d','#7c3aed','#d9892b','#0f766e','#b0357a','#6b7280'];
 fetch('data/people.json?v='+DV).then(r=>r.json()).then(P=>{
@@ -513,11 +537,13 @@ fetch('data/people.json?v='+DV).then(r=>r.json()).then(P=>{
         <div class="person-col">
           <h5>타임라인</h5>
           ${p.timeline.map(t=>`<div class="tl"><span class="d">${esc(t.date)}</span><div>${esc(t.event)}${t.source?` <a href="${esc(t.source)}" target="_blank">↗</a>`:''}</div></div>`).join('')}
+          ${p.heatmap?`<h5 style="margin-top:16px">13F 테마별 보유 비중 히트맵 — Duquesne 2022~2026 (전체 13F 대비 %)</h5><div class="hm" id="hm-${p.id}"></div><p class="muted" style="font-size:11px;margin:6px 0 0">EDGAR 13F-HR 18개 분기. 빈칸=미보유. 옵션 라인은 제외(AMZN·NVDA 콜은 별도). 광학주는 2024-1Q 신규→2024-3Q 정점→2025-3Q 청산→2026-1Q 소량 재진입→2Q 제거.</p>`:''}
           ${p.holdings&&p.holdings.length?`<h5 style="margin-top:16px">13F 포트폴리오 변화 (상위 보유 비중 · 회색=풋, 주황=콜)</h5><div class="hold">${p.holdings.map(q=>{const mx=Math.max(30,...q.top.map(t=>t.pct));return `<div class="hq"><div class="ph">${esc(q.period)}</div>${q.top.map((t,i)=>`<div class="r"><span class="t" title="${esc(t.ticker)}">${esc(t.ticker)}</span><span class="b"><i style="width:${Math.max(2,t.pct/mx*100)}%;background:${/풋/.test(t.ticker)?'#9ca3af':/콜/.test(t.ticker)?'#d9892b':HCOL[0]}"></i></span><span class="p">${t.pct}%</span></div>`).join('')}</div>`;}).join('')}${p.holdingsNote?`<p class="muted" style="margin:6px 0 0;font-size:11px">${esc(p.holdingsNote)}</p>`:''}</div>`:''}
         </div>
       </div>
       </details>
     </div>`).join('');
+  renderHeatmap();
   document.getElementById('fcRows').innerHTML=P.factcheck.map(f=>`<tr><td>${esc(f.claim)}</td><td><span class="vd ${f.verdict}">${{true:'사실',partly:'부분 사실',false:'오류',unverified:'미확인'}[f.verdict]||f.verdict}</span></td><td>${esc(f.detail)}${f.source?` <a href="${esc(f.source)}" target="_blank">↗</a>`:''}</td></tr>`).join('');
 }).catch(e=>{ document.getElementById('peopleBox').innerHTML='<p class="muted">people.json 로드 실패: '+esc(e)+'</p>'; });
 
